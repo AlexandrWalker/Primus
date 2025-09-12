@@ -1,0 +1,20 @@
+@use './../mixins' as *;
+
+.swiper {
+
+  /* Общий стиль слайда swiper */
+  &-slide {
+    height: auto;
+  }
+
+  /* Пагинация слайдера */
+  &-pagination {}
+}
+
+/* Кнопка слайдера */
+[class^="swiper-button"],
+[class*=" swiper-button"] {}
+
+.swiper-button-prev {}
+
+.swiper-button-next {}

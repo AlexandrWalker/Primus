@@ -1,0 +1,27 @@
+@use './../mixins' as *;
+
+.begin {
+
+  padding-top: 13.3rem;
+  background-color: var(--brown);
+
+  &__inner {
+    position: relative;
+    z-index: 3;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    svg {
+      width: 100%;
+      height: auto;
+
+      &.date {
+        width: 45%;
+      }
+    }
+  }
+}

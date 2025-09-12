@@ -1,0 +1,364 @@
+@use './../mixins' as *;
+
+/* Главный общий блок */
+.general {
+
+  &__head {
+
+    &-suptitle {
+      font-weight: 700;
+      line-height: 110%;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+
+      padding: 1rem 0;
+      border-top: 0.1rem solid var(--accent);
+      border-bottom: 0.1rem solid var(--accent);
+      width: fit-content;
+      margin-bottom: 3rem;
+
+      @include md {
+        font-weight: 900;
+
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-weight: inherit;
+      }
+    }
+
+    &-title {
+      text-transform: uppercase;
+      margin-bottom: 4rem;
+
+      /* Для анимации fadeIn */
+      overflow: hidden;
+
+      @include md {
+        margin-bottom: 3rem;
+      }
+
+      @include sm {
+        margin-bottom: 2rem;
+      }
+
+      h3 {
+
+        @include md {
+          font-size: 4rem;
+        }
+      }
+    }
+
+    &-text {
+      color: var(--gray);
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @include md {
+      gap: 2rem;
+    }
+
+    &-suptitle {
+      color: var(--accent);
+    }
+
+    &-title {
+      padding: 3rem 0;
+      border-top: 0.1rem solid var(--black);
+      border-bottom: 0.1rem solid var(--black);
+
+      text-transform: uppercase;
+
+      @include md {
+        padding: 2rem 0;
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      color: var(--gray);
+
+      @include md {
+        gap: 1.7rem;
+      }
+
+      p {}
+    }
+
+    &-subtext {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      span {
+        color: var(--accent);
+      }
+    }
+
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include md {
+        gap: 1rem;
+      }
+
+      h5 {
+        color: var(--accent);
+        line-height: 110%;
+
+        @include md {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      @include sm {
+        gap: 1.5rem;
+      }
+
+      p {
+        font-weight: 700;
+      }
+    }
+
+    &-items {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem 3rem;
+      margin-top: 1rem;
+
+      @include md {
+        margin-top: 2rem;
+      }
+
+      @include sm {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-left: 2rem;
+      border-left: 0.1rem solid var(--accent);
+
+      @include sm {
+        gap: 1rem;
+      }
+
+      span {
+        font-family: var(--second-family);
+        font-weight: 300;
+        font-size: 2.5rem;
+        line-height: 110%;
+        color: var(--accent);
+        white-space: nowrap;
+
+        @include md {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+
+        @include sm {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    &-foot {
+
+      @include sm {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+
+    .btn {
+      margin-top: 1rem;
+      width: 100%;
+
+      @include sm {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+/* Ссылка "Подробнее" */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+
+  @include md {
+    gap: 0.5rem;
+  }
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  i {
+    --font-size: 2.4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+
+    font-size: 2.4rem;
+    color: var(--gray);
+  }
+
+  &--accent {
+    color: var(--accent);
+
+    .offers__item:hover &,
+    &:hover {
+      color: var(--black);
+
+      i {
+        background-color: var(--black);
+      }
+    }
+
+    i {
+      background-color: var(--accent);
+      color: var(--white);
+    }
+  }
+}
+
+/* Стиль для параллакс картинок */
+[data-animation="parallax-img"] {
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    min-width: 100%;
+    height: 120% !important;
+    margin-top: -10%;
+    object-fit: cover;
+
+    @include sm {
+      // height: 100% !important;
+      // margin-top: unset;
+    }
+  }
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  --breadcrumbs-gap: 1rem;
+
+  background-color: var(--accent);
+  overflow: hidden;
+
+  .container {
+    padding: 0;
+  }
+
+  &__inner {
+    padding: 1.7rem var(--container-padding) 1.8rem;
+    // width: 100vw;
+    width: 100%;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    @include md {
+      padding: 1.1rem var(--container-padding) 1.2rem;
+    }
+
+    @include sm {
+      padding: 0.8rem var(--container-padding);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--breadcrumbs-gap);
+    width: fit-content;
+  }
+
+  li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--breadcrumbs-gap);
+
+    font-weight: 350;
+    font-size: 1.6rem;
+    color: var(--white);
+    white-space: nowrap;
+
+    @include md {
+      font-size: 1.4rem;
+    }
+
+    @include sm {
+      font-size: 1.2rem;
+    }
+
+    &:not(:last-child) {
+
+      &::after {
+        content: "|";
+      }
+    }
+  }
+
+  a {
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.comp {
+
+  &--begin {
+    width: 139rem;
+    height: 168.2rem;
+
+    position: absolute;
+    top: -6.6rem;
+    bottom: 0;
+    left: -10rem;
+  }
+}

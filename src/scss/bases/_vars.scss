@@ -1,0 +1,23 @@
+@use './../mixins' as *;
+
+:root {
+  --font-family: "Roboto", sans-serif;
+  --second-family: "Druk Cyr", sans-serif;
+  --third-family: "Times New Roman", sans-serif;
+
+  --container-padding: 4rem;
+  --container-width: 131rem;
+
+  --white: #ffffff;
+  --black: #000000;
+  --accent: #9C3202;
+  --gray: #262626;
+  --primary: #DEBE98;
+  --brown: #B8956C;
+
+  --bg: #501A00;
+
+  @include sm {
+    --container-padding: 2rem;
+  }
+}

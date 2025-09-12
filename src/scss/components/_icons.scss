@@ -1,0 +1,21 @@
+@use './../mixins' as *;
+
+/* Стили для иконок */
+[class^="icon-"],
+[class*=" icon-"] {
+  --icon-size: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  transition: all 0.3s ease;
+
+  font-size: var(--icon-size);
+  color: inherit;
+
+  position: relative;
+  z-index: 1;
+}
