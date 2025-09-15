@@ -52,7 +52,7 @@
     width: 100%;
     padding: 2rem 2.7rem 1.8rem;
     background: transparent;
-    border: 0.1rem solid var(--gray-30);
+    border: 0.1rem solid var(--graphite-30);
 
     font-weight: 700;
     font-size: 1.4rem;
@@ -67,12 +67,12 @@
     &.filled {
 
       &+.form-label {
-        color: var(--gray);
+        color: var(--graphite);
       }
     }
 
     &.filled:not(:focus, :hover, :target) {
-      color: var(--gray);
+      color: var(--graphite);
     }
   }
 
@@ -84,7 +84,7 @@
     font-weight: 350;
     font-size: 1.4rem;
     line-height: 100%;
-    color: var(--accent);
+    color: var(--maroon-3);
 
     position: absolute;
     top: -0.7rem;
@@ -101,7 +101,7 @@
     width: 100%;
     padding: 2rem 2.7rem 1.8rem;
     background: transparent;
-    border: 0.1rem solid var(--gray-30);
+    border: 0.1rem solid var(--graphite-30);
     resize: none;
 
     font-weight: 700;
@@ -112,12 +112,12 @@
     &:hover {
 
       &+.form-label {
-        color: var(--gray);
+        color: var(--graphite);
       }
     }
 
     &.filled:not(:focus, :hover, :target) {
-      color: var(--gray);
+      color: var(--graphite);
     }
   }
 
@@ -144,7 +144,7 @@
         }
 
         i {
-          background-color: var(--accent);
+          background-color: var(--maroon-3);
         }
 
         svg {
@@ -154,7 +154,7 @@
 
       span {
         transition: all 0.3s ease;
-        color: var(--accent);
+        color: var(--maroon-3);
         text-decoration: underline;
       }
 
@@ -168,7 +168,7 @@
 
       i {
         --font-size: 3.4rem;
-        background-color: var(--gray-10);
+        background-color: var(--graphite-10);
         border-radius: 50%;
 
         @include md {
@@ -192,7 +192,7 @@
     &--clear {
       font-weight: 350;
       font-size: 1.4rem;
-      color: var(--accent);
+      color: var(--maroon-3);
       transition: all 0.3s ease;
 
       &:hover {
@@ -212,18 +212,18 @@
     font-weight: 350;
     font-size: 1rem;
     line-height: 100%;
-    color: var(--accent);
+    color: var(--maroon-3);
     position: absolute;
     left: 0;
     bottom: -1.2rem;
   }
 
   .invalid {
-    border-color: var(--accent) !important;
-    color: var(--accent) !important;
+    border-color: var(--maroon-3) !important;
+    color: var(--maroon-3) !important;
 
     &+label {
-      color: var(--accent) !important;
+      color: var(--maroon-3) !important;
 
       &+.form-error {
         display: block;
@@ -244,7 +244,7 @@
   &-text {
     font-weight: 400;
     font-size: 1.2rem;
-    color: var(--gray);
+    color: var(--graphite);
 
     @include md {
       font-size: 1rem;
@@ -259,7 +259,7 @@
       text-decoration: underline;
 
       &:hover {
-        color: var(--accent);
+        color: var(--maroon-3);
       }
     }
   }

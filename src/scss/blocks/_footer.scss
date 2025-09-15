@@ -1,3 +1,30 @@
 @use './../mixins' as *;
 
-.footer {}
+.footer {
+  height: var(--footer-height);
+  padding: 0.5rem 0;
+  background-color: var(--gold);
+
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+
+  @include md {
+    display: none;
+  }
+
+  &__container {
+    --container-padding: 1.5rem;
+  }
+
+  &__copyright {
+  width: fit-content;
+
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 126%;
+  color: var(--maroon-2);
+}
+}

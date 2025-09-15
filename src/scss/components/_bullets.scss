@@ -1,0 +1,49 @@
+@use './../mixins' as *;
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  width: fit-content;
+
+  @include md {
+    display: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    padding: 0.4rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--graphite-light);
+    cursor: pointer;
+
+    position: relative;
+
+    &.is__active::before,
+    &:hover::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: var(--maroon-3);
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease-in-out;
+      flex-shrink: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -7,15 +7,32 @@
 
   --container-padding: 4rem;
   --container-width: 131rem;
+  --header-width: 5.1rem;
+  --footer-height: 2.3rem;
 
   --white: #ffffff;
   --black: #000000;
-  --accent: #9C3202;
-  --gray: #262626;
-  --primary: #DEBE98;
-  --brown: #B8956C;
+  --coral: #b0462f;
 
-  --bg: #501A00;
+  --cream: #fff9f1;
+  --cream-2: #f3ece3;
+
+  --gold-dark: #aa8865;
+  --gold-dark-2: #B8956C;
+  --gold: #debe98;
+  --gold-light: #efdec7;
+  --gold-light-2: #f7e3c6;
+
+  --graphite: #262626;
+  --graphite-2: #2a2a2a;
+  --graphite-light: #535353;
+
+  --maroon: #501a00;
+  --maroon-2: #68290C;
+  --maroon-3: #9c3202;
+  --maroon-4: #792000;
+
+  --yellow: #ffa800;
 
   @include sm {
     --container-padding: 2rem;

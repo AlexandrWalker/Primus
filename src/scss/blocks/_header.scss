@@ -1,3 +1,42 @@
 @use './../mixins' as *;
 
-.header {}
+.header {
+  width: var(--header-width);
+  height: 100vh;
+  padding: 4rem 0 6rem;
+  background-color: var(--graphite);
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+
+  @include md {
+    width: 100%;
+    height: fit-content;
+    padding: 9rem 0 0;
+    background-color: transparent;
+  }
+
+  &__container {
+    --container-padding: 0.6rem;
+
+    @include md {
+      --container-padding: 4rem;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    position: relative;
+
+    @include md {
+      flex-direction: row;
+    }
+  }
+}

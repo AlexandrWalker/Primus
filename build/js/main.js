@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * 
    */
   $(window).on('resize load', function () {
-    if (window.innerWidth > '834') {
+    if (window.innerWidth > 834) {
 
       const parallaxImgBoxes = document.querySelector('[data-animation="parallax-item"]');
       const begin = document.querySelector('.begin');
@@ -49,6 +49,24 @@ document.addEventListener('DOMContentLoaded', () => {
           },
         }
       );
+
+    } else if (window.innerWidth > 600) {
+
+      const parallaxImgBoxes = document.querySelector('[data-animation="parallax-item"]');
+      const begin = document.querySelector('.begin');
+      gsap.fromTo(parallaxImgBoxes,
+        { y: '-50%' },
+        {
+          y: '20%',
+          scrollTrigger: {
+            trigger: begin,
+            start: 'top 90%',
+            end: 'bottom top',
+            scrub: true,
+          },
+        }
+      );
+
     };
 
     gsap.registerPlugin(ScrollTrigger);

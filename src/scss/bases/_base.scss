@@ -3,7 +3,7 @@
 html {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent;
-  --refRes: 1920;
+  --refRes: 1440;
 
   font-size: calc(100vw / var(--refRes) * 10);
   scroll-behavior: smooth;
@@ -15,13 +15,18 @@ html {
 
 body {
   min-width: 320px;
-  background-color: var(--bg);
+  background-color: var(--maroon);
 
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 150%;
-  color: var(--brown);
+  color: var(--gold-light-2);
+
+  @include md {
+    font-size: 1.3rem;
+    line-height: 120%;
+  }
 }
 
 .wrapper {
@@ -32,6 +37,11 @@ body {
 
 .main {
   flex: 1 0 auto;
+  padding-left: var(--header-width);
+
+  @include md {
+    padding-left: 0;
+  }
 }
 
 .footer {
@@ -39,7 +49,7 @@ body {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--white-gray);
   overflow-x: hidden;
   overflow-y: hidden;
@@ -48,11 +58,12 @@ section {
   z-index: 1;
 
   @include md {
-    // height: fit-content;
+    min-height: auto;
+    padding-bottom: 6.5rem;
   }
 
-  .comp {
-    z-index: 2;
+  @include md {
+    padding-bottom: 8rem;
   }
 }
 

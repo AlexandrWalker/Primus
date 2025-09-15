@@ -1,208 +1,204 @@
 @use './../mixins' as *;
 
+[class^="__inner"],
+[class*="__inner"] {
+  height: 100%;
+  position: relative;
+  z-index: 3;
+}
+
 /* Главный общий блок */
-.general {
+.page {
 
-  &__head {
+  &::after {
+    content: '';
+    background-image: url(./../images/temp/bg-texture.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
 
-    &-suptitle {
-      font-weight: 700;
-      line-height: 110%;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
+  &__wrapper {
+    width: 100%;
+    height: 100%;
 
-      padding: 1rem 0;
-      border-top: 0.1rem solid var(--accent);
-      border-bottom: 0.1rem solid var(--accent);
-      width: fit-content;
-      margin-bottom: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
 
-      @include md {
-        font-weight: 900;
-
-        margin-bottom: 2rem;
-      }
-
-      p {
-        font-weight: inherit;
-      }
-    }
-
-    &-title {
-      text-transform: uppercase;
-      margin-bottom: 4rem;
-
-      /* Для анимации fadeIn */
-      overflow: hidden;
+    .restriction {
+      position: absolute;
+      top: 4rem;
+      right: var(--container-padding);
 
       @include md {
-        margin-bottom: 3rem;
+        display: none;
       }
 
-      @include sm {
-        margin-bottom: 2rem;
+      svg {
+        display: block;
+        width: 4.4rem;
+        height: 3.7rem;
       }
-
-      h3 {
-
-        @include md {
-          font-size: 4rem;
-        }
-      }
-    }
-
-    &-text {
-      color: var(--gray);
     }
   }
 
-  &__block {
+  &__content {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    height: 100%;
+
+    padding-bottom: 35.1rem;
 
     @include md {
-      gap: 2rem;
+      padding-bottom: 0;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    height: auto;
+
+    &--first {
+
+      @include md {
+        display: none;
+      }
     }
 
-    &-suptitle {
-      color: var(--accent);
+    &--second {
+      display: none;
+      max-width: 48.6rem;
+
+      @include md {
+        display: block;
+      }
+
+      @include sm {
+        max-width: 27.7rem;
+      }
+    }
+  }
+
+  &__date {
+    margin-top: 2rem;
+
+    @include sm {
+      margin-top: 1rem;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    @include sm {
+      margin-top: 2rem;
+    }
+  }
+
+  &__object {
+    width: 100%;
+    position: absolute;
+    bottom: 4.1rem;
+    left: 0;
+    z-index: 2;
+
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+
+      @include md {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* Стили масок */
+.mask {
+  z-index: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &--begin {
+    width: 139rem;
+    height: 168.2rem;
+
+    position: absolute;
+    top: -6.6rem;
+    right: 13.5rem;
+    bottom: 0;
+
+    @include md {
+      width: 186rem;
+      height: 240.4rem;
+
+      top: -8.6rem;
+      right: -22.6rem;
     }
 
-    &-title {
-      padding: 3rem 0;
-      border-top: 0.1rem solid var(--black);
-      border-bottom: 0.1rem solid var(--black);
+    @include sm {
+      width: 140.3rem;
+      height: 181.8rem;
 
+      top: -3.6rem;
+      right: -20.2rem;
+    }
+  }
+}
+
+.main {
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+    pointer-events: all;
+
+    position: absolute;
+    top: 50%;
+    right: var(--container-padding);
+    transform: translateY(-50%);
+
+    @include md {
+      display: none;
+    }
+
+    a {
+      font-family: 'DrukCyr';
+      font-weight: 500;
+      font-size: 3rem;
+      line-height: 97.5%;
+      color: var(--gold);
+      // backdrop-filter: blur(11.5px);
       text-transform: uppercase;
+      transition: color 0.3s ease;
 
-      @include md {
-        padding: 2rem 0;
-      }
-    }
-
-    &-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-
-      color: var(--gray);
-
-      @include md {
-        gap: 1.7rem;
+      &:hover {
+        color: var(--maroon-3);
       }
 
-      p {}
-    }
-
-    &-subtext {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-
-      span {
-        color: var(--accent);
-      }
-    }
-
-    &-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-
-      @include md {
-        gap: 1rem;
-      }
-
-      h5 {
-        color: var(--accent);
-        line-height: 110%;
-
-        @include md {
-          font-size: 2.5rem;
-        }
-      }
-    }
-
-    &-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-
-      @include sm {
-        gap: 1.5rem;
-      }
-
-      p {
-        font-weight: 700;
-      }
-    }
-
-    &-items {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 4rem 3rem;
-      margin-top: 1rem;
-
-      @include md {
-        margin-top: 2rem;
-      }
-
-      @include sm {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-    }
-
-    &-item {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding-left: 2rem;
-      border-left: 0.1rem solid var(--accent);
-
-      @include sm {
-        gap: 1rem;
-      }
-
-      span {
-        font-family: var(--second-family);
-        font-weight: 300;
-        font-size: 2.5rem;
-        line-height: 110%;
-        color: var(--accent);
-        white-space: nowrap;
-
-        @include md {
-          font-size: 2rem;
-        }
-      }
-
-      p {
-
-        @include sm {
-          font-size: 1.6rem;
-        }
-      }
-    }
-
-    &-foot {
-
-      @include sm {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 2rem;
-      }
-    }
-
-    .btn {
-      margin-top: 1rem;
-      width: 100%;
-
-      @include sm {
-        margin-top: 0;
+      &.is__active {
+        color: var(--maroon-3);
       }
     }
   }
@@ -220,7 +216,7 @@
   }
 
   &:hover {
-    color: var(--accent);
+    color: var(--maroon-3);
   }
 
   i {
@@ -234,11 +230,11 @@
     transition: all 0.3s ease;
 
     font-size: 2.4rem;
-    color: var(--gray);
+    color: var(--graphite);
   }
 
-  &--accent {
-    color: var(--accent);
+  &--maroon-3 {
+    color: var(--maroon-3);
 
     .offers__item:hover &,
     &:hover {
@@ -250,7 +246,7 @@
     }
 
     i {
-      background-color: var(--accent);
+      background-color: var(--maroon-3);
       color: var(--white);
     }
   }
@@ -278,7 +274,7 @@
 .breadcrumbs {
   --breadcrumbs-gap: 1rem;
 
-  background-color: var(--accent);
+  background-color: var(--maroon-3);
   overflow: hidden;
 
   .container {
@@ -347,18 +343,5 @@
     &:hover {
       text-decoration: underline;
     }
-  }
-}
-
-.comp {
-
-  &--begin {
-    width: 139rem;
-    height: 168.2rem;
-
-    position: absolute;
-    top: -6.6rem;
-    bottom: 0;
-    left: -10rem;
   }
 }

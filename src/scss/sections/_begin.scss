@@ -1,26 +1,57 @@
 @use './../mixins' as *;
 
 .begin {
-
   padding-top: 13.3rem;
-  background-color: var(--brown);
+  background-color: var(--gold-dark-2);
 
-  &__inner {
-    position: relative;
-    z-index: 3;
+  @include md {
+    padding-top: 18.4rem;
   }
 
-  &__head {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  &__inner {}
 
-    svg {
-      width: 100%;
-      height: auto;
+  &::after {
+    display: none;
 
-      &.date {
-        width: 45%;
+    @include sm {
+      display: block;
+    }
+  }
+
+  .page {
+
+    &__date {
+      max-width: 59.9rem;
+
+      @include md {
+        max-width: 33.5rem;
+      }
+
+      @include sm {
+        max-width: 19.1rem;
+      }
+    }
+
+    &__text {
+
+      @include sm {
+        max-width: 19.1rem;
+      }
+    }
+
+    &__object {
+      max-width: 126.4rem;
+
+      @include md {
+        position: relative;
+        bottom: unset;
+
+        margin-top: -12.2rem;
+        padding-left: var(--container-padding);
+      }
+
+      @include sm {
+        margin-top: -1.2rem;
       }
     }
   }
