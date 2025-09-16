@@ -200,6 +200,15 @@ img {
 
 /* Главный общий блок */
 
+.page {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
 .page::after {
   content: "";
   background-image: url(./../images/temp/bg-texture.png);
@@ -218,6 +227,7 @@ img {
 .page__wrapper {
   width: 100%;
   height: 100%;
+  pointer-events: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -234,6 +244,21 @@ img {
   display: block;
   width: 4.4rem;
   height: 3.7rem;
+  fill: var(--graphite);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.pp-filter .page__wrapper .restriction svg {
+  fill: #585858;
+}
+
+.pp-assortment .page__wrapper .restriction svg {
+  fill: var(--gold);
+}
+
+.pp-limonad .page__wrapper .restriction svg {
+  fill: var(--gold);
 }
 
 .page__content {
@@ -251,6 +276,7 @@ img {
 .page__title {
   width: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 .page__title--second {
@@ -260,6 +286,7 @@ img {
 
 .page__date {
   margin-top: 2rem;
+  overflow: hidden;
 }
 
 .page__text {
@@ -309,6 +336,20 @@ img {
   top: -6.6rem;
   right: 13.5rem;
   bottom: 0;
+}
+
+.about-page .main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.main__container {
+  width: 100%;
+  height: 100%;
 }
 
 .main__menu {

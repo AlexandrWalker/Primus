@@ -9,6 +9,11 @@
 
 /* Главный общий блок */
 .page {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
 
   &::after {
     content: '';
@@ -28,6 +33,7 @@
   &__wrapper {
     width: 100%;
     height: 100%;
+    pointer-events: none;
 
     position: fixed;
     top: 0;
@@ -47,6 +53,20 @@
         display: block;
         width: 4.4rem;
         height: 3.7rem;
+        fill: var(--graphite);
+        transition: all 0.3s ease;
+
+        .pp-filter & {
+          fill: #585858;
+        }
+
+        .pp-assortment & {
+          fill: var(--gold);
+        }
+
+        .pp-limonad & {
+          fill: var(--gold);
+        }
       }
     }
   }
@@ -66,6 +86,7 @@
   &__title {
     width: 100%;
     height: auto;
+    overflow: hidden;
 
     &--first {
 
@@ -90,6 +111,7 @@
 
   &__date {
     margin-top: 2rem;
+    overflow: hidden;
 
     @include sm {
       margin-top: 1rem;
@@ -166,6 +188,21 @@
 }
 
 .main {
+
+  .about-page & {
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+  }
 
   &__menu {
     display: flex;
@@ -283,7 +320,6 @@
 
   &__inner {
     padding: 1.7rem var(--container-padding) 1.8rem;
-    // width: 100vw;
     width: 100%;
     overflow-x: auto;
 
