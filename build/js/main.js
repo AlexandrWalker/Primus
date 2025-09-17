@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ScrollSmoother, TweenMax);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -28,10 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   gsap.ticker.lagSmoothing(0);
 
-
+  /**
+   * Разбиение текста по буквам
+   */
+  const titleChars = document.querySelectorAll('[data-splitting="chars"]');
+  titleChars.forEach(titleChar => {
+    const char = new SplitType(titleChar.querySelector('p'), { types: 'words, chars' });
+  });
 
   /* Инициализация swiper */
-  const pagesContainer = document.querySelector('.main__container');
+  const pagesContainer = document.querySelector('.page__container');
   pagesSwiper = new Swiper(pagesContainer, {
     slideClass: 'page',
     slideActiveClass: 'page--current',
@@ -80,9 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
     speed: 600,
     on: {
       transitionEnd: $.proxy(_transitionEnd, this),
-      // snapIndexChange: BX.proxy(this._transitionEnd, this),
     }
   });
+
+  setTimeout(() => {
+    if (document.querySelector('.page')) { document.querySelector('.page').classList.add('complete'); }
+  }, 1000);
 
   function _transitionEnd(slider) {
 
@@ -95,8 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
     html.classList.remove(class4rem);
     html.classList.add('pp-' + slider.slides[activeIndex].dataset.hash);
 
+    // slider.slides[activeIndex - 1] ? slider.slides[activeIndex - 1].classList.add('complete') : slider.slides[activeIndex];
+
     checkMenuActive(slider.slides[activeIndex].dataset.hash);
-    // anim(slider.slides[activeIndex].dataset.anim);
+    anim(slider.slides[activeIndex].dataset.hash, slider.slides[activeIndex]);
+
+    if (slider.slides[activeIndex]) {
+      slider.slides[activeIndex].classList.add('complete');
+    }
 
     if ((slider.slides.length - 1) == activeIndex) {
 
@@ -106,8 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkMenuActive(hash) {
     const menuItems = document.querySelectorAll('ul.main__menu a[href*="#"]');
-
-    console.log(menuItems);
 
     for (let menuItem of menuItems) {
       if (menuItem.classList.contains('is__active'))
@@ -120,43 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
       curMenuItem.classList.add('is__active');
   }
 
-  function anim(hash) {
+  function anim(hash, slide) {
     const aboutPage = document.querySelector('.about-page');
     if (aboutPage) {
-      const pages = aboutPage.querySelectorAll('.page');
-      pages.forEach(page => {
-
-        // const tl = gsap.timeline({
-        //   paused: true
-        // });
-
-        let pageTitle = page.querySelector('.page__title');
-        let pageTitleSvgs = page.querySelectorAll('.page__title-svg');
-        pageTitleSvgs.forEach(pageTitleSvg => {
-          gsap.fromTo(pageTitleSvg,
-            {
-              y: '+5%',
-              opacity: 0,
-              rotate: '20deg',
-              transformOrigin: "0 50%"
-            },
-            {
-              y: '0',
-              opacity: 1,
-              rotate: '0',
-              duration: 0.8,
-              scrollTrigger: {
-                trigger: '.page[class*="' + hash + '"]',
-                start: 'top 100%',
-                end: 'bottom top',
-              }
-            }
-          );
-        });
-
-        let pageDate = page.querySelector('.page__date');
-        let pageDateSvg = page.querySelector('.page__date-svg');
-        gsap.fromTo(pageDateSvg,
+      if (!document.querySelector('.' + `${hash}`).classList.contains('complete')) {
+        const pageTitle = aboutPage.querySelector('.' + `${hash}` + ' .page__title img');
+        gsap.fromTo(pageTitle,
           {
             y: '+5%',
             opacity: 0,
@@ -167,9 +149,31 @@ document.addEventListener('DOMContentLoaded', () => {
             y: '0',
             opacity: 1,
             rotate: '0',
-            duration: 0.8,
+            duration: 1.3,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: '.page[class*="' + hash + '"]',
+              start: 'top 100%',
+              end: 'bottom top',
+            },
+          }
+        );
+
+        const pageDate = aboutPage.querySelector('.' + `${hash}` + ' .page__date img');
+        gsap.fromTo(pageDate,
+          {
+            y: '+5%',
+            opacity: 0,
+            rotate: '20deg',
+            transformOrigin: "0 50%"
+          },
+          {
+            y: '0',
+            opacity: 1,
+            rotate: '0',
+            duration: 1.3,
             delay: 0.2,
-            // delay: -0.4,
+            ease: "power4.out",
             scrollTrigger: {
               trigger: '.page[class*="' + hash + '"]',
               start: 'top 100%',
@@ -177,38 +181,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           }
         );
-        // scrollTriggerPlayer(hash, tl)
-      });
+
+        const fadeInItems = document.querySelectorAll('[data-transform="fadeIn"]');
+        fadeInItems.forEach(fadeInItem => {
+          const chars = fadeInItem.querySelectorAll("div.char");
+          const tl = gsap.timeline({
+            paused: true
+          });
+          tl.fromTo(chars, {
+            opacity: 0,
+          }, {
+            opacity: 1,
+            duration: 1,
+            delay: 0.8,
+            ease: "power1.out",
+            stagger: {
+              amount: .3
+            }
+          });
+          scrollTriggerPlayer(fadeInItem, tl)
+        });
+      }
+
       gsap.registerPlugin(ScrollTrigger);
     }
   }
   anim('begin');
-
-  /**
-   * Разбиение текста по буквам
-   */
-  const titleChars = document.querySelectorAll('[data-splitting="chars"]');
-  titleChars.forEach(titleChar => {
-    const char = new SplitType(titleChar.querySelector('p'), { types: 'words, chars' });
-  });
-
-  const fadeInItems = document.querySelectorAll('[data-transform="fadeIn"]');
-  fadeInItems.forEach(fadeInItem => {
-    const chars = fadeInItem.querySelectorAll("div.char");
-    const tl = gsap.timeline({
-      paused: true
-    });
-    tl.from(chars, {
-      opacity: 0,
-      duration: .8,
-      delay: 0.4,
-      ease: "power1.out",
-      stagger: {
-        amount: .3
-      }
-    });
-    scrollTriggerPlayer(fadeInItem, tl)
-  });
 
   function scrollTriggerPlayer(triggerElement, timeline, onEnterStart = "top 85%") {
     ScrollTrigger.create({
@@ -220,7 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     ScrollTrigger.create({
-      trigger: '.page[class*="' + triggerElement + '"]',
+      // trigger: '.page[class*="' + triggerElement + '"]',
+      trigger: triggerElement,
       start: 'top 100%',
       end: 'bottom top',
       onEnter: () => timeline.play(),
@@ -228,9 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /**
- * GSAP
- * 
- */
+   * GSAP
+   */
   $(window).on('resize load', function () {
     //   if (window.innerWidth > 834) {
 
@@ -268,9 +266,120 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //   };
 
+    /* Анимация mask */
+    $(".wrapper").mousemove(function (e) {
+      const masks = document.querySelectorAll('.mask');
+      masks.forEach(mask => {
+        parallaxIt(e, mask, -50);
+        // parallaxIt(e, ".page__object", -100);
+      });
+    });
 
+    function parallaxIt(e, target, movement) {
+      var $this = $(target);
+      var relX = e.pageX - $this.offset().left;
+      var relY = e.pageY - $this.offset().top;
+
+      TweenMax.to(target, 1, {
+        x: (relX - $this.width() / 2) / $this.width() * movement,
+        y: (relY - $this.height() / 2) / $this.height() * movement,
+        ease: 'none'
+      });
+    }
 
   });
 
+  const magneticButtons = document.querySelectorAll('.magnetic');
+  magneticButtons.forEach((button) => {
+
+    const magnetic_hit = button.querySelector('.magnetic__hit');
+    const magnetic_inner = button.querySelector('.magnetic__inner');
+    const magnetic_text = button.querySelector('.magnetic__text');
+
+    magnetic_hit.addEventListener('mousemove', function (e) {
+      const position = button.getBoundingClientRect();
+
+      const x = e.pageX - position.left - position.width / 2;
+      const y = e.pageY - position.top - position.height / 2;
+
+      magnetic_inner.style.transform = 'translate(' + x * 0.3 + 'px, ' + y * 0.5 + 'px)';
+      magnetic_text.style.transform = 'translate(' + x * 0.05 + 'px, ' + y * 0.15 + 'px) scale(1.1, 1.1)';
+    });
+
+    magnetic_hit.addEventListener('mouseout', function (e) {
+      magnetic_inner.style.transform = 'translate(0px, 0px)';
+      magnetic_text.style.transform = 'translate(0px, 0px) scale(1, 1)';
+    });
+
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      let data_target = this.dataset.target;
+      let data_detail = document.querySelector('[data-id="' + data_target + '"]');
+
+      if (data_detail) {
+        document.documentElement.classList.add('panel-open');
+        data_detail.classList.add('is__open');
+
+        PrimusProduction.pagesSwiper.disable();
+
+        let backdrop = data_detail.querySelector('.backdrop');
+        backdrop.addEventListener('click', function () {
+
+          PrimusProduction.pagesSwiper.enable();
+
+          data_detail.classList.remove('is__open');
+          document.documentElement.classList.remove('panel-open');
+        });
+
+
+        let buttonClose = data_detail.querySelector('.button__close');
+        buttonClose.addEventListener('click', function () {
+
+          PrimusProduction.pagesSwiper.enable();
+
+          data_detail.classList.remove('is__open');
+          document.documentElement.classList.remove('panel-open');
+        });
+      }
+    });
+  });
+
   window.addEventListener('resize scroll', function () { ScrollTrigger.refresh() });
+
+  const btnMenuOpen = document.querySelector('[data-entity="menu-open"]')
+  const btnMenuClose = document.querySelector('[data-entity="menu-close"]')
+
+  btnMenuOpen.addEventListener('click', function () {
+    document.documentElement.classList.add('menu-open');
+
+    const asd = document.querySelectorAll('.nav__second ul li');
+    for (let i = 0; asd.length != asd[i]; i++) {
+      // asds.forEach(asd => {
+      const a = asd[i].querySelector('a.nav__second-link');
+      gsap.fromTo(a,
+        {
+          y: '+3%',
+          opacity: 0,
+        },
+        {
+          y: '0',
+          opacity: 1,
+          duration: 1,
+          delay: 0.1 * i,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: '.menu-open .nav__second',
+            start: 'top 100%',
+            end: 'bottom top',
+          }
+        }
+      );
+      // });
+    }
+  });
+
+  btnMenuClose.addEventListener('click', function () {
+    document.documentElement.classList.remove('menu-open');
+  });
 });

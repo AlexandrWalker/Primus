@@ -14,6 +14,11 @@
   max-height: 100%;
   flex-shrink: 0;
   overflow: hidden;
+  padding-top: calc(100vh/6.76);
+
+  @include md {
+    padding-top: 16.7rem;
+  }
 
   &::after {
     content: '';
@@ -30,6 +35,11 @@
     z-index: 1;
   }
 
+  svg {
+    height: 100%;
+    object-fit: contain;
+  }
+
   &__wrapper {
     width: 100%;
     height: 100%;
@@ -39,79 +49,45 @@
     top: 0;
     left: 0;
     z-index: 2;
+  }
 
-    .restriction {
-      position: absolute;
-      top: 4rem;
-      right: var(--container-padding);
-
-      @include md {
-        display: none;
-      }
-
-      svg {
-        display: block;
-        width: 4.4rem;
-        height: 3.7rem;
-        fill: var(--graphite);
-        transition: all 0.3s ease;
-
-        .pp-filter & {
-          fill: #585858;
-        }
-
-        .pp-assortment & {
-          fill: var(--gold);
-        }
-
-        .pp-limonad & {
-          fill: var(--gold);
-        }
-      }
-    }
+  &__container {
+    width: 100%;
+    height: 100%;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    height: 100%;
 
-    padding-bottom: 35.1rem;
-
-    @include md {
-      padding-bottom: 0;
-    }
+    // img {
+    //   width: 100%;
+    //   object-fit: contain;
+    // }
   }
 
   &__title {
     width: 100%;
-    height: auto;
     overflow: hidden;
+    flex-shrink: 0;
 
-    &--first {
-
-      @include md {
-        display: none;
-      }
-    }
-
-    &--second {
-      display: none;
-      max-width: 48.6rem;
-
-      @include md {
-        display: block;
-      }
-
-      @include sm {
-        max-width: 27.7rem;
-      }
+    img {
+      opacity: 0;
     }
   }
 
   &__date {
-    margin-top: 2rem;
     overflow: hidden;
+    flex-shrink: 0;
+    margin-top: 2rem;
+
+    img {
+      opacity: 0;
+    }
+
+    @include sm {
+      max-width: 19.1rem;
+    }
 
     @include sm {
       margin-top: 1rem;
@@ -122,7 +98,12 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    flex-shrink: 0;
     margin-top: 3rem;
+
+    div.char {
+      opacity: 0;
+    }
 
     @include sm {
       margin-top: 2rem;
@@ -132,8 +113,6 @@
   &__object {
     width: 100%;
     position: absolute;
-    bottom: 4.1rem;
-    left: 0;
     z-index: 2;
 
     img {
@@ -150,59 +129,132 @@
   }
 }
 
+/* Стиль магнитной кнопки */
+.magnetic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  width: fit-content;
+  cursor: pointer;
+
+  position: absolute;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    border: 0.2rem solid var(--maroon-3);
+    transition: transform 0.15s linear, color .3s ease-in-out, border-color .3s ease-in-out;
+    will-change: transform;
+
+    @include md {
+      width: 11rem;
+      height: 11rem;
+    }
+
+    .pp-begin & {
+      border-color: var(--maroon-3);
+    }
+
+    .pp-filter & {
+      border-color: var(--gold);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--gold-light-2);
+    transition: transform 0.25s linear;
+    will-change: transform;
+  }
+
+  &__hit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 4;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+
+    @include md {
+      width: 18rem;
+      height: 18rem;
+    }
+  }
+}
+
+/* Стили для блока ограничения */
+.restriction {
+  position: absolute;
+  top: 4rem;
+  right: var(--container-padding);
+
+  @include md {
+    display: none;
+  }
+
+  svg {
+    display: block;
+    width: 4.4rem;
+    height: 3.7rem;
+    fill: var(--graphite);
+    transition: all 0.3s ease;
+
+    .pp-filter & {
+      fill: #585858;
+    }
+
+    .pp-assortment & {
+      fill: var(--gold);
+    }
+
+    .pp-limonad & {
+      fill: var(--gold);
+    }
+  }
+}
+
 /* Стили масок */
 .mask {
+  width: 140.3rem;
+  height: 126.2rem;
+
+  position: absolute;
+  top: -6.6rem;
+  right: 13.5rem;
+  bottom: 0;
   z-index: 1;
+
+  @include md {
+    top: -8.6rem;
+    right: -22.6rem;
+  }
+
+  @include sm {
+    top: -3.6rem;
+    right: -20.2rem;
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
-  &--begin {
-    width: 139rem;
-    height: 168.2rem;
-
-    position: absolute;
-    top: -6.6rem;
-    right: 13.5rem;
-    bottom: 0;
-
-    @include md {
-      width: 186rem;
-      height: 240.4rem;
-
-      top: -8.6rem;
-      right: -22.6rem;
-    }
-
-    @include sm {
-      width: 140.3rem;
-      height: 181.8rem;
-
-      top: -3.6rem;
-      right: -20.2rem;
-    }
-  }
 }
 
+/* Меню стр. А нас */
 .main {
-
-  .about-page & {
-    width: 100%;
-    height: 100%;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-
-  &__container {
-    width: 100%;
-    height: 100%;
-  }
 
   &__menu {
     display: flex;

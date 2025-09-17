@@ -1,3 +1,422 @@
 @use './../mixins' as *;
 
-.nav {}
+html.menu-open {
+  overflow: hidden;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  pointer-events: none;
+  overflow-y: unset;
+
+  transition: background-color 0.3s ease;
+
+  @include md {
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  html.menu-open & {
+    pointer-events: all;
+
+    @include md {
+      background-color: #4F1E0D;
+    }
+  }
+
+  &__layer {
+    overflow: hidden;
+    width: 65.42%;
+    height: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #501A00;
+    z-index: 1;
+    pointer-events: none;
+    transition: height .6s ease-in-out;
+
+    @include md {
+      display: none;
+      width: 100%;
+    }
+
+    html.menu-open & {
+      height: 100%;
+      pointer-events: all;
+    }
+
+    html.menu-open.menu-open-closing & {
+      height: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__mask {
+    background-image: url(./../../images/temp/bg-texture.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    /*width: 65.42%;*/
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    transition: 0s;
+  }
+
+  a.menu__close {
+    display: none;
+    width: 4.3rem;
+    height: 4.3rem;
+    position: absolute;
+    right: 4rem;
+    top: 2.6rem;
+    z-index: 150;
+
+    .menu-open & {
+      display: block;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 2.5rem;
+    left: 4rem;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(3.5rem);
+    transition: opacity .3s ease-out, transform .3s ease-out;
+
+    html.menu-open & {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .9s ease-in, transform .9s ease-in;
+    }
+
+    html.menu-open.menu-open-closing & {
+      opacity: 0;
+      transform: translateY(3.5rem);
+      transition: opacity .9s ease-out, transform .9s ease-out;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+    flex: 0 0 21.11%;
+    padding-top: 14vh;
+    padding-left: 4rem;
+    padding-right: 2rem;
+
+    @include md {
+      flex: 0 0 auto;
+      order: 2;
+      padding-top: 3rem;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(3.5rem);
+      transition: opacity .3s ease-out, transform .3s ease-out;
+
+      html.menu-open & {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity .9s ease-in, transform .9s ease-in;
+      }
+
+      html.menu-open.menu-open-closing & {
+        opacity: 0;
+        transform: translateY(3.5rem);
+        transition: opacity .3s ease-out, transform .3s ease-out;
+      }
+
+      li {
+        display: inline-flex;
+        margin-bottom: 3rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: var(--gold-dark);
+          font-size: 1.5rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          text-decoration: none;
+          display: inline-flex;
+          transition: color .3s ease-in-out;
+
+          &:hover {
+            color: var(--gold);
+          }
+        }
+      }
+    }
+
+    .line {
+      display: none;
+      display: block;
+      width: 0.1rem;
+      height: 0;
+      background-color: var(--maroon-3);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transition: height .4s ease-out;
+
+      @include md {
+        width: 0;
+        height: 0.1rem;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: unset;
+      }
+
+      html.menu-open & {
+        height: 100%;
+        transition: height 1s ease-in;
+        transition-delay: 0.6s;
+
+        @include md {
+          height: 0.1rem;
+          width: 100%;
+        }
+      }
+
+      html.menu-open.menu-open-closing & {
+        height: 0;
+        transition: height .4s ease-out;
+
+        @include md {
+          width: 0;
+        }
+      }
+    }
+
+  }
+
+  .contacts {
+    margin-top: auto;
+    margin-bottom: 4.1rem;
+    opacity: 0;
+    transform: translateY(3.5rem);
+    transition: opacity .3s ease-out, transform .3s ease-out;
+
+    html.menu-open & {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .9s ease-in, transform .9s ease-in;
+    }
+
+    html.menu-open.menu-open-closing & {
+      opacity: 0;
+      transform: translateY(3.5rem);
+      transition: opacity .3s ease-out, transform .3s ease-out;
+    }
+
+    .title {
+      color: var(--gold-dark);
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .address {
+      color: var(--gold);
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 1rem;
+
+      .sale .partners .sale__item & {
+        font-size: 1.8rem;
+      }
+    }
+
+    .phone__list {
+      font-size: 1.5rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        text-transform: none;
+        margin-top: 3rem;
+      }
+
+      a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__second {
+    position: relative;
+    z-index: 10;
+    display: flex;
+
+    padding-top: 14vh;
+    flex: 0 0 44.31%;
+    padding-left: 8rem;
+
+    @include md {
+      order: 1;
+      padding: 14.1rem var(--container-padding) 3rem;
+    }
+
+    &-menu {
+      width: 100%;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(3.5rem);
+      transition: opacity .4s ease-out, transform .3s ease-out;
+
+      html.menu-open & {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity .8s ease-in, transform .8s ease-in;
+        overflow-y: auto;
+      }
+
+      html.menu-open.menu-open-closing & {
+        opacity: 0;
+        transform: translateY(3.5rem);
+        transition: opacity .4s ease-out, transform .3s ease-out;
+      }
+
+      li {
+        display: inline-flex;
+        padding-right: 4rem;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        @include md {
+          padding-right: 0;
+        }
+
+        a {
+          color: var(--gold-light-2);
+          font-family: 'DrukCyr';
+          font-size: 8rem;
+          font-weight: 500;
+          line-height: normal;
+          text-transform: uppercase;
+          text-decoration: none;
+          display: inline-flex;
+          position: relative;
+          overflow: hidden;
+          transition: color .3s ease-in-out;
+          transform: translateY(110%);
+
+          @include md {
+            font-size: 5rem;
+          }
+
+          span {
+            display: inline-block;
+            transition: transform .3s ease-in-out;
+          }
+
+          &:hover {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    flex: 0 0 34.58%;
+    overflow: hidden;
+
+    @include md {
+      display: none;
+    }
+
+    img {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      flex: 0 0 100%;
+      background-color: var(--black);
+      position: relative;
+      -webkit-clip-path: inset(0 0 100%);
+      clip-path: inset(0 0 100%);
+      transition: clip-path .6s ease-in-out, -webkit-clip-path .6s ease-in-out, transform 0.6s ease 0.4s;
+      pointer-events: none;
+
+      transform: scale(1.3);
+
+      html.menu-open & {
+        -webkit-clip-path: inset(0 0 0);
+        clip-path: inset(0 0 0);
+        transform: scale(1);
+      }
+
+      html.menu-open.menu-open-closing & {
+        -webkit-clip-path: inset(0 0 100%);
+        clip-path: inset(0 0 100%);
+      }
+    }
+  }
+}
+
+.nav .nav__second ul li a:hover span:first-child {
+  transform: translateY(-100%);
+}
+
+.nav .nav__second ul li a span:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  top: 110%;
+  left: 0;
+}
+
+.nav .nav__second ul li a:hover span:nth-child(2) {
+  transform: translateY(-110%);
+}

@@ -1,14 +1,11 @@
 @use './../mixins' as *;
 
 .begin {
-  padding-top: 13.3rem;
   background-color: var(--gold-dark-2);
 
   @include md {
     padding-top: 18.4rem;
   }
-
-  &__inner {}
 
   &::after {
     display: none;
@@ -34,17 +31,17 @@
 
     &__text {
 
-      @include sm {
-        max-width: 19.1rem;
-      }
+
     }
 
     &__object {
       max-width: 126.4rem;
+      bottom: 4.1rem;
+      left: 0;
 
       @include md {
-        position: relative;
-        bottom: unset;
+        // position: relative;
+        // bottom: unset;
 
         margin-top: -12.2rem;
         padding-left: var(--container-padding);
@@ -53,6 +50,17 @@
       @include sm {
         margin-top: -1.2rem;
       }
+    }
+  }
+
+  .magnetic {
+    top: calc(100vh/2.25);
+    right: calc(100vw/2.67);
+
+    @include md {
+      top: unset;
+      right: 2.6rem;
+      bottom: 34rem;
     }
   }
 }

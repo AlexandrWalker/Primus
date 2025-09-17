@@ -1,0 +1,33 @@
+@use './../mixins' as *;
+
+.filter {
+
+  .page {
+
+    &__object {
+      width: 71.4rem;
+      aspect-ratio: 1/1;
+      // top: 21.6rem;
+      bottom: -3rem;
+      right: calc(17.9rem - var(--container-padding));
+
+      @include md {
+        width: 49.2rem;
+        top: unset;
+        right: var(--container-padding);
+        bottom: 0;
+      }
+    }
+  }
+
+  .magnetic {
+    bottom: calc(100vh/9.09);
+    left: calc(100vw/48);
+
+    @include md {
+      right: 2.6rem;
+      left: unset;
+      bottom: 34rem;
+    }
+  }
+}
