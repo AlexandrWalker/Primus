@@ -207,6 +207,9 @@
       }
 
       img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
 
         @include sm {
           width: fit-content;
@@ -249,6 +252,7 @@
       position: absolute;
       left: -0.5rem;
       bottom: 10.1rem;
+      height: 12rem;
     }
 
     &__text {
@@ -279,6 +283,9 @@
       }
 
       img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
 
         @include md {
           height: 100%;
@@ -619,13 +626,13 @@
       height: 57.7rem;
       right: 21.8rem;
       bottom: 2.4rem;
+      width: fit-content;
 
       @include md {
         width: max-content;
         height: 48.7rem;
 
-        top: 43.7rem;
-        bottom: unset;
+        bottom: -5rem;
         left: 50%;
         right: unset;
         transform: translateX(-50%);

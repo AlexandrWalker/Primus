@@ -16,5 +16,41 @@
   &__img {
     width: 100%;
     height: 100%;
+
+    .about-page &{
+      display: none;
+    }
+
+    &-about {
+      display: none;
+
+      .pp-begin &,
+      .pp-filter &,
+      .pp-assortment &,
+      .pp-limonad &,
+      .pp-technology &,
+      .pp-info &,
+      .pp-partners & {
+        display: block;
+      }
+
+      &--black {
+        display: none;
+
+        .pp-bolotnoe & {
+          display: block;
+        }
+      }
+
+      &--gold {
+        display: none;
+
+        .pp-awards & {
+          display: block;
+        }
+      }
+
+      @include md {}
+    }
   }
 }
