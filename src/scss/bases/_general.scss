@@ -14,11 +14,6 @@
   max-height: 100%;
   flex-shrink: 0;
   overflow: hidden;
-  padding-top: calc(100vh/6.76);
-
-  @include md {
-    padding-top: 16.7rem;
-  }
 
   &::after {
     content: '';
@@ -59,38 +54,50 @@
   &__content {
     display: flex;
     flex-direction: column;
-
-    // img {
-    //   width: 100%;
-    //   object-fit: contain;
-    // }
   }
 
   &__title {
-    width: 100%;
     overflow: hidden;
     flex-shrink: 0;
+    width: fit-content;
+    height: 17.8rem;
+
+    @include md {
+      height: 20.5rem;
+    }
+
+    @include sm {
+      height: 11.7rem;
+    }
 
     img {
       opacity: 0;
+      height: 100%;
+      object-fit: contain;
     }
   }
 
   &__date {
     overflow: hidden;
     flex-shrink: 0;
+    width: fit-content;
+    height: 16.2rem;
     margin-top: 2rem;
+
+    @include md {
+      height: 9.2rem;
+      position: static !important;
+    }
+
+    @include sm {
+      height: 5.2rem;
+      margin-top: 1rem;
+    }
 
     img {
       opacity: 0;
-    }
-
-    @include sm {
-      max-width: 19.1rem;
-    }
-
-    @include sm {
-      margin-top: 1rem;
+      height: 100%;
+      object-fit: contain;
     }
   }
 
@@ -106,25 +113,30 @@
     }
 
     @include sm {
+      max-width: 19.1rem;
       margin-top: 2rem;
     }
   }
 
   &__object {
     width: 100%;
+
     position: absolute;
-    z-index: 2;
+    z-index: 3;
+
+    @include sm {
+      width: fit-content;
+      z-index: 2;
+    }
 
     img {
       width: auto;
       height: 100%;
       object-fit: contain;
 
-      @include md {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-      }
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
   }
 }
@@ -139,6 +151,16 @@
   cursor: pointer;
 
   position: absolute;
+
+  @include md {
+    top: 40.1rem;
+    right: 7.1rem;
+  }
+
+  @include sm {
+    top: 38.8rem;
+    right: 2.1rem;
+  }
 
   &__inner {
     display: flex;
@@ -174,6 +196,10 @@
     color: var(--gold-light-2);
     transition: transform 0.25s linear;
     will-change: transform;
+
+    @include md {
+      font-size: 1.2rem;
+    }
   }
 
   &__hit {
@@ -222,6 +248,26 @@
     .pp-limonad & {
       fill: var(--gold);
     }
+
+    .pp-technology & {
+      fill: var(--gold);
+    }
+
+    .pp-info & {
+      fill: var(--gold);
+    }
+
+    .pp-bolotnoe & {
+      fill: var(--gold);
+    }
+
+    .pp-awards & {
+      fill: var(--gold);
+    }
+
+    .pp-partners & {
+      fill: #585858;
+    }
   }
 }
 
@@ -237,11 +283,18 @@
   z-index: 1;
 
   @include md {
+    width: 186rem;
+    height: 167.3rem;
+
     top: -8.6rem;
     right: -22.6rem;
+    bottom: unset;
   }
 
   @include sm {
+    width: 140.3rem;
+    height: 126.2rem;
+
     top: -3.6rem;
     right: -20.2rem;
   }
@@ -250,6 +303,68 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &--info {
+    width: 177.5rem;
+    height: 197.4rem;
+
+    top: -4.2rem;
+    right: unset;
+    bottom: unset;
+    left: 23.3rem;
+
+    @include sm {
+      width: 94.8rem;
+      height: 105.4rem;
+
+      top: 24.8rem;
+      left: -3.2rem;
+    }
+  }
+
+  &--bolotnoe {
+    width: 155.5rem;
+    height: 168.2rem;
+
+    top: -24.7rem;
+    right: unset;
+    bottom: unset;
+    left: -53.1rem;
+
+    @include md {
+      top: -30.6rem;
+      right: unset;
+      left: -110rem;
+    }
+
+    @include sm {
+      width: 105.4rem;
+      height: 94.8rem;
+      transform: rotate(-90deg);
+
+      top: 29.5rem;
+      right: unset;
+      left: -8.2rem;
+    }
+  }
+
+  &--awards {
+    width: 228.8rem;
+    height: 216.7rem;
+
+    top: -111rem;
+    right: -73.6rem;
+    bottom: unset;
+
+    @include sm {
+      width: 105.4rem;
+      height: 94.8rem;
+
+      top: 43.7rem;
+      left: -5.4rem;
+      right: unset;
+    }
   }
 }
 
@@ -284,10 +399,18 @@
 
       &:hover {
         color: var(--maroon-3);
+
+        .pp-limonad & {
+          color: var(--yellow);
+        }
       }
 
       &.is__active {
         color: var(--maroon-3);
+
+        .pp-limonad & {
+          color: var(--yellow);
+        }
       }
     }
   }

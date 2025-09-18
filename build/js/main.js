@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     keyboard: true,
     speed: 600,
+    loop: true,
     on: {
       transitionEnd: $.proxy(_transitionEnd, this),
     }
@@ -138,49 +139,53 @@ document.addEventListener('DOMContentLoaded', () => {
     if (aboutPage) {
       if (!document.querySelector('.' + `${hash}`).classList.contains('complete')) {
         const pageTitle = aboutPage.querySelector('.' + `${hash}` + ' .page__title img');
-        gsap.fromTo(pageTitle,
-          {
-            y: '+5%',
-            opacity: 0,
-            rotate: '20deg',
-            transformOrigin: "0 50%"
-          },
-          {
-            y: '0',
-            opacity: 1,
-            rotate: '0',
-            duration: 1.3,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: '.page[class*="' + hash + '"]',
-              start: 'top 100%',
-              end: 'bottom top',
+        if (pageTitle) {
+          gsap.fromTo(pageTitle,
+            {
+              y: '+5%',
+              opacity: 0,
+              rotate: '20deg',
+              transformOrigin: "0 50%"
             },
-          }
-        );
+            {
+              y: '0',
+              opacity: 1,
+              rotate: '0',
+              duration: 1.3,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: '.page[class*="' + hash + '"]',
+                start: 'top 100%',
+                end: 'bottom top',
+              },
+            }
+          );
+        }
 
         const pageDate = aboutPage.querySelector('.' + `${hash}` + ' .page__date img');
-        gsap.fromTo(pageDate,
-          {
-            y: '+5%',
-            opacity: 0,
-            rotate: '20deg',
-            transformOrigin: "0 50%"
-          },
-          {
-            y: '0',
-            opacity: 1,
-            rotate: '0',
-            duration: 1.3,
-            delay: 0.2,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: '.page[class*="' + hash + '"]',
-              start: 'top 100%',
-              end: 'bottom top',
+        if (pageDate) {
+          gsap.fromTo(pageDate,
+            {
+              y: '+5%',
+              opacity: 0,
+              rotate: '20deg',
+              transformOrigin: "0 50%"
+            },
+            {
+              y: '0',
+              opacity: 1,
+              rotate: '0',
+              duration: 1.3,
+              delay: 0.4,
+              ease: "power4.out",
+              scrollTrigger: {
+                trigger: '.page[class*="' + hash + '"]',
+                start: 'top 100%',
+                end: 'bottom top',
+              }
             }
-          }
-        );
+          );
+        }
 
         const fadeInItems = document.querySelectorAll('[data-transform="fadeIn"]');
         fadeInItems.forEach(fadeInItem => {
@@ -355,7 +360,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const asd = document.querySelectorAll('.nav__second ul li');
     for (let i = 0; asd.length != asd[i]; i++) {
-      // asds.forEach(asd => {
       const a = asd[i].querySelector('a.nav__second-link');
       gsap.fromTo(a,
         {
@@ -375,7 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       );
-      // });
     }
   });
 

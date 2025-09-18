@@ -1,0 +1,656 @@
+@use './../mixins' as *;
+
+.begin {
+  background-color: var(--gold-dark-2);
+
+  &::after {
+    display: none;
+
+    @include sm {
+      display: block;
+    }
+  }
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/6.76);
+
+      @include md {
+        padding-top: 18.4rem;
+      }
+
+      @include sm {
+        padding-top: 18.8rem;
+      }
+    }
+
+    &__title {}
+
+    &__object {
+      max-width: 126.4rem;
+      bottom: 4.1rem;
+      left: 0;
+
+      @include md {
+        bottom: 6.5rem;
+        margin-top: -12.2rem;
+        padding-left: var(--container-padding);
+      }
+
+      @include sm {
+        bottom: 8rem;
+        margin-top: -1.2rem;
+      }
+    }
+  }
+
+  .magnetic {
+    top: calc(100vh/2.25);
+    right: calc(100vw/2.67);
+
+    @include md {
+      top: 40.1rem;
+      right: 7.1rem;
+    }
+
+    @include sm {
+      top: 42.4rem;
+      right: 2.6rem;
+    }
+  }
+}
+
+.filter {
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/6.76);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__title {
+      position: relative;
+      left: -0.7rem;
+
+      @include sm {
+        height: 13.8rem;
+
+        left: unset;
+      }
+    }
+
+    &__date {
+      position: relative;
+      left: -0.9rem;
+
+      @include sm {
+        height: 6.1rem;
+        margin-top: 0.4rem;
+
+        left: unset;
+      }
+    }
+
+    &__text {
+      position: relative;
+      left: -0.6rem;
+
+      @include sm {
+        left: unset;
+      }
+    }
+
+    &__object {
+      width: 71.4rem;
+      aspect-ratio: 1/1;
+      bottom: -3rem;
+      right: calc(17.9rem - var(--container-padding));
+
+      @include md {
+        right: 0;
+      }
+
+      @include sm {
+        width: 49.2rem;
+        top: 38.2rem;
+        right: unset;
+        bottom: unset;
+        left: -11rem;
+      }
+
+      img {
+
+        @include sm {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .magnetic {
+    bottom: calc(100vh/9.09);
+    left: calc(100vw/48);
+
+    @include md {
+      right: 2.6rem;
+      left: unset;
+      top: 34rem;
+      bottom: unset;
+    }
+
+    @include sm {
+      right: 2.6rem;
+      left: unset;
+      bottom: 34rem;
+    }
+  }
+}
+
+.assortment {
+  background-color: var(--gold-dark);
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/8.57);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__title {
+
+      @include sm {
+        height: 12rem;
+      }
+    }
+
+    &__date {
+      position: absolute;
+      right: 12.5rem;
+      bottom: 6.9rem;
+
+      @include md {
+        position: static;
+      }
+
+      @include sm {
+        height: 5.9rem;
+      }
+    }
+
+    &__text {
+      max-width: 61.4rem;
+
+      @include sm {
+        max-width: 25.6rem;
+      }
+    }
+
+    &__object {
+      left: 1.2rem;
+      bottom: 2.3rem;
+
+      height: 55.7rem;
+
+      @include sm {
+        height: 37.1rem;
+        top: 45rem;
+        left: 2rem;
+        bottom: unset;
+      }
+
+      img {
+
+        @include sm {
+          width: fit-content;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .magnetic {
+    right: calc(100vw/2.41);
+    bottom: calc(100vh/2.27);
+
+    @include md {
+      right: 3.5rem;
+      bottom: 37.6rem;
+    }
+
+    &__inner {
+      border-color: var(--gold-light-2);
+    }
+  }
+}
+
+.limonad {
+  background-color: #1A1A1A;
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/11.25);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__date {
+      position: absolute;
+      left: -0.5rem;
+      bottom: 10.1rem;
+    }
+
+    &__text {
+      max-width: 51.2rem;
+
+      @include sm {
+        max-width: 19.1rem;
+      }
+    }
+
+    &__object {
+      right: 16.4rem;
+      bottom: -2rem;
+      width: fit-content;
+      height: 77.5rem;
+
+      @include md {
+        height: 64.4rem;
+        right: 2rem;
+        bottom: 0;
+      }
+
+      @include sm {
+        width: 41.4rem;
+        height: 41.4rem;
+        right: 2rem;
+        bottom: 2rem;
+      }
+
+      img {
+
+        @include md {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .magnetic {
+    left: 7.5rem;
+    bottom: 34.5rem;
+
+    @include md {
+      left: unset;
+    }
+
+    &__inner {
+      border-color: var(--gold-light-2);
+    }
+
+    &__text {
+      color: var(--yellow);
+    }
+  }
+}
+
+.technology {
+  background-color: var(--gold-dark);
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/6.92);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__text {
+      margin-top: 0;
+
+      @include md {
+        margin-top: 3rem;
+      }
+    }
+
+    &__object {
+      height: 46.7rem;
+      left: 1.2rem;
+      bottom: 5.2rem;
+
+      @include sm {
+        width: auto;
+        height: 37.9rem;
+        left: 0.2rem;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+
+        @include sm {
+          width: auto;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .magnetic {
+    right: 46.9rem;
+    bottom: 37.4rem;
+
+    @include md {
+      top: 30.4rem;
+      right: 3.5rem;
+    }
+
+    &__inner {
+      border-color: var(--gold-light-2);
+    }
+  }
+}
+
+.info {
+
+  background-color: var(--graphite-2);
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/20.45);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__title {
+
+      @include md {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &__text {
+      max-width: 107.6rem;
+
+      @include sm {
+        max-width: 70.5%;
+      }
+    }
+
+    &__object {
+      height: 50.3rem;
+      left: 2.8rem;
+      bottom: 2.3rem;
+
+      @include md {
+        width: auto;
+        height: 60.2rem;
+        bottom: 0;
+        left: -26.4rem;
+      }
+
+      img {
+
+        @include md {
+          width: auto;
+          height: 100%;
+        }
+
+        @include sm {}
+      }
+    }
+  }
+
+  .magnetic {
+    right: 41.2rem;
+    bottom: 35.3rem;
+
+    @include md {
+      top: 30.4rem;
+      right: 4rem;
+    }
+
+    @include sm {
+      right: 3.5rem;
+    }
+
+    &__inner {
+      border-color: var(--gold-light-2);
+    }
+  }
+}
+
+.bolotnoe {
+  background-color: var(--maroon-3);
+
+  @include sm {
+    background-color: var(--gold);
+  }
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/7.08);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__title {
+
+      @include sm {
+        height: 12rem;
+      }
+    }
+
+    &__date {
+      margin-top: 5.3rem;
+
+      @include md {
+        margin-top: 3rem;
+      }
+
+      @include sm {
+        margin-top: 2rem;
+        margin-left: 0.6rem;
+        // height: 6.4rem;
+        width: 64.5%;
+        height: auto;
+      }
+    }
+
+    &__object {
+      height: 43.7rem;
+      left: 3.8rem;
+      bottom: 3.2rem;
+      z-index: 3;
+
+      @include md {
+        bottom: -2rem;
+      }
+
+      @include sm {
+        height: 43.7rem;
+
+        // right: -10.7rem;
+        bottom: 4.8rem;
+        left: -18rem;
+      }
+
+      img {
+
+        @include sm {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .magnetic {
+    right: 46.9rem;
+    bottom: 37.4rem;
+
+    @include md {
+      top: 27.3rem;
+      right: var(--container-padding);
+      bottom: unset;
+    }
+
+    &__inner {
+      border-color: var(--gold-dark);
+    }
+
+    &__text {
+      color: #1A1A1A;
+    }
+  }
+}
+
+.awards {
+  background-color: var(--maroon);
+
+  @include sm {
+    background-color: #D79643;
+  }
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/12.16);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__title {
+
+      @include sm {
+        height: 15.4rem;
+      }
+    }
+
+    &__text {
+      max-width: 107.6rem;
+      color: var(--maroon);
+
+      @include sm {
+        margin-top: 1.6rem;
+        max-width: 25.5rem;
+      }
+    }
+
+    &__object {
+      height: 55.5rem;
+      left: -6.1rem;
+      bottom: 2.3rem;
+
+      @include sm {
+        width: 55.5rem;
+        height: 52.1rem;
+
+        top: 40.8rem;
+        left: -3.6rem;
+        bottom: unset;
+      }
+
+      img {
+
+        @include sm {
+          width: auto;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .magnetic {
+    right: 41.2rem;
+    bottom: 35.3rem;
+
+    @include md {
+      top: 27.3rem;
+      right: var(--container-padding);
+    }
+
+    &__inner {
+      border-color: var(--gold-light-2);
+    }
+  }
+}
+
+.partners {
+  background-color: #2E2E2E;
+
+  .page {
+
+    &__inner {
+      padding-top: calc(100vh/8.57);
+
+      @include md {
+        padding-top: 16.7rem;
+      }
+    }
+
+    &__object {
+      height: 57.7rem;
+      right: 21.8rem;
+      bottom: 2.4rem;
+
+      @include md {
+        width: max-content;
+        height: 48.7rem;
+
+        top: 43.7rem;
+        bottom: unset;
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .magnetic {
+    left: 3.1rem;
+    bottom: 9.9rem;
+
+    @include md {
+      top: 35rem;
+      right: var(--container-padding);
+      left: unset;
+    }
+
+    &__inner {
+      border-color: var(--gold-light-2);
+    }
+  }
+}
