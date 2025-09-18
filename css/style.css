@@ -108,16 +108,16 @@ img {
 @font-face {
   font-family: DrukCyr;
   font-display: swap;
-  src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: DrukCyr;
   font-display: swap;
-  src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -172,16 +172,16 @@ img {
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-SemiBold.woff2") format("woff2"), url("../fonts/Roboto-SemiBold.woff") format("woff");
-  font-weight: 600;
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Roboto-SemiBold.woff2") format("woff2"), url("../fonts/Roboto-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -1375,6 +1375,40 @@ h6 span {
   height: 100%;
 }
 
+.about-page .logo__img {
+  display: none;
+}
+
+.logo__img-about {
+  display: none;
+}
+
+.pp-begin .logo__img-about,
+.pp-filter .logo__img-about,
+.pp-assortment .logo__img-about,
+.pp-limonad .logo__img-about,
+.pp-technology .logo__img-about,
+.pp-info .logo__img-about,
+.pp-partners .logo__img-about {
+  display: block;
+}
+
+.logo__img-about--black {
+  display: none;
+}
+
+.pp-bolotnoe .logo__img-about--black {
+  display: block;
+}
+
+.logo__img-about--gold {
+  display: none;
+}
+
+.pp-awards .logo__img-about--gold {
+  display: block;
+}
+
 html.menu-open {
   overflow: hidden;
 }
@@ -1944,6 +1978,13 @@ html.menu-open.menu-open-closing .nav__image img {
   height: 55.7rem;
 }
 
+.assortment .page__object img {
+  width: auto;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
 .assortment .magnetic {
   right: 41.4937759336vw;
   bottom: 44.0528634361vh;
@@ -1965,6 +2006,7 @@ html.menu-open.menu-open-closing .nav__image img {
   position: absolute;
   left: -0.5rem;
   bottom: 10.1rem;
+  height: 12rem;
 }
 
 .limonad .page__text {
@@ -1978,6 +2020,13 @@ html.menu-open.menu-open-closing .nav__image img {
   width: -moz-fit-content;
   width: fit-content;
   height: 77.5rem;
+}
+
+.limonad .page__object img {
+  width: auto;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .limonad .magnetic {
@@ -2126,6 +2175,9 @@ html.menu-open.menu-open-closing .nav__image img {
   height: 57.7rem;
   right: 21.8rem;
   bottom: 2.4rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .partners .page__object img {
@@ -2288,6 +2340,7 @@ html.menu-open.menu-open-closing .nav__image img {
     -webkit-transform: unset;
     -ms-transform: unset;
     transform: unset;
+    gap: 0.8rem;
   }
 
   .footer {
@@ -2327,6 +2380,7 @@ html.menu-open.menu-open-closing .nav__image img {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    display: none;
   }
 
   html.menu-open .nav {
@@ -2521,8 +2575,7 @@ html.menu-open.menu-open-closing .nav__image img {
     width: -moz-max-content;
     width: max-content;
     height: 48.7rem;
-    top: 43.7rem;
-    bottom: unset;
+    bottom: -5rem;
     left: 50%;
     right: unset;
     -webkit-transform: translateX(-50%);
