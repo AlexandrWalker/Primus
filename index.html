@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="pp-begin pleloaderShow" lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
@@ -27,7 +27,32 @@
 <body>
   <div class="wrapper about-page">
     <!-- Прелоадер -->
-    
+    <section id="preloader" class="preloader">
+  <div class="container">
+    <div class="preloader__inner">
+      <div class="preloader__content">
+        <div class="preloader__logo">
+          <img src="./images/logo/logo-preloader.svg" alt="">
+        </div>
+        <div class="preloader__title">
+          ПОДТВЕРДИТЕ СВОЙ ВОЗРАСТ
+        </div>
+        <div class="preloader__text">
+          Данный сайт предназначен только для посетителей, достигших возраста 18 лет!
+        </div>
+        <div class="preloader__btns">
+          <button id="preloaderApprove" class="preloader__btn btn btn--accent">
+            МНе есть 18
+          </button>
+          <button class="preloader__btn btn">
+            МНе нет 18
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="layer"></div>
+</section>
     <!-- Шапка -->
     <header id="header" class="header">
   <div class="container header__container">
@@ -206,6 +231,16 @@
           <li><a href="#awards">Конкурсы и награды</a></li>
           <li><a href="#partners">Партнерство</a></li>
         </ul>
+        <div class="page__control button__next">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 45 51">
+            <path stroke="#F7E3C6" stroke-linecap="round"
+              d="M22.5 1v48.199M44 29.854l-18.966 19.09a3.567 3.567 0 0 1-5.068 0L1 29.854"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 45 51">
+            <path stroke="#F7E3C6" stroke-linecap="round"
+              d="M22.5 1v48.199M44 29.854l-18.966 19.09a3.567 3.567 0 0 1-5.068 0L1 29.854"></path>
+          </svg>
+        </div>
       </div>
       <div class="page__container">
         <div class="swiper-wrapper">
@@ -514,9 +549,9 @@
             </div>
             <div class="page__object">
               <picture>
-                <source media="(min-width: 601px)" srcset="./images/temp/awards-bg.png" type="image/png">
+                <source media="(min-width: 601px)" srcset="./images/temp/awards2-bg.png" type="image/png">
                 <source media="(max-width: 600px)" srcset="./images/temp/awards-bg-mob.png" type="image/png">
-                <img src="./images/temp/awards-bg.png" alt="">
+                <img src="./images/temp/awards2-bg.png" alt="">
               </picture>
             </div>
             <div class="mask mask--awards">

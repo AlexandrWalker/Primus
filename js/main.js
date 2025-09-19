@@ -3,23 +3,17 @@ gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ScrollSmoother, TweenMax);
 document.addEventListener('DOMContentLoaded', () => {
 
   /**
-   * Инициализация GSAP ScrollSmoother
-   */
-  // gsap.registerPlugin(ScrollSmoother);
-  // ScrollSmoother.create({
-  //   smooth: 1,
-  //   effects: true,
-  //   smoothTouch: 0.5,
-  // });
-
-  /**
    * Инициализация Lenis
    */
   const lenis = new Lenis({
     anchors: {
-      // offset: -180,
       offset: 0,
     }
+  });
+
+  document.getElementById('preloaderApprove').addEventListener('click', () => {
+    document.getElementById('preloader').classList.add('remove');
+    document.documentElement.classList.remove('pleloaderShow');
   });
 
   lenis.on('scroll', ScrollTrigger.update);
@@ -60,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     hashNavigation: {
       watchState: true,
     },
-    // navigation: {
-    //   nextPrev: '.button__prev',
-    //   nextEl: '.button__next',
-    // },
+    navigation: {
+      //   nextPrev: '.button__prev',
+      nextEl: '.button__next',
+    },
     pagination: {
       el: '[data-entity="bullets"]',
       bulletClass: 'bullets__item',
@@ -80,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
       forceToAxis: true,
       sensitivity: 0.5,
       releaseOnEdges: true,
-      thresholdTime: 1200
+      thresholdTime: 1000
     },
     keyboard: true,
-    speed: 600,
+    speed: 400,
     loop: true,
     on: {
       transitionEnd: $.proxy(_transitionEnd, this),
@@ -151,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
               y: '0',
               opacity: 1,
               rotate: '0',
-              duration: 1.3,
+              duration: 1,
               ease: "power4.out",
               scrollTrigger: {
                 trigger: '.page[class*="' + hash + '"]',
@@ -175,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
               y: '0',
               opacity: 1,
               rotate: '0',
-              duration: 1.3,
-              delay: 0.4,
+              duration: 1,
+              delay: 0.2,
               ease: "power4.out",
               scrollTrigger: {
                 trigger: '.page[class*="' + hash + '"]',
@@ -198,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }, {
             opacity: 1,
             duration: 1,
-            delay: 0.8,
+            delay: 0.4,
             ease: "power1.out",
             stagger: {
               amount: .3
