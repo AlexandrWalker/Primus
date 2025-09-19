@@ -43,6 +43,10 @@ body {
     padding-left: 0;
   }
 
+  .pleloaderShow & {
+    pointer-events: none;
+  }
+
   .about-page & {
     width: 100%;
     height: 100%;

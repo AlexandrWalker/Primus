@@ -1,0 +1,103 @@
+@use './../mixins' as *;
+
+.preloader {
+  background-color: var(--maroon);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+
+  &.remove {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__logo {
+    height: 12.5rem;
+    margin-bottom: 6rem;
+
+    @include md {
+      margin-bottom: 3rem;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-family: 'DrukCyr';
+    font-weight: 500;
+    font-size: 10rem;
+    line-height: 97.5%;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 3.3rem;
+
+    @include md {
+      font-size: 8rem;
+      margin-bottom: 3rem;
+    }
+
+    @include md {
+      font-size: 6rem;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 120%;
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 6rem;
+
+    @include md {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  &__btn {
+    min-width: 27.8rem;
+
+    @include md {
+      min-width: 24rem;
+    }
+
+    @include sm {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}

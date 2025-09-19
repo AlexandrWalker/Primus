@@ -3,6 +3,10 @@
 .begin {
   background-color: var(--gold-dark-2);
 
+  @include md {
+    background-image: url(./../images/temp/bg-begin.png);
+  }
+
   &::after {
     display: none;
 
@@ -36,10 +40,15 @@
         bottom: 6.5rem;
         margin-top: -12.2rem;
         padding-left: var(--container-padding);
+
+        top: 53rem;
+        bottom: unset;
       }
 
       @include sm {
-        bottom: 8rem;
+        top: 43.7rem;
+        left: unset;
+        right: 0;
         margin-top: -1.2rem;
       }
     }
@@ -62,6 +71,10 @@
 }
 
 .filter {
+
+  @include md {
+    background-image: url(./../images/temp/bg-filter.png);
+  }
 
   .page {
 
@@ -113,13 +126,14 @@
 
       @include md {
         right: 0;
+        top: 44rem;
+        bottom: unset;
       }
 
       @include sm {
         width: 49.2rem;
         top: 38.2rem;
         right: unset;
-        bottom: unset;
         left: -11rem;
       }
 
@@ -137,22 +151,23 @@
     left: calc(100vw/48);
 
     @include md {
-      right: 2.6rem;
       left: unset;
-      top: 34rem;
       bottom: unset;
     }
 
     @include sm {
-      right: 2.6rem;
-      left: unset;
-      bottom: 34rem;
+      top: 37.4rem;
+      right: 3.5rem;
     }
   }
 }
 
 .assortment {
   background-color: var(--gold-dark);
+
+  @include md {
+    background-image: url(./../images/temp/bg-assortment.png);
+  }
 
   .page {
 
@@ -165,6 +180,7 @@
     }
 
     &__title {
+      height: 12.35rem;
 
       @include sm {
         height: 12rem;
@@ -178,6 +194,7 @@
 
       @include md {
         position: static;
+        height: 6rem;
       }
 
       @include sm {
@@ -188,18 +205,21 @@
     &__text {
       max-width: 61.4rem;
 
+      @include md {
+        max-width: 70%;
+      }
+
       @include sm {
         max-width: 25.6rem;
       }
     }
 
     &__object {
-      left: 1.2rem;
-      bottom: 2.3rem;
-
       height: 55.7rem;
+      top: calc(100vh / 2.8);
+      left: 1.2rem;
 
-      @include sm {
+      @include md {
         height: 37.1rem;
         top: 45rem;
         left: 2rem;
@@ -225,8 +245,9 @@
     bottom: calc(100vh/2.27);
 
     @include md {
+      top: 37.4rem;
       right: 3.5rem;
-      bottom: 37.6rem;
+      bottom: unset;
     }
 
     &__inner {
@@ -238,6 +259,10 @@
 .limonad {
   background-color: #1A1A1A;
 
+  @include md {
+    background-image: url(./../images/temp/bg-limonad.png);
+  }
+
   .page {
 
     &__inner {
@@ -248,11 +273,23 @@
       }
     }
 
+    &__title {
+      height: 12.36rem;
+    }
+
     &__date {
       position: absolute;
       left: -0.5rem;
       bottom: 10.1rem;
       height: 12rem;
+
+      @include md {
+        height: 8rem;
+      }
+
+      @include sm {
+        height: 5.9rem;
+      }
     }
 
     &__text {
@@ -264,15 +301,15 @@
     }
 
     &__object {
+      top: 14.5rem;
       right: 16.4rem;
-      bottom: -2rem;
       width: fit-content;
       height: 77.5rem;
 
       @include md {
+        top: 47rem;
         height: 64.4rem;
         right: 2rem;
-        bottom: 0;
       }
 
       @include sm {
@@ -280,6 +317,9 @@
         height: 41.4rem;
         right: 2rem;
         bottom: 2rem;
+
+        top: 43.7rem;
+        bottom: unset;
       }
 
       img {
@@ -302,6 +342,12 @@
       left: unset;
     }
 
+    @include sm {
+      top: 38.8rem;
+      right: 2.1rem;
+      bottom: unset;
+    }
+
     &__inner {
       border-color: var(--gold-light-2);
     }
@@ -315,6 +361,10 @@
 .technology {
   background-color: var(--gold-dark);
 
+  @include md {
+    background-image: url(./../images/temp/bg-technology.png);
+  }
+
   .page {
 
     &__inner {
@@ -322,6 +372,14 @@
 
       @include md {
         padding-top: 16.7rem;
+      }
+    }
+
+    &__title {
+      height: 13.84rem;
+
+      @include sm {
+        height: 12rem;
       }
     }
 
@@ -334,13 +392,15 @@
     }
 
     &__object {
+      top: 38.1rem;
       height: 46.7rem;
       left: 1.2rem;
-      bottom: 5.2rem;
+      // bottom: 5.2rem;
 
-      @include sm {
+      @include md {
         width: auto;
         height: 37.9rem;
+        top: 43rem;
         left: 0.2rem;
       }
 
@@ -363,6 +423,11 @@
     bottom: 37.4rem;
 
     @include md {
+      right: 7.1rem;
+      bottom: unset;
+    }
+
+    @include sm {
       top: 30.4rem;
       right: 3.5rem;
     }
@@ -376,6 +441,10 @@
 .info {
 
   background-color: var(--graphite-2);
+
+  @include md {
+    background-image: url(./../images/temp/bg-info.png);
+  }
 
   .page {
 
@@ -411,8 +480,14 @@
       @include md {
         width: auto;
         height: 60.2rem;
-        bottom: 0;
+        top: 36rem;
+        bottom: unset;
         left: -26.4rem;
+      }
+
+      @include sm {
+        top: 27.2rem;
+        bottom: unset;
       }
 
       img {
@@ -432,11 +507,13 @@
     bottom: 35.3rem;
 
     @include md {
-      top: 30.4rem;
-      right: 4rem;
+      top: 40.1rem;
+      right: 7.1rem;
+      bottom: unset;
     }
 
     @include sm {
+      top: 30.4rem;
       right: 3.5rem;
     }
 
@@ -449,8 +526,8 @@
 .bolotnoe {
   background-color: var(--maroon-3);
 
-  @include sm {
-    background-color: var(--gold);
+  @include md {
+    background-image: url(./../images/temp/bg-bolotnoe.png);
   }
 
   .page {
@@ -464,6 +541,7 @@
     }
 
     &__title {
+      height: 12.15rem;
 
       @include sm {
         height: 12rem;
@@ -471,10 +549,14 @@
     }
 
     &__date {
-      margin-top: 5.3rem;
+      height: 18.8rem;
+      margin-top: 4rem;
+      margin-left: 2rem;
 
       @include md {
+        height: 9.2rem;
         margin-top: 3rem;
+        margin-left: 0;
       }
 
       @include sm {
@@ -487,29 +569,30 @@
     }
 
     &__object {
+      width: fit-content;
       height: 43.7rem;
+      top: 43.1rem;
       left: 3.8rem;
-      bottom: 3.2rem;
       z-index: 3;
 
       @include md {
-        bottom: -2rem;
+        top: 40rem;
       }
 
       @include sm {
         height: 43.7rem;
-
-        // right: -10.7rem;
-        bottom: 4.8rem;
+        top: 38.9rem;
+        bottom: unset;
         left: -18rem;
       }
 
       img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
 
-        @include sm {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        @include md {
+          object-fit: contain;
         }
       }
     }
@@ -520,9 +603,14 @@
     bottom: 37.4rem;
 
     @include md {
+      top: 40.1rem;
+      right: 7.1rem;
+      bottom: unset;
+    }
+
+    @include sm {
       top: 27.3rem;
       right: var(--container-padding);
-      bottom: unset;
     }
 
     &__inner {
@@ -538,14 +626,14 @@
 .awards {
   background-color: var(--maroon);
 
-  @include sm {
-    background-color: #D79643;
+  @include md {
+    background-image: url(./../images/temp/bg-awards.png);
   }
 
   .page {
 
     &__inner {
-      padding-top: calc(100vh/12.16);
+      padding-top: calc(100vh/20.45);
 
       @include md {
         padding-top: 16.7rem;
@@ -571,25 +659,27 @@
 
     &__object {
       height: 55.5rem;
+      height: 73.6rem;
       left: -6.1rem;
-      bottom: 2.3rem;
+      top: 32.2rem;
+
+      @include md {
+        width: auto;
+        height: 52.1rem;
+
+        top: 45rem;
+        left: -3.6rem;
+      }
 
       @include sm {
         width: 55.5rem;
-        height: 52.1rem;
-
         top: 40.8rem;
-        left: -3.6rem;
-        bottom: unset;
       }
 
       img {
-
-        @include sm {
-          width: auto;
-          height: 100%;
-          object-fit: contain;
-        }
+        width: auto;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -599,6 +689,12 @@
     bottom: 35.3rem;
 
     @include md {
+      top: 48.1rem;
+      right: 7.1rem;
+      bottom: unset;
+    }
+
+    @include sm {
       top: 27.3rem;
       right: var(--container-padding);
     }
@@ -612,30 +708,74 @@
 .partners {
   background-color: #2E2E2E;
 
+  @include md {
+    background-image: url(./../images/temp/bg-partners.png);
+  }
+
   .page {
 
     &__inner {
-      padding-top: calc(100vh/8.57);
+      padding-top: calc(100vh/11.688);
 
       @include md {
         padding-top: 16.7rem;
       }
     }
 
+    &__title {
+      height: 18.7rem;
+
+      @include sm {
+        height: 12.6rem;
+      }
+    }
+
+    &__date {
+      height: 18rem;
+      margin-top: 4rem;
+      margin-left: 4rem;
+
+      @include md {
+        height: 8rem;
+        margin-top: 2rem;
+        margin-left: 0;
+      }
+
+      @include sm {
+        height: 4.8rem;
+        margin-top: 1rem;
+      }
+    }
+
+    &__text {
+
+      @include sm {
+        margin-top: 1.6rem;
+        max-width: 23.1rem;
+      }
+    }
+
     &__object {
       height: 57.7rem;
       right: 21.8rem;
-      bottom: 2.4rem;
+      // bottom: 2.4rem;
       width: fit-content;
+      top: 29.9rem;
 
       @include md {
         width: max-content;
-        height: 48.7rem;
+        height: 70rem;
 
-        bottom: -5rem;
+        top: 48rem;
         left: 50%;
         right: unset;
         transform: translateX(-50%);
+      }
+
+      @include sm {
+        top: 43.7rem;
+        // bottom: -5rem;
+        height: 48.7rem;
       }
 
       img {
@@ -651,9 +791,15 @@
     bottom: 9.9rem;
 
     @include md {
-      top: 35rem;
-      right: var(--container-padding);
+      top: 40.1rem;
+      right: 7.1rem;
       left: unset;
+      bottom: unset;
+    }
+
+    @include sm {
+      top: 35rem;
+      right: 3.5rem;
     }
 
     &__inner {

@@ -2,23 +2,48 @@
 
 /* Кнопки */
 .btn {
-  --btn-width: fit-content;
-  --btn-height: 5.6rem;
-  --btn-first-padding: 0.3rem;
-  --btn-second-padding: 0.4rem;
-  --btn-padding-x: 2.2rem;
-  --btn-color: var(--white);
-  --btn-background: var(--maroon-3);
-  --btn-border-radius: 10rem;
-  --btn-border-color: var(--maroon-3);
-  --btn-border-width: 0.5px;
+  --btn-color: var(--gold);
+  --btn-height: 6rem;
+  --btn-border-color: var(--gold-dark);
+  --btn-background-color: transparent;
 
-  @include md {}
+  border: 0.1rem solid var(--btn-border-color);
+  border-radius: 6.5rem;
+  background-color: var(--btn-background-color);
+  padding: 2rem;
+  width: fit-content;
+  height: var(--btn-height);
+  transition: all 0.3s ease;
 
-  @include sm {}
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--btn-color);
+
+  pointer-events: all;
+  cursor: pointer;
+
+  &:hover {
+    --btn-color: var(--maroon);
+    --btn-background-color: var(--gold-dark);
+  }
 
   &:disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &--accent {
+    --btn-color: var(--white);
+    --btn-border-color: var(--maroon-3);
+    --btn-background-color: var(--maroon-3);
+
+    &:hover {
+      --btn-color: var(--white);
+      --btn-border-color: var(--maroon-2);
+      --btn-background-color: var(--maroon-2);
+    }
   }
 }

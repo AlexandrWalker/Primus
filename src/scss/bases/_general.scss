@@ -15,6 +15,9 @@
   flex-shrink: 0;
   overflow: hidden;
 
+  background-repeat: no-repeat;
+  background-size: cover;
+
   &::after {
     content: '';
     background-image: url(./../images/temp/bg-texture.png);
@@ -44,6 +47,60 @@
     top: 0;
     left: 0;
     z-index: 2;
+  }
+
+  &__control {
+    display: flex;
+    width: 4.3rem;
+    height: 4.9rem;
+    position: absolute;
+    right: calc(var(--container-padding) - 1rem);
+    bottom: calc(5.8rem - 1rem);
+    pointer-events: all;
+    cursor: pointer;
+    overflow: hidden;
+
+    @include md {
+      top: 60%;
+      right: unset;
+      left: var(--container-padding);
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+
+      svg:first-child {
+        transform: translateY(-120%);
+
+        @include md {
+          transform: translateY(0);
+        }
+      }
+
+      svg:last-child {
+        transform: translateY(-120%);
+      }
+    }
+
+    svg {
+      width: 4.3rem;
+      height: 4.9rem;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      &:last-child {
+        top: 120%;
+
+        @include md {
+          display: none;
+        }
+      }
+    }
   }
 
   &__container {
@@ -159,7 +216,7 @@
 
   @include sm {
     top: 38.8rem;
-    right: 2.1rem;
+    right: var(--container-padding);
   }
 
   &__inner {
@@ -283,20 +340,7 @@
   z-index: 1;
 
   @include md {
-    width: 186rem;
-    height: 167.3rem;
-
-    top: -8.6rem;
-    right: -22.6rem;
-    bottom: unset;
-  }
-
-  @include sm {
-    width: 140.3rem;
-    height: 126.2rem;
-
-    top: -3.6rem;
-    right: -20.2rem;
+    display: none;
   }
 
   img {
@@ -313,14 +357,6 @@
     right: unset;
     bottom: unset;
     left: 23.3rem;
-
-    @include sm {
-      width: 94.8rem;
-      height: 105.4rem;
-
-      top: 24.8rem;
-      left: -3.2rem;
-    }
   }
 
   &--bolotnoe {
@@ -331,22 +367,6 @@
     right: unset;
     bottom: unset;
     left: -53.1rem;
-
-    @include md {
-      top: -30.6rem;
-      right: unset;
-      left: -110rem;
-    }
-
-    @include sm {
-      width: 105.4rem;
-      height: 94.8rem;
-      transform: rotate(-90deg);
-
-      top: 29.5rem;
-      right: unset;
-      left: -8.2rem;
-    }
   }
 
   &--awards {
@@ -356,15 +376,6 @@
     top: -111rem;
     right: -73.6rem;
     bottom: unset;
-
-    @include sm {
-      width: 105.4rem;
-      height: 94.8rem;
-
-      top: 43.7rem;
-      left: -5.4rem;
-      right: unset;
-    }
   }
 }
 
@@ -555,4 +566,20 @@
       text-decoration: underline;
     }
   }
+}
+
+.layer {
+  background-image: url(./../images/temp/layer.png);
+  background-color: var(--maroon);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: overlay;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }

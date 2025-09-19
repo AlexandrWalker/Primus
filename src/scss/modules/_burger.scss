@@ -23,6 +23,7 @@
     height: 0.1rem;
     background-color: var(--white);
     transition: width 0.3s cubic-bezier(0.26, 0.89, 0.66, 1.59);
+    transition: all 0.3s ease;
 
     &:first-child {
       margin-left: auto;
@@ -30,6 +31,14 @@
 
     .burger:hover & {
       width: 80%;
+    }
+
+    .pp-bolotnoe & {
+      background-color: var(--black);
+    }
+
+    .pp-awards & {
+      background-color: var(--black);
     }
   }
 }
