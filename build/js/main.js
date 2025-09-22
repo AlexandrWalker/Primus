@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* Инициализация swiper */
-  const pagesContainer = document.querySelector('.page__container');
+  const pagesContainer = document.querySelector('.about__container');
   pagesSwiper = new Swiper(pagesContainer, {
-    slideClass: 'page',
-    slideActiveClass: 'page--current',
-    slideNextClass: 'page--next',
-    slidePrevClass: 'page--prev',
+    slideClass: 'about',
+    slideActiveClass: 'about--current',
+    slideNextClass: 'about--next',
+    slidePrevClass: 'about--prev',
     watchOverflow: true,
     direction: 'vertical',
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   setTimeout(() => {
-    if (document.querySelector('.page')) { document.querySelector('.page').classList.add('complete'); }
+    if (document.querySelector('.about')) { document.querySelector('.about').classList.add('complete'); }
   }, 1000);
 
   function _transitionEnd(slider) {
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutPage = document.querySelector('.about-page');
     if (aboutPage) {
       if (!document.querySelector('.' + `${hash}`).classList.contains('complete')) {
-        const pageTitle = aboutPage.querySelector('.' + `${hash}` + ' .page__title img');
+        const pageTitle = aboutPage.querySelector('.' + `${hash}` + ' .about__title img');
         if (pageTitle) {
           gsap.fromTo(pageTitle,
             {
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
               duration: 1,
               ease: "power4.out",
               scrollTrigger: {
-                trigger: '.page[class*="' + hash + '"]',
+                trigger: '.about[class*="' + hash + '"]',
                 start: 'top 100%',
                 end: 'bottom top',
               },
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
           );
         }
 
-        const pageDate = aboutPage.querySelector('.' + `${hash}` + ' .page__date img');
+        const pageDate = aboutPage.querySelector('.' + `${hash}` + ' .about__date img');
         if (pageDate) {
           gsap.fromTo(pageDate,
             {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
               delay: 0.2,
               ease: "power4.out",
               scrollTrigger: {
-                trigger: '.page[class*="' + hash + '"]',
+                trigger: '.about[class*="' + hash + '"]',
                 start: 'top 100%',
                 end: 'bottom top',
               }
@@ -297,7 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const magnetic_hit = button.querySelector('.magnetic__hit');
     const magnetic_inner = button.querySelector('.magnetic__inner');
     const magnetic_text = button.querySelector('.magnetic__text');
-    // const pages = document.querySelectorAll('.page');
 
     magnetic_hit.addEventListener('mousemove', function (e) {
       const position = button.getBoundingClientRect();
@@ -324,16 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.add('panel-open');
         data_detail.classList.add('is__open');
 
-        // pages.forEach(page => {
-        //   page.classList.add('swiper-no-swiping');
-        // });
-
         let backdrop = data_detail.querySelector('.backdrop');
         backdrop.addEventListener('click', function () {
-
-          // pages.forEach(page => {
-          //   page.classList.remove('swiper-no-swiping');
-          // });
 
           data_detail.classList.remove('is__open');
           document.documentElement.classList.remove('panel-open');
@@ -342,10 +333,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let buttonClose = data_detail.querySelector('.button__close');
         buttonClose.addEventListener('click', function () {
-
-          // pages.forEach(page => {
-          //   page.classList.remove('swiper-no-swiping');
-          // });
 
           data_detail.classList.remove('is__open');
           document.documentElement.classList.remove('panel-open');

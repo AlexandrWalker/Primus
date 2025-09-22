@@ -6,6 +6,11 @@
   gap: 1.7rem;
   width: fit-content;
 
+  @include hmd {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   @include md {
     display: none;
   }

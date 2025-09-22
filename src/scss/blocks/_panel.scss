@@ -1,6 +1,6 @@
 @use './../mixins' as *;
 
-.page__panel {
+.about__panel {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,26 +60,26 @@
 }
 
 @media (min-width: 1024px) {
-  .page__panel .content__inner {
+  .about__panel .content__inner {
     width: 70rem;
     padding: 15rem 9.5rem 4.5rem 4rem;
   }
 }
 
-.page__panel.is__open .content__inner {
+.about__panel.is__open .content__inner {
   right: 0;
 }
 
-.page__panel .content__inner::-webkit-scrollbar {
+.about__panel .content__inner::-webkit-scrollbar {
   width: 2.1rem;
 }
 
-.page__panel .content__inner::-webkit-scrollbar-track {
+.about__panel .content__inner::-webkit-scrollbar-track {
   background-color: #F3ECE3;
   border-radius: 0;
 }
 
-.page__panel .content__inner::-webkit-scrollbar-thumb {
+.about__panel .content__inner::-webkit-scrollbar-thumb {
   background-color: #FFF9F1;
   background-clip: content-box;
   border-radius: 0;
@@ -87,7 +87,7 @@
   border: 0.2rem solid #F3ECE3;
 }
 
-.page__panel .backdrop {
+.about__panel .backdrop {
   position: absolute;
   top: 0;
   left: 0;
@@ -97,7 +97,7 @@
   box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.25);
 }
 
-.panel-open .main>.page__wrapper {
+.panel-open .main>.about__wrapper {
   z-index: -1;
   transform: none;
 }

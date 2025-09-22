@@ -1,5 +1,288 @@
 @use './../mixins' as *;
 
+.about {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::after {
+    content: '';
+    background-image: url(./../images/temp/bg-texture.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  svg {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+    pointer-events: all;
+
+    position: absolute;
+    top: 50%;
+    right: var(--container-padding);
+    transform: translateY(-50%);
+
+    @include md {
+      display: none;
+    }
+
+    a {
+      font-family: 'DrukCyr';
+      font-weight: 500;
+      font-size: 3rem;
+      line-height: 97.5%;
+      color: var(--gold);
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--maroon-3);
+
+        .pp-limonad & {
+          color: var(--yellow);
+        }
+      }
+
+      &.is__active {
+        color: var(--maroon-3);
+
+        .pp-limonad & {
+          color: var(--yellow);
+        }
+      }
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  &__control {
+    display: flex;
+    width: 4.3rem;
+    height: 4.9rem;
+    position: absolute;
+    right: calc(var(--container-padding) - 1rem);
+    bottom: calc(5.8rem - 1rem);
+    pointer-events: all;
+    cursor: pointer;
+    overflow: hidden;
+
+    @include md {
+      top: 60%;
+      right: unset;
+      left: var(--container-padding);
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+
+      svg:first-child {
+        transform: translateY(-120%);
+
+        @include md {
+          transform: translateY(0);
+        }
+      }
+
+      svg:last-child {
+        transform: translateY(-120%);
+      }
+    }
+
+    svg {
+      width: 4.3rem;
+      height: 4.9rem;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      &:last-child {
+        top: 120%;
+
+        @include md {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: fit-content;
+    height: calc(100vh/(900/178));
+
+    @include md {
+      height: 20.5rem;
+    }
+
+    @include sm {
+      height: 11.7rem;
+    }
+
+    img {
+      opacity: 0;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__date {
+    overflow: hidden;
+    flex-shrink: 0;
+    width: fit-content;
+    height: calc(100vh/(900/162));
+    margin-top: calc(100vh/(900/20));
+
+    @include md {
+      height: 9.2rem;
+      margin-top: 2rem;
+      position: static !important;
+    }
+
+    @include sm {
+      height: 5.2rem;
+      margin-top: 1rem;
+    }
+
+    img {
+      opacity: 0;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex-shrink: 0;
+    margin-top: calc(100vh/(900/30));
+
+    div.char {
+      opacity: 0;
+    }
+
+    @include md {
+      margin-top: 3rem;
+    }
+
+    @include sm {
+      max-width: 19.1rem;
+      margin-top: 2rem;
+    }
+  }
+
+  &__object {
+    width: 100%;
+
+    position: absolute;
+    z-index: 3;
+
+    @include sm {
+      width: fit-content;
+      z-index: 2;
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &--main {
+
+    .about {
+
+      &__bg {
+        overflow: hidden;
+        z-index: -100;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-image: url(./../../images/temp/main-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &__content {
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__logo {
+        margin-bottom: 4.3rem;
+      }
+
+      &__title {
+        font-family: 'DrukCyr';
+        font-size: 10rem;
+        font-weight: 500;
+        line-height: 97.5%;
+        text-transform: uppercase;
+        color: var(--white);
+        text-align: center;
+        max-width: 60rem;
+
+        span {
+          color: var(--gold);
+        }
+      }
+    }
+  }
+}
+
 .begin {
   background-color: var(--gold-dark-2);
 
@@ -15,7 +298,7 @@
     }
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/6.76);
@@ -32,24 +315,32 @@
     &__title {}
 
     &__object {
-      max-width: 126.4rem;
-      bottom: 4.1rem;
+      bottom: calc(100vh/(900/41));
       left: 0;
+      height: calc(100vh/(900/347));
 
       @include md {
         bottom: 6.5rem;
         margin-top: -12.2rem;
         padding-left: var(--container-padding);
+        height: 65.8rem;
 
         top: 53rem;
         bottom: unset;
       }
 
       @include sm {
+        height: 35.7rem;
         top: 43.7rem;
         left: unset;
         right: 0;
         margin-top: -1.2rem;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
       }
     }
   }
@@ -76,7 +367,7 @@
     background-image: url(./../images/temp/bg-filter.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/6.76);
@@ -88,7 +379,7 @@
 
     &__title {
       position: relative;
-      left: -0.7rem;
+      left: calc(100vh/((900/7) * -1));
 
       @include sm {
         height: 13.8rem;
@@ -99,7 +390,7 @@
 
     &__date {
       position: relative;
-      left: -0.9rem;
+      left: calc(100vh/((900/9) * -1));
 
       @include sm {
         height: 6.1rem;
@@ -111,7 +402,7 @@
 
     &__text {
       position: relative;
-      left: -0.6rem;
+      left: calc(100vh/((900/6) * -1));
 
       @include sm {
         left: unset;
@@ -119,10 +410,10 @@
     }
 
     &__object {
-      width: 71.4rem;
+      width: calc(100vh/(900/714));
       aspect-ratio: 1/1;
-      bottom: -3rem;
-      right: calc(17.9rem - var(--container-padding));
+      bottom: calc(100vh/((900/30) * -1));
+      right: calc(100vw/(1440/139));
 
       @include md {
         right: 0;
@@ -138,6 +429,9 @@
       }
 
       img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
 
         @include sm {
           height: 100%;
@@ -169,7 +463,7 @@
     background-image: url(./../images/temp/bg-assortment.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/8.57);
@@ -180,7 +474,7 @@
     }
 
     &__title {
-      height: 12.35rem;
+      height: calc(100vh/(900/123.5));
 
       @include sm {
         height: 12rem;
@@ -189,8 +483,8 @@
 
     &__date {
       position: absolute;
-      right: 12.5rem;
-      bottom: 6.9rem;
+      right: calc(100vw/(1440/125));
+      bottom: calc(100vh/(900/69));
 
       @include md {
         position: static;
@@ -215,9 +509,9 @@
     }
 
     &__object {
-      height: 55.7rem;
+      height: calc(100vh/(900/557));
       top: calc(100vh / 2.8);
-      left: 1.2rem;
+      left: calc(100vh/(900/12));
 
       @include md {
         height: 37.1rem;
@@ -230,12 +524,6 @@
         width: auto;
         height: 100%;
         object-fit: contain;
-
-        @include sm {
-          width: fit-content;
-          height: 100%;
-          object-fit: contain;
-        }
       }
     }
   }
@@ -263,7 +551,7 @@
     background-image: url(./../images/temp/bg-limonad.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/11.25);
@@ -274,14 +562,14 @@
     }
 
     &__title {
-      height: 12.36rem;
+      height: calc(100vh/(900/123.6));
     }
 
     &__date {
       position: absolute;
-      left: -0.5rem;
-      bottom: 10.1rem;
-      height: 12rem;
+      left: calc(100vh/((900/5)*-1));
+      bottom: calc(100vh/(900/101));
+      height: calc(100vh/(900/120));
 
       @include md {
         height: 8rem;
@@ -301,10 +589,10 @@
     }
 
     &__object {
-      top: 14.5rem;
-      right: 16.4rem;
+      top: calc(100vh/(900/145));
+      right: calc(100vw/(1440/164));
       width: fit-content;
-      height: 77.5rem;
+      height: calc(100vh/(900/775));
 
       @include md {
         top: 47rem;
@@ -335,8 +623,8 @@
   }
 
   .magnetic {
-    left: 7.5rem;
-    bottom: 34.5rem;
+    left: calc(100vw/(1440/75));
+    bottom: calc(100vh/(900/345));
 
     @include md {
       left: unset;
@@ -365,7 +653,7 @@
     background-image: url(./../images/temp/bg-technology.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/6.92);
@@ -376,9 +664,9 @@
     }
 
     &__title {
-      height: 13.84rem;
+      height: calc(100vh/(900/138.4));
 
-      @include sm {
+      @include md {
         height: 12rem;
       }
     }
@@ -391,10 +679,9 @@
     }
 
     &__object {
-      top: 38.1rem;
-      height: 46.7rem;
-      left: 1.2rem;
-      // bottom: 5.2rem;
+      top: calc(100vh/(900/381));
+      height: calc(100vh/(900/467));
+      left: calc(100vh/(900/12));
 
       @include md {
         width: auto;
@@ -418,8 +705,8 @@
   }
 
   .magnetic {
-    right: 46.9rem;
-    bottom: 37.4rem;
+    right: calc(100vw/(1440/469));
+    bottom: calc(100vh/(900/374));
 
     @include md {
       right: 7.1rem;
@@ -445,7 +732,7 @@
     background-image: url(./../images/temp/bg-info.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/20.45);
@@ -481,9 +768,10 @@
     }
 
     &__object {
-      height: 50.3rem;
-      left: 2.8rem;
-      bottom: 2.3rem;
+      height: calc(100vh/(900/503));
+      left: calc(100vw/(1440/28));
+      bottom: calc(100vh/(900/23));
+      bottom: 0;
 
       @include md {
         width: auto;
@@ -499,6 +787,9 @@
       }
 
       img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;
 
         @include md {
           width: auto;
@@ -511,8 +802,8 @@
   }
 
   .magnetic {
-    right: 41.2rem;
-    bottom: 35.3rem;
+    right: calc(100vw/(1440/412));
+    bottom: calc(100vh/(900/353));
 
     @include md {
       top: 40.1rem;
@@ -538,7 +829,7 @@
     background-image: url(./../images/temp/bg-bolotnoe.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/7.08);
@@ -549,7 +840,7 @@
     }
 
     &__title {
-      height: 12.15rem;
+      height: calc(100vh/(900/121.5));
 
       @include sm {
         // height: 12rem;
@@ -569,9 +860,9 @@
     }
 
     &__date {
-      height: 18.8rem;
-      margin-top: 4rem;
-      margin-left: 2rem;
+      height: calc(100vh/(900/188));
+      margin-top: calc(100vh/(900/40));
+      margin-left: calc(100vw/(1440/20));
 
       @include md {
         height: 9.2rem;
@@ -590,9 +881,9 @@
 
     &__object {
       width: fit-content;
-      height: 43.7rem;
-      top: 43.1rem;
-      left: 3.8rem;
+      height: calc(100vh/(900/437));
+      top: calc(100vh/(900/431));
+      left: calc(100vw/(1440/38));
       z-index: 3;
 
       @include md {
@@ -619,8 +910,8 @@
   }
 
   .magnetic {
-    right: 46.9rem;
-    bottom: 37.4rem;
+    right: calc(100vw/(1440/469));
+    bottom: calc(100vh/(900/374));
 
     @include md {
       top: 40.1rem;
@@ -650,7 +941,7 @@
     background-image: url(./../images/temp/bg-awards.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/20.45);
@@ -678,10 +969,9 @@
     }
 
     &__object {
-      height: 55.5rem;
-      height: 73.6rem;
-      left: -6.1rem;
-      top: 32.2rem;
+      height: calc(100vh/(900/736));
+      left: calc(100vw/((1440/61)*-1));
+      top: calc(100vh/(900/322));
 
       @include md {
         width: auto;
@@ -705,8 +995,8 @@
   }
 
   .magnetic {
-    right: 41.2rem;
-    bottom: 35.3rem;
+    right: calc(100vw/(1440/412));
+    bottom: calc(100vh/(900/353));
 
     @include md {
       top: 48.1rem;
@@ -732,7 +1022,7 @@
     background-image: url(./../images/temp/bg-partners.png);
   }
 
-  .page {
+  .about {
 
     &__inner {
       padding-top: calc(100vh/11.688);
@@ -743,17 +1033,17 @@
     }
 
     &__title {
-      height: 18.7rem;
+      height: calc(100vh/(900/187));
 
-      @include sm {
+      @include md {
         height: 12.6rem;
       }
     }
 
     &__date {
-      height: 18rem;
-      margin-top: 4rem;
-      margin-left: 4rem;
+      height: calc(100vh/(900/180));
+      margin-top: calc(100vh/(900/40));
+      margin-left: calc(100vw/(1440/40));
 
       @include md {
         height: 8rem;
@@ -768,7 +1058,6 @@
     }
 
     &__text {
-
       max-width: 50rem;
 
       @include sm {
@@ -778,11 +1067,10 @@
     }
 
     &__object {
-      height: 57.7rem;
-      right: 21.8rem;
-      // bottom: 2.4rem;
+      height: calc(100vh/(900/577));
+      right: calc(100vw/(1440/218));
       width: fit-content;
-      top: 29.9rem;
+      top: calc(100vh/(900/299));
 
       @include md {
         width: max-content;
@@ -809,8 +1097,8 @@
   }
 
   .magnetic {
-    left: 3.1rem;
-    bottom: 9.9rem;
+    left: calc(100vw/(1440/31));
+    bottom: calc(100vh/(900/99));
 
     @include md {
       top: 40.1rem;

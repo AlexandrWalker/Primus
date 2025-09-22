@@ -31,6 +31,7 @@
     background-size: cover;
 
     @include md {
+      display: none;
       width: 14rem;
       height: 11.7rem;
     }
@@ -59,7 +60,8 @@
     margin-bottom: 6rem;
 
     @include md {
-      margin-bottom: 3rem;
+      height: 7.9rem;
+      margin-bottom: 4rem;
     }
 
     img {
@@ -79,11 +81,11 @@
 
     @include md {
       font-size: 8rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
-    @include md {
-      font-size: 6rem;
+    @include sm {
+      font-size: 5rem;
     }
   }
 
@@ -94,10 +96,15 @@
     text-align: center;
     color: var(--gold);
     margin-bottom: 6rem;
+    max-width: 62.4rem;
 
     @include md {
       font-size: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    @include sm {
+      font-size: 1.5rem;
     }
   }
 
@@ -107,6 +114,11 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 3rem;
+
+    @include md {
+      gap: 2rem;
+      max-width: 27.8rem;
+    }
   }
 
   &__btn {
