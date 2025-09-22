@@ -110,10 +110,10 @@ img {
 }
 
 @font-face {
-  font-family: DrukCyr;
+  font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -126,10 +126,10 @@ img {
 }
 
 @font-face {
-  font-family: Roboto;
+  font-family: DrukCyr;
   font-display: swap;
-  src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
-  font-weight: 900;
+  src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -210,6 +210,318 @@ img {
   height: 100%;
   position: relative;
   z-index: 3;
+}
+
+.general-page .main {
+  padding: 0;
+}
+
+.general-page .header {
+  width: 100%;
+  padding: 3.1111111111vh 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  -webkit-transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.general-page .header__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.general-page .logo {
+  display: none;
+}
+
+.general-page .restriction {
+  width: 4.9305555556vw;
+  height: 6.6666666667vh;
+  position: static;
+}
+
+.general-page .restriction svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.general-page .burger {
+  position: static;
+  -webkit-transform: unset;
+  -ms-transform: unset;
+  transform: unset;
+}
+
+.general-page .footer__container {
+  --container-padding: 4rem;
+}
+
+.general-page .nav__restriction {
+  top: 2.9rem;
+}
+
+.general-page .nav .logo {
+  top: 2.4rem;
+}
+
+.general__bg {
+  overflow: hidden;
+  z-index: -100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(./../images/temp/main-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.general__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.general__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  top: 21.3333333333vh;
+}
+
+.general__logo {
+  width: auto;
+  height: 8.5555555556vh;
+  margin-bottom: 4.7777777778vh;
+}
+
+.general__logo svg {
+  height: 100%;
+}
+
+.general__title {
+  font-family: "DrukCyr";
+  font-weight: 500;
+  font-size: 11.1111111111vh;
+  line-height: 97.5%;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 70rem;
+}
+
+.general__title span {
+  color: var(--gold);
+}
+
+.general__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  gap: 5.7777777778vh;
+  padding-bottom: 9vh;
+  height: 100vh;
+  margin-right: auto;
+  position: relative;
+}
+
+.general__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 2.1111111111vh;
+  position: relative;
+}
+
+.general__list a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 3.4rem;
+  padding-bottom: 1.1111111111vh;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  font-family: "DrukCyr";
+  font-weight: 500;
+  font-size: 3.8888888889vh;
+  line-height: 125%;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.general__list a:hover {
+  color: var(--gold);
+}
+
+.general__list a:hover .link__border {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: hoverLine;
+  animation-name: hoverLine;
+}
+
+.general__list a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  background-color: var(--maroon-3);
+  height: 0.1rem;
+  bottom: 0;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.general__list a .link__icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-right: 2rem;
+}
+
+.general__list a .link__icon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.general__list a .link__border {
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--gold);
+  left: 0;
+  -webkit-transform: translateX(101%);
+  -ms-transform: translateX(101%);
+  transform: translateX(101%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-name: hoverLine2;
+  animation-name: hoverLine2;
+  bottom: 0;
+}
+
+@-webkit-keyframes hoverLine {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes hoverLine {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes hoverLine2 {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+@keyframes hoverLine2 {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+.quote {
+  max-width: 33.1rem;
+  color: var(--gold-dark);
+  font-family: "TimesNewRoman";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 110%;
+  letter-spacing: 0.1rem;
+}
+
+.quote::before {
+  content: "";
+  display: block;
+  height: 6.5555555556vh;
+  aspect-ratio: 56/59;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNTkiIHZpZXdCb3g9IjAgMCA1NiA1OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBpZD0iJiMyMjY7JiMxMjg7JiMxNTY7IiBkPSJNMCA1OVY0NC4yMTk1QzAgMzkuMjUxOSAwLjYxOTkyNiAzNC4wODA3IDEuODU5NzggMjguNzA2QzMuMTY4NTEgMjMuMjQ5OCA1LjAyODI5IDE4LjAzOCA3LjQzOTExIDEzLjA3MDRDOS45MTg4MiA4LjAyMTM5IDEyLjg4MDcgMy42NjQ2IDE2LjMyNDcgMEwyNi41NTM1IDguOTE3MThDMjMuNzk4MyAxNC4yOTE5IDIxLjY5NzQgMTkuODI5NSAyMC4yNTA5IDI1LjUzQzE4LjgwNDQgMzEuMTQ5MSAxOC4wODEyIDM3LjI1NjcgMTguMDgxMiA0My44NTNWNTlIMFpNMjkuNDQ2NSA1OVY0NC4yMTk1QzI5LjQ0NjUgMzkuMjUxOSAzMC4wNjY0IDM0LjA4MDcgMzEuMzA2MyAyOC43MDZDMzIuNjE1IDIzLjI0OTggMzQuNDc0OCAxOC4wMzggMzYuODg1NiAxMy4wNzA0QzM5LjM2NTMgOC4wMjEzOSA0Mi4zMjcyIDMuNjY0NiA0NS43NzEyIDBMNTYgOC45MTcxOEM1My4yNDQ4IDE0LjI5MTkgNTEuMTQzOSAxOS44Mjk1IDQ5LjY5NzQgMjUuNTNDNDguMjUwOSAzMS4xNDkxIDQ3LjUyNzcgMzcuMjU2NyA0Ny41Mjc3IDQzLjg1M1Y1OUgyOS40NDY1WiIgZmlsbD0iI0FBODg2NSIvPjwvc3ZnPg==);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 3.2222222222vh;
 }
 
 /* Стиль магнитной кнопки */
@@ -1058,6 +1370,19 @@ ol {
   --container-padding: 1.5rem;
 }
 
+.footer__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
 .footer__copyright {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -1068,7 +1393,19 @@ ol {
   color: var(--maroon-2);
 }
 
-.header {
+.footer__made {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 125.69%;
+  text-align: center;
+  color: var(--maroon-2);
+}
+
+.footer__made a {
+  text-decoration: underline;
+}
+
+.about-page .header {
   width: var(--header-width);
   height: 100vh;
   padding: 4rem 0 6rem;
@@ -1080,11 +1417,11 @@ ol {
   z-index: 100;
 }
 
-.header__container {
+.about-page .header__container {
   --container-padding: 0.6rem;
 }
 
-.header__inner {
+.about-page .header__inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1238,7 +1575,7 @@ html.menu-open.menu-open-closing .nav__layer {
 .nav__main::before {
   content: "";
   height: 0.1rem;
-  width: 100vw;
+  width: 0;
   margin-left: -4rem;
   background-color: var(--maroon-3);
   -webkit-box-ordinal-group: 3;
@@ -1250,6 +1587,7 @@ html.menu-open.menu-open-closing .nav__layer {
 
 html.menu-open .nav__main::before {
   opacity: 1;
+  width: 100vw;
 }
 
 .nav__main ul {
@@ -2551,6 +2889,85 @@ a.link-wa {
     padding-bottom: 8rem;
   }
 
+  .general-page .header__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .general-page .logo {
+    display: block;
+    width: auto;
+    height: 3.465rem;
+    margin: 0 auto;
+  }
+
+  .general-page .restriction {
+    display: block;
+    width: 3.3rem;
+    height: 2.8rem;
+  }
+
+  .general-page .burger {
+    margin-left: auto;
+  }
+
+  .general-page .footer__container {
+    --container-padding: 2rem;
+  }
+
+  .general__inner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 3.7rem;
+  }
+
+  .general__content {
+    padding-top: 11.4rem;
+    position: static;
+  }
+
+  .general__logo {
+    display: none;
+  }
+
+  .general__title {
+    font-size: 5rem;
+    max-width: 33.1rem;
+  }
+
+  .general__menu {
+    gap: 0.4rem;
+    margin: 0;
+    height: auto;
+  }
+
+  .general__list {
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .general__list a {
+    padding-right: 0;
+    padding-bottom: 0;
+    font-size: 2.5rem;
+  }
+
+  .general__list a .link__icon {
+    display: none;
+  }
+
+  .quote {
+    font-size: 1.6rem;
+  }
+
+  .quote::before {
+    width: 5.6rem;
+    height: 5.9rem;
+    margin-bottom: 1.7rem;
+  }
+
   .magnetic {
     top: 40.1rem;
     right: 7.1rem;
@@ -2652,7 +3069,7 @@ a.link-wa {
     display: none;
   }
 
-  .header {
+  .about-page .header {
     width: 100%;
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -2661,11 +3078,11 @@ a.link-wa {
     background-color: transparent;
   }
 
-  .header__container {
+  .about-page .header__container {
     --container-padding: 4rem;
   }
 
-  .header__inner {
+  .about-page .header__inner {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
@@ -2744,6 +3161,8 @@ a.link-wa {
 
   .nav__main::before {
     display: block;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
   }
 
   .nav__main ul {
@@ -2765,6 +3184,8 @@ a.link-wa {
   html.menu-open .nav__main .line {
     height: 0.1rem;
     width: 100%;
+    -webkit-transition: width 1s ease-in;
+    transition: width 1s ease-in;
   }
 
   html.menu-open.menu-open-closing .nav__main .line {
@@ -3170,7 +3591,7 @@ a.link-wa {
     top: -0.6rem;
   }
 
-  .header__container {
+  .about-page .header__container {
     --container-padding: 2rem;
   }
 
@@ -3405,7 +3826,7 @@ a.link-wa {
   }
 }
 
-@media (max-height: 820px) {
+@media (min-aspect-ratio: 16/9) {
   .bullets {
     opacity: 0;
     pointer-events: none;

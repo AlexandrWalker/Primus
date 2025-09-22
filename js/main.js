@@ -118,14 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function checkMenuActive(hash) {
-    const menuItems = document.querySelectorAll('ul.main__menu a[href*="#"]');
+    const menuItems = document.querySelectorAll('ul.about__menu a[href*="#"]');
 
     for (let menuItem of menuItems) {
       if (menuItem.classList.contains('is__active'))
         menuItem.classList.remove('is__active')
     }
 
-    const curMenuItem = document.querySelector('ul.main__menu a[href*="#' + hash + '"]');
+    const curMenuItem = document.querySelector('ul.about__menu a[href*="#' + hash + '"]');
 
     if (curMenuItem !== null)
       curMenuItem.classList.add('is__active');
