@@ -2,6 +2,8 @@ gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ScrollSmoother, TweenMax);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const checkEditMode = document.querySelector('.bx-panel-toggle-on') ?? null;
+
   /**
    * Инициализация Lenis
    */
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     watchOverflow: true,
     direction: 'vertical',
 
+    noSwipingClass: 'swiper-no-swiping',
     effect: "creative",
     creativeEffect: {
       prev: {
@@ -269,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $(".wrapper").mousemove(function (e) {
       const masks = document.querySelectorAll('.mask');
       masks.forEach(mask => {
-        parallaxIt(e, mask, -50);
+        parallaxIt(e, mask, -100);
         // parallaxIt(e, ".page__object", -100);
       });
     });
@@ -294,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const magnetic_hit = button.querySelector('.magnetic__hit');
     const magnetic_inner = button.querySelector('.magnetic__inner');
     const magnetic_text = button.querySelector('.magnetic__text');
+    // const pages = document.querySelectorAll('.page');
 
     magnetic_hit.addEventListener('mousemove', function (e) {
       const position = button.getBoundingClientRect();
@@ -320,12 +324,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.add('panel-open');
         data_detail.classList.add('is__open');
 
-        PrimusProduction.pagesSwiper.disable();
+        // pages.forEach(page => {
+        //   page.classList.add('swiper-no-swiping');
+        // });
 
         let backdrop = data_detail.querySelector('.backdrop');
         backdrop.addEventListener('click', function () {
 
-          PrimusProduction.pagesSwiper.enable();
+          // pages.forEach(page => {
+          //   page.classList.remove('swiper-no-swiping');
+          // });
 
           data_detail.classList.remove('is__open');
           document.documentElement.classList.remove('panel-open');
@@ -335,7 +343,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let buttonClose = data_detail.querySelector('.button__close');
         buttonClose.addEventListener('click', function () {
 
-          PrimusProduction.pagesSwiper.enable();
+          // pages.forEach(page => {
+          //   page.classList.remove('swiper-no-swiping');
+          // });
 
           data_detail.classList.remove('is__open');
           document.documentElement.classList.remove('panel-open');
