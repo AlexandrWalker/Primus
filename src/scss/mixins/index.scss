@@ -1,7 +1,8 @@
 @use 'sass:math';
 
 @mixin hmd() {
-  @media (max-height: 820px) {
+  // @media (max-height: 820px) {
+  @media (min-aspect-ratio: 16/9) {
     @content;
   }
 }

@@ -114,7 +114,7 @@ html.menu-open {
     &::before {
       content: "";
       height: 0.1rem;
-      width: 100vw;
+      width: 0;
       margin-left: -4rem;
       background-color: var(--maroon-3);
       order: 2;
@@ -123,6 +123,7 @@ html.menu-open {
 
       @include md {
         display: block;
+        transition: width 1s ease-in-out;
       }
 
       @include sm {
@@ -131,6 +132,7 @@ html.menu-open {
 
       html.menu-open & {
         opacity: 1;
+        width: 100vw;
       }
     }
 
@@ -214,6 +216,7 @@ html.menu-open {
         @include md {
           height: 0.1rem;
           width: 100%;
+          transition: width 1s ease-in;
         }
       }
 

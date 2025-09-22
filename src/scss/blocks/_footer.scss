@@ -24,12 +24,31 @@
     --container-padding: 1.5rem;
   }
 
-  &__copyright {
-  width: fit-content;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem 2rem;
+  }
 
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 126%;
-  color: var(--maroon-2);
-}
+  &__copyright {
+    width: fit-content;
+
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 126%;
+    color: var(--maroon-2);
+  }
+
+  &__made {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 125.69%;
+    text-align: center;
+    color: var(--maroon-2);
+
+    a {
+      text-decoration: underline;
+    }
+  }
 }
