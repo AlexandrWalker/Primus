@@ -462,6 +462,15 @@
         width: 100%;
         height: auto;
       }
+
+      img {
+
+        @include md {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
     }
 
     &__text {
@@ -544,7 +553,19 @@
       height: 12.15rem;
 
       @include sm {
-        height: 12rem;
+        // height: 12rem;
+        width: calc(100% - 4.2rem);
+        height: auto;
+      }
+
+
+      img {
+
+        @include sm {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
       }
     }
 

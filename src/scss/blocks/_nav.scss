@@ -15,7 +15,6 @@ html.menu-open {
   flex-direction: row;
   pointer-events: none;
   overflow-y: unset;
-
   transition: background-color 0.3s ease;
 
   @include md {
@@ -24,16 +23,6 @@ html.menu-open {
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-
-    display: none;
-  }
-
-  html.menu-open & {
-    pointer-events: all;
-
-    @include md {
-      background-color: #4F1E0D;
-    }
   }
 
   &__layer {
@@ -49,13 +38,21 @@ html.menu-open {
     transition: height .6s ease-in-out;
 
     @include md {
-      display: none;
+      // display: none;
       width: 100%;
+      height: 100%;
+      position: fixed;
+      opacity: 0;
+      transition: all .6s ease-in-out;
     }
 
     html.menu-open & {
       height: 100%;
       pointer-events: all;
+
+      @include md {
+        opacity: 1;
+      }
     }
 
     html.menu-open.menu-open-closing & {
@@ -79,41 +76,9 @@ html.menu-open {
     z-index: 10;
     pointer-events: none;
     transition: 0s;
-  }
 
-  a.menu__close {
-    display: none;
-    width: 4.3rem;
-    height: 4.3rem;
-    position: absolute;
-    right: 4rem;
-    top: 2.6rem;
-    z-index: 150;
-
-    .menu-open & {
-      display: block;
-    }
-  }
-
-  .logo {
-    position: absolute;
-    top: 2.5rem;
-    left: 4rem;
-    z-index: 5;
-    opacity: 0;
-    transform: translateY(3.5rem);
-    transition: opacity .3s ease-out, transform .3s ease-out;
-
-    html.menu-open & {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity .9s ease-in, transform .9s ease-in;
-    }
-
-    html.menu-open.menu-open-closing & {
-      opacity: 0;
-      transform: translateY(3.5rem);
-      transition: opacity .9s ease-out, transform .9s ease-out;
+    @include md {
+      background-size: cover;
     }
   }
 
@@ -131,6 +96,29 @@ html.menu-open {
       flex: 0 0 auto;
       order: 2;
       padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    @include sm {
+      padding-left: 2rem;
+    }
+
+    &::before {
+      content: "";
+      height: 0.1rem;
+      width: 100vw;
+      margin-left: -4rem;
+      background-color: var(--maroon-3);
+      order: 2;
+      display: none;
+
+      @include md {
+        display: block;
+      }
+
+      @include sm {
+        margin-left: -2rem;
+      }
     }
 
     ul {
@@ -142,6 +130,11 @@ html.menu-open {
       opacity: 0;
       transform: translateY(3.5rem);
       transition: opacity .3s ease-out, transform .3s ease-out;
+
+      @include md {
+        margin-bottom: 3rem;
+        order: 1;
+      }
 
       html.menu-open & {
         opacity: 1;
@@ -223,12 +216,191 @@ html.menu-open {
 
   }
 
+  &__second {
+    position: relative;
+    z-index: 10;
+    display: flex;
+
+    padding-top: 14vh;
+    flex: 0 0 44.31%;
+    padding-left: 8rem;
+
+    @include md {
+      order: 1;
+      padding: 14.1rem var(--container-padding) 3rem;
+    }
+
+    &-menu {
+      width: 100%;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(3.5rem);
+      transition: opacity .4s ease-out, transform .3s ease-out;
+
+      @include md {
+        gap: 1rem;
+      }
+
+      html.menu-open & {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity .8s ease-in, transform .8s ease-in;
+        overflow-y: auto;
+      }
+
+      html.menu-open.menu-open-closing & {
+        opacity: 0;
+        transform: translateY(3.5rem);
+        transition: opacity .4s ease-out, transform .3s ease-out;
+      }
+
+      li {
+        display: inline-flex;
+        padding-right: 4rem;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        @include md {
+          padding-right: 0;
+        }
+
+        a {
+          color: var(--gold-light-2);
+          font-family: 'DrukCyr';
+          font-size: 8rem;
+          font-weight: 500;
+          line-height: normal;
+          text-transform: uppercase;
+          text-decoration: none;
+          display: inline-flex;
+          position: relative;
+          overflow: hidden;
+          transition: color .3s ease-in-out;
+          transform: translateY(110%);
+
+          @include md {
+            font-size: 5rem;
+          }
+
+          span {
+            display: inline-block;
+            transition: transform .3s ease-in-out;
+          }
+
+          &:hover {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  &__restriction {
+    opacity: 0;
+    position: absolute;
+    top: 2.6rem;
+    left: 2rem;
+    z-index: 2;
+
+    html.menu-open & {
+      
+      @include md {
+        opacity: 1;
+      }
+    }
+  }
+
+  html.menu-open & {
+    pointer-events: all;
+
+    @include md {
+      background-color: #4F1E0D;
+    }
+  }
+
+  a.menu__close {
+    display: none;
+    width: 4.3rem;
+    height: 4.3rem;
+    position: absolute;
+    right: 4rem;
+    top: 2.6rem;
+    z-index: 150;
+
+    @include md {
+      width: 3.7rem;
+      height: 3.7rem;
+      top: 2.1rem;
+      right: 2.1rem;
+    }
+
+    .menu-open & {
+      display: block;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 2.5rem;
+    left: 4rem;
+    z-index: 5;
+    opacity: 0;
+    transform: translateY(3.5rem);
+    transition: opacity .3s ease-out, transform .3s ease-out;
+
+    @include md {
+      top: 1.9rem;
+      left: calc(50% - (4.7rem/2));
+      width: 4.7rem;
+
+    }
+
+    html.menu-open & {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .9s ease-in, transform .9s ease-in;
+    }
+
+    html.menu-open.menu-open-closing & {
+      opacity: 0;
+      transform: translateY(3.5rem);
+      transition: opacity .9s ease-out, transform .9s ease-out;
+    }
+
+    svg {
+
+      @include md {
+        display: none;
+      }
+    }
+
+    .logo--mob {
+      display: none;
+
+      @include md {
+        display: block;
+      }
+    }
+  }
+
   .contacts {
     margin-top: auto;
     margin-bottom: 4.1rem;
     opacity: 0;
     transform: translateY(3.5rem);
     transition: opacity .3s ease-out, transform .3s ease-out;
+
+    @include md {
+      margin-top: 4.5rem;
+      order: 3;
+    }
 
     html.menu-open & {
       opacity: 1;
@@ -281,88 +453,6 @@ html.menu-open {
       a {
         color: var(--gold);
         text-decoration: none;
-      }
-    }
-  }
-
-  &__second {
-    position: relative;
-    z-index: 10;
-    display: flex;
-
-    padding-top: 14vh;
-    flex: 0 0 44.31%;
-    padding-left: 8rem;
-
-    @include md {
-      order: 1;
-      padding: 14.1rem var(--container-padding) 3rem;
-    }
-
-    &-menu {
-      width: 100%;
-    }
-
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateY(3.5rem);
-      transition: opacity .4s ease-out, transform .3s ease-out;
-
-      html.menu-open & {
-        opacity: 1;
-        transform: translateY(0);
-        transition: opacity .8s ease-in, transform .8s ease-in;
-        overflow-y: auto;
-      }
-
-      html.menu-open.menu-open-closing & {
-        opacity: 0;
-        transform: translateY(3.5rem);
-        transition: opacity .4s ease-out, transform .3s ease-out;
-      }
-
-      li {
-        display: inline-flex;
-        padding-right: 4rem;
-        overflow: hidden;
-        flex-shrink: 0;
-
-        @include md {
-          padding-right: 0;
-        }
-
-        a {
-          color: var(--gold-light-2);
-          font-family: 'DrukCyr';
-          font-size: 8rem;
-          font-weight: 500;
-          line-height: normal;
-          text-transform: uppercase;
-          text-decoration: none;
-          display: inline-flex;
-          position: relative;
-          overflow: hidden;
-          transition: color .3s ease-in-out;
-          transform: translateY(110%);
-
-          @include md {
-            font-size: 5rem;
-          }
-
-          span {
-            display: inline-block;
-            transition: transform .3s ease-in-out;
-          }
-
-          &:hover {
-            color: var(--white);
-          }
-        }
       }
     }
   }
