@@ -96,7 +96,7 @@ html.menu-open {
     position: relative;
     z-index: 10;
     flex: 0 0 21.11%;
-    padding-top: 14vh;
+    padding-top: calc(100vh/(900/150));
     padding-left: 4rem;
     padding-right: 2rem;
 
@@ -123,7 +123,7 @@ html.menu-open {
 
       @include md {
         display: block;
-        transition: width 1s ease-in-out;
+        transition: width 1s ease-in-out 0.6s;
       }
 
       @include sm {
@@ -165,7 +165,11 @@ html.menu-open {
 
       li {
         display: inline-flex;
-        margin-bottom: 3rem;
+        margin-bottom: calc(100vh/(900/30));
+
+        @include md {
+          margin-bottom: 3rem;
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -237,7 +241,7 @@ html.menu-open {
     z-index: 10;
     display: flex;
 
-    padding-top: 14vh;
+    padding-top: calc(100vh/(900/123));
     flex: 0 0 44.31%;
     padding-left: 8rem;
 
@@ -291,6 +295,7 @@ html.menu-open {
           color: var(--gold-light-2);
           font-family: 'DrukCyr';
           font-size: 8rem;
+          font-size: calc(100vh/(900/80));
           font-weight: 500;
           line-height: normal;
           text-transform: uppercase;
@@ -434,7 +439,11 @@ html.menu-open {
       font-weight: 400;
       line-height: normal;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: calc(100vh/(900/10));
+
+      @include md {
+        margin-bottom: 1rem;
+      }
     }
 
     .address {
@@ -443,7 +452,11 @@ html.menu-open {
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: 1rem;
+      margin-bottom: calc(100vh/(900/30));
+
+      @include md {
+        margin-bottom: 3rem;
+      }
 
       .sale .partners .sale__item & {
         font-size: 1.8rem;
@@ -460,7 +473,7 @@ html.menu-open {
 
       .title {
         text-transform: none;
-        margin-top: 3rem;
+        // margin-top: 3rem;
       }
 
       a {

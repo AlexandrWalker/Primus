@@ -13,13 +13,6 @@
 	font-style: normal;
 }
 @font-face {
-	font-family: Roboto;
-	font-display: swap;
-	src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
-	font-weight: 900;
-	font-style: normal;
-}
-@font-face {
 	font-family: DrukCyr;
 	font-display: swap;
 	src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
@@ -31,6 +24,13 @@
 	font-display: swap;
 	src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
 	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	font-display: swap;
+	src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
+	font-weight: 900;
 	font-style: normal;
 }
 @font-face {
