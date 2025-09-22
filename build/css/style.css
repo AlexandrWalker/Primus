@@ -128,8 +128,8 @@ img {
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-ExtraBold.woff2") format("woff2"), url("../fonts/Roboto-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -144,8 +144,8 @@ img {
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-Black.woff2") format("woff2"), url("../fonts/Roboto-Black.woff") format("woff");
-  font-weight: 900;
+  src: url("../fonts/Roboto-ExtraBold.woff2") format("woff2"), url("../fonts/Roboto-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -182,14 +182,6 @@ img {
 }
 
 @font-face {
-  font-family: TimesNewRoman;
-  font-display: swap;
-  src: url("../fonts/TimesNewRoman-Regular.woff2") format("woff2"), url("../fonts/TimesNewRoman-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: Roboto;
   font-display: swap;
   src: url("../fonts/Roboto-SemiBold.woff2") format("woff2"), url("../fonts/Roboto-SemiBold.woff") format("woff");
@@ -202,6 +194,14 @@ img {
   font-display: swap;
   src: url("../fonts/Roboto-Thin.woff2") format("woff2"), url("../fonts/Roboto-Thin.woff") format("woff");
   font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: TimesNewRoman;
+  font-display: swap;
+  src: url("../fonts/TimesNewRoman-Regular.woff2") format("woff2"), url("../fonts/TimesNewRoman-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -1572,6 +1572,10 @@ html.menu-open {
   transition: background-color 0.3s ease;
 }
 
+html.menu-open .nav {
+  pointer-events: all;
+}
+
 .nav__layer {
   overflow: hidden;
   width: 65.42%;
@@ -1642,6 +1646,11 @@ html.menu-open.menu-open-closing .nav__layer {
   -ms-flex-order: 2;
   order: 2;
   display: none;
+  opacity: 0;
+}
+
+html.menu-open .nav__main::before {
+  opacity: 1;
 }
 
 .nav__main ul {
@@ -1852,10 +1861,6 @@ html.menu-open.menu-open-closing .nav__second ul {
   top: 2.6rem;
   left: 2rem;
   z-index: 2;
-}
-
-html.menu-open .nav {
-  pointer-events: all;
 }
 
 .nav a.menu__close {
@@ -2432,10 +2437,6 @@ html.menu-open.menu-open-closing .nav__image img {
   height: 13.84rem;
 }
 
-.technology .page__text {
-  margin-top: 0;
-}
-
 .technology .page__object {
   top: 38.1rem;
   height: 46.7rem;
@@ -2585,6 +2586,10 @@ html.menu-open.menu-open-closing .nav__image img {
   height: 18rem;
   margin-top: 4rem;
   margin-left: 4rem;
+}
+
+.partners .page__text {
+  max-width: 50rem;
 }
 
 .partners .page__object {
@@ -2839,10 +2844,14 @@ html.menu-open.menu-open-closing .nav__image img {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    overflow-y: auto;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  html.menu-open .nav {
+    background-color: #4F1E0D;
+    overflow-y: auto;
   }
 
   .nav__layer {
@@ -2923,10 +2932,6 @@ html.menu-open.menu-open-closing .nav__image img {
 
   html.menu-open .nav__restriction {
     opacity: 1;
-  }
-
-  html.menu-open .nav {
-    background-color: #4F1E0D;
   }
 
   .nav a.menu__close {

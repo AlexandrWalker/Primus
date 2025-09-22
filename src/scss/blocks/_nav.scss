@@ -19,10 +19,18 @@ html.menu-open {
 
   @include md {
     flex-direction: column;
-    overflow-y: auto;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  html.menu-open & {
+    pointer-events: all;
+
+    @include md {
+      background-color: #4F1E0D;
+      overflow-y: auto;
+    }
   }
 
   &__layer {
@@ -111,6 +119,7 @@ html.menu-open {
       background-color: var(--maroon-3);
       order: 2;
       display: none;
+      opacity: 0;
 
       @include md {
         display: block;
@@ -118,6 +127,10 @@ html.menu-open {
 
       @include sm {
         margin-left: -2rem;
+      }
+
+      html.menu-open & {
+        opacity: 1;
       }
     }
 
@@ -310,18 +323,10 @@ html.menu-open {
     z-index: 2;
 
     html.menu-open & {
-      
+
       @include md {
         opacity: 1;
       }
-    }
-  }
-
-  html.menu-open & {
-    pointer-events: all;
-
-    @include md {
-      background-color: #4F1E0D;
     }
   }
 

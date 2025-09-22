@@ -384,7 +384,6 @@
     }
 
     &__text {
-      margin-top: 0;
 
       @include md {
         margin-top: 3rem;
@@ -769,6 +768,8 @@
     }
 
     &__text {
+
+      max-width: 50rem;
 
       @include sm {
         margin-top: 1.6rem;
