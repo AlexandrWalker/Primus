@@ -196,6 +196,53 @@
       object-fit: cover;
     }
   }
+
+  &--main {
+
+    .page {
+
+      &__bg {
+        overflow: hidden;
+        z-index: -100;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-image: url(./../../images/temp/main-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &__inner {}
+
+      &__content {
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__logo {
+        margin-bottom: 4.3rem;
+      }
+
+      &__title {
+        font-family: 'DrukCyr';
+        font-size: 10rem;
+        font-weight: 500;
+        line-height: 97.5%;
+        text-transform: uppercase;
+        color: var(--white);
+        text-align: center;
+        max-width: 60rem;
+
+        span {
+          color: var(--gold);
+        }
+      }
+    }
+  }
 }
 
 /* Стиль магнитной кнопки */

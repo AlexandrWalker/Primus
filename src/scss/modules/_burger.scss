@@ -34,11 +34,17 @@
     }
 
     .pp-bolotnoe & {
-      background-color: var(--black);
+
+      @include md {
+        background-color: var(--black);
+      }
     }
 
     .pp-awards & {
-      background-color: var(--black);
+
+      @include md {
+        background-color: var(--black);
+      }
     }
   }
 }
