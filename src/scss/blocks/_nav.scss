@@ -40,7 +40,7 @@ html.menu-open {
     position: absolute;
     left: 0;
     bottom: 0;
-    background-color: #501A00;
+    background-color: var(--maroon);
     z-index: 1;
     pointer-events: none;
     transition: height .6s ease-in-out;
@@ -70,7 +70,7 @@ html.menu-open {
   }
 
   &__mask {
-    background-image: url(./../../images/temp/bg-texture.png);
+    background-image: url(./../../images/temp/menu-mask.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     mix-blend-mode: overlay;
@@ -96,19 +96,18 @@ html.menu-open {
     position: relative;
     z-index: 10;
     flex: 0 0 21.11%;
-    padding-top: calc(100vh/(900/150));
-    padding-left: 4rem;
-    padding-right: 2rem;
+    padding-top: calc(100vh/(900/122));
+    padding-right: calc(100vw/(1440/20));
+    padding-bottom: calc(100vh/(900/40));
+    padding-left: calc(100vw/(1440/40));
 
     @include md {
       flex: 0 0 auto;
       order: 2;
-      padding-top: 3rem;
-      padding-bottom: 4rem;
-    }
-
-    @include sm {
-      padding-left: 2rem;
+      padding-top: 2rem;
+      padding-right: var(--container-padding);
+      padding-bottom: 3rem;
+      padding-left: var(--container-padding);
     }
 
     &::before {
@@ -116,7 +115,7 @@ html.menu-open {
       height: 0.1rem;
       width: 0;
       margin-left: -4rem;
-      background-color: var(--maroon-3);
+      background-color: var(--maroon-3-30);
       order: 2;
       display: none;
       opacity: 0;
@@ -147,7 +146,7 @@ html.menu-open {
       transition: opacity .3s ease-out, transform .3s ease-out;
 
       @include md {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         order: 1;
       }
 
@@ -168,7 +167,12 @@ html.menu-open {
         margin-bottom: calc(100vh/(900/30));
 
         @include md {
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
+        }
+
+        @include sm {
+          margin-bottom: 2rem;
+          margin-bottom: 0;
         }
 
         &:last-child {
@@ -179,14 +183,19 @@ html.menu-open {
           color: var(--gold-dark);
           font-size: 1.5rem;
           font-style: normal;
-          font-weight: 500;
+          font-weight: 400;
           line-height: normal;
+          text-transform: uppercase;
           text-decoration: none;
           display: inline-flex;
           transition: color .3s ease-in-out;
 
           &:hover {
             color: var(--gold);
+          }
+
+          @include md {
+            padding: 1rem 0;
           }
         }
       }
@@ -197,7 +206,7 @@ html.menu-open {
       display: block;
       width: 0.1rem;
       height: 0;
-      background-color: var(--maroon-3);
+      background-color: var(--maroon-3-30);
       position: absolute;
       right: 0;
       bottom: 0;
@@ -241,17 +250,18 @@ html.menu-open {
     z-index: 10;
     display: flex;
 
-    padding-top: calc(100vh/(900/123));
+    padding-top: calc(100vh/(900/94));
     flex: 0 0 44.31%;
     padding-left: 8rem;
 
     @include md {
       order: 1;
-      padding: 14.1rem var(--container-padding) 3rem;
+      padding: 9.9rem var(--container-padding) 3rem;
     }
 
     &-menu {
       width: 100%;
+      gap: calc(100vh/(900/20));
     }
 
     ul {
@@ -327,7 +337,7 @@ html.menu-open {
     opacity: 0;
     position: absolute;
     top: 2.6rem;
-    left: 2rem;
+    left: var(--container-padding);
     z-index: 2;
 
     html.menu-open & {
@@ -343,7 +353,7 @@ html.menu-open {
     width: 4.3rem;
     height: 4.3rem;
     position: absolute;
-    right: 4rem;
+    right: var(--container-padding);
     top: 2.6rem;
     z-index: 150;
     transition: .2s ease-in-out;
@@ -352,7 +362,6 @@ html.menu-open {
       width: 3.7rem;
       height: 3.7rem;
       top: 2.1rem;
-      right: 2.1rem;
     }
 
     .menu-open & {
@@ -408,15 +417,19 @@ html.menu-open {
     }
   }
 
-  .contacts {
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: calc(100vh/(900/30));
+
     margin-top: auto;
-    margin-bottom: 4.1rem;
     opacity: 0;
     transform: translateY(3.5rem);
     transition: opacity .3s ease-out, transform .3s ease-out;
 
     @include md {
-      margin-top: 4.5rem;
+      gap: 3rem;
+      margin-top: 3rem;
       order: 3;
     }
 
@@ -432,6 +445,25 @@ html.menu-open {
       transition: opacity .3s ease-out, transform .3s ease-out;
     }
 
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: calc(100vh/(900/10));
+
+      @include md {
+        gap: 1rem;
+      }
+    }
+
+    &-link {
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      font-size: 1.5rem;
+      line-height: normal;
+      color: var(--gold);
+    }
+
     .title {
       color: var(--gold-dark);
       font-size: 1.2rem;
@@ -439,11 +471,6 @@ html.menu-open {
       font-weight: 400;
       line-height: normal;
       text-transform: uppercase;
-      margin-bottom: calc(100vh/(900/10));
-
-      @include md {
-        margin-bottom: 1rem;
-      }
     }
 
     .address {
@@ -452,11 +479,6 @@ html.menu-open {
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: calc(100vh/(900/30));
-
-      @include md {
-        margin-bottom: 3rem;
-      }
 
       .sale .partners .sale__item & {
         font-size: 1.8rem;
@@ -473,7 +495,6 @@ html.menu-open {
 
       .title {
         text-transform: none;
-        // margin-top: 3rem;
       }
 
       a {

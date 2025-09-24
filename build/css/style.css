@@ -112,16 +112,16 @@ img {
 @font-face {
   font-family: DrukCyr;
   font-display: swap;
-  src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: DrukCyr;
   font-display: swap;
-  src: url("../fonts/DrukCyr-Medium.woff2") format("woff2"), url("../fonts/DrukCyr-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -899,6 +899,7 @@ body {
   --maroon: #501a00;
   --maroon-2: #68290C;
   --maroon-3: #9c3202;
+  --maroon-3-30: rgba(156, 50, 2, 0.3);
   --maroon-4: #792000;
   --yellow: #ffa800;
 }
@@ -1405,6 +1406,43 @@ ol {
   text-decoration: underline;
 }
 
+.footer__call {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.footer__call a {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 120%;
+  color: var(--gold);
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__call a:hover {
+  color: var(var(--gold-dark));
+}
+
+.footer__call a.address {
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__call a.address:hover {
+  color: var(var(--gold-dark));
+}
+
 .about-page .header {
   width: var(--header-width);
   height: 100vh;
@@ -1519,7 +1557,7 @@ html.menu-open .nav {
   position: absolute;
   left: 0;
   bottom: 0;
-  background-color: #501A00;
+  background-color: var(--maroon);
   z-index: 1;
   pointer-events: none;
   -webkit-transition: height 0.6s ease-in-out;
@@ -1537,7 +1575,7 @@ html.menu-open.menu-open-closing .nav__layer {
 }
 
 .nav__mask {
-  background-image: url(./../images/temp/bg-texture.png);
+  background-image: url(./../images/temp/menu-mask.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   mix-blend-mode: overlay;
@@ -1567,9 +1605,10 @@ html.menu-open.menu-open-closing .nav__layer {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 21.11%;
   flex: 0 0 21.11%;
-  padding-top: 16.6666666667vh;
-  padding-left: 4rem;
-  padding-right: 2rem;
+  padding-top: 13.5555555556vh;
+  padding-right: 1.3888888889vw;
+  padding-bottom: 4.4444444444vh;
+  padding-left: 2.7777777778vw;
 }
 
 .nav__main::before {
@@ -1577,7 +1616,7 @@ html.menu-open.menu-open-closing .nav__layer {
   height: 0.1rem;
   width: 0;
   margin-left: -4rem;
-  background-color: var(--maroon-3);
+  background-color: var(--maroon-3-30);
   -webkit-box-ordinal-group: 3;
   -ms-flex-order: 2;
   order: 2;
@@ -1648,8 +1687,9 @@ html.menu-open.menu-open-closing .nav__main ul {
   color: var(--gold-dark);
   font-size: 1.5rem;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
+  text-transform: uppercase;
   text-decoration: none;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1667,7 +1707,7 @@ html.menu-open.menu-open-closing .nav__main ul {
   display: block;
   width: 0.1rem;
   height: 0;
-  background-color: var(--maroon-3);
+  background-color: var(--maroon-3-30);
   position: absolute;
   right: 0;
   bottom: 0;
@@ -1695,7 +1735,7 @@ html.menu-open.menu-open-closing .nav__main .line {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 13.6666666667vh;
+  padding-top: 10.4444444444vh;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 44.31%;
   flex: 0 0 44.31%;
@@ -1704,6 +1744,7 @@ html.menu-open.menu-open-closing .nav__main .line {
 
 .nav__second-menu {
   width: 100%;
+  gap: 2.2222222222vh;
 }
 
 .nav__second ul {
@@ -1797,7 +1838,7 @@ html.menu-open.menu-open-closing .nav__second ul {
   opacity: 0;
   position: absolute;
   top: 2.6rem;
-  left: 2rem;
+  left: var(--container-padding);
   z-index: 2;
 }
 
@@ -1806,7 +1847,7 @@ html.menu-open.menu-open-closing .nav__second ul {
   width: 4.3rem;
   height: 4.3rem;
   position: absolute;
-  right: 4rem;
+  right: var(--container-padding);
   top: 2.6rem;
   z-index: 150;
   -webkit-transition: 0.2s ease-in-out;
@@ -1864,9 +1905,16 @@ html.menu-open.menu-open-closing .nav .logo {
   display: none;
 }
 
-.nav .contacts {
+.nav__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 3.3333333333vh;
   margin-top: auto;
-  margin-bottom: 4.1rem;
   opacity: 0;
   -webkit-transform: translateY(3.5rem);
   -ms-transform: translateY(3.5rem);
@@ -1877,7 +1925,7 @@ html.menu-open.menu-open-closing .nav .logo {
   transition: opacity 0.3s ease-out, transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
 
-html.menu-open .nav .contacts {
+html.menu-open .nav__contacts {
   opacity: 1;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
@@ -1888,7 +1936,7 @@ html.menu-open .nav .contacts {
   transition: opacity 0.9s ease-in, transform 0.9s ease-in, -webkit-transform 0.9s ease-in;
 }
 
-html.menu-open.menu-open-closing .nav .contacts {
+html.menu-open.menu-open-closing .nav__contacts {
   opacity: 0;
   -webkit-transform: translateY(3.5rem);
   -ms-transform: translateY(3.5rem);
@@ -1899,30 +1947,48 @@ html.menu-open.menu-open-closing .nav .contacts {
   transition: opacity 0.3s ease-out, transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
 }
 
-.nav .contacts .title {
+.nav__contacts-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1.1111111111vh;
+}
+
+.nav__contacts-link {
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 1.5rem;
+  line-height: normal;
+  color: var(--gold);
+}
+
+.nav__contacts .title {
   color: var(--gold-dark);
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-transform: uppercase;
-  margin-bottom: 1.1111111111vh;
 }
 
-.nav .contacts .address {
+.nav__contacts .address {
   color: var(--gold);
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 3.3333333333vh;
 }
 
-.sale .partners .sale__item .nav .contacts .address {
+.sale .partners .sale__item .nav__contacts .address {
   font-size: 1.8rem;
 }
 
-.nav .contacts .phone__list {
+.nav__contacts .phone__list {
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
@@ -1936,11 +2002,11 @@ html.menu-open.menu-open-closing .nav .contacts {
   flex-direction: column;
 }
 
-.nav .contacts .phone__list .title {
+.nav__contacts .phone__list .title {
   text-transform: none;
 }
 
-.nav .contacts .phone__list a {
+.nav__contacts .phone__list a {
   color: var(--gold);
   text-decoration: none;
 }
@@ -2139,6 +2205,10 @@ a.link-wa {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.preloader .layer {
+  background-color: transparent;
 }
 
 .preloader__restriction {
@@ -3069,6 +3139,10 @@ a.link-wa {
     display: none;
   }
 
+  .footer__call {
+    margin-top: 2rem;
+  }
+
   .about-page .header {
     width: 100%;
     height: -webkit-fit-content;
@@ -3155,8 +3229,10 @@ a.link-wa {
     -webkit-box-ordinal-group: 3;
     -ms-flex-order: 2;
     order: 2;
-    padding-top: 3rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-right: var(--container-padding);
+    padding-bottom: 3rem;
+    padding-left: var(--container-padding);
   }
 
   .nav__main::before {
@@ -3166,14 +3242,18 @@ a.link-wa {
   }
 
   .nav__main ul {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
   }
 
   .nav__main ul li {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .nav__main ul li a {
+    padding: 1rem 0;
   }
 
   .nav__main .line {
@@ -3200,7 +3280,7 @@ a.link-wa {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
-    padding: 14.1rem var(--container-padding) 3rem;
+    padding: 9.9rem var(--container-padding) 3rem;
   }
 
   .nav__second ul {
@@ -3223,7 +3303,6 @@ a.link-wa {
     width: 3.7rem;
     height: 3.7rem;
     top: 2.1rem;
-    right: 2.1rem;
   }
 
   .nav .logo {
@@ -3240,19 +3319,16 @@ a.link-wa {
     display: block;
   }
 
-  .nav .contacts {
-    margin-top: 4.5rem;
+  .nav__contacts {
+    gap: 3rem;
+    margin-top: 3rem;
     -webkit-box-ordinal-group: 4;
     -ms-flex-order: 3;
     order: 3;
   }
 
-  .nav .contacts .title {
-    margin-bottom: 1rem;
-  }
-
-  .nav .contacts .address {
-    margin-bottom: 3rem;
+  .nav__contacts-item {
+    gap: 1rem;
   }
 
   .nav__image {
@@ -3298,12 +3374,50 @@ a.link-wa {
   }
 
   .about__control {
-    top: 60%;
+    top: 50%;
     right: unset;
     left: var(--container-padding);
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .pp-begin .about__control {
+    top: 60rem;
+  }
+
+  .pp-filter .about__control {
+    top: 60rem;
+  }
+
+  .pp-assortment .about__control {
+    top: 50rem;
+  }
+
+  .pp-limonad .about__control {
+    top: 50rem;
+  }
+
+  .pp-bolotnoe .about__control {
+    top: 50rem;
+  }
+
+  .pp-technology .about__control {
+    top: 43rem;
+  }
+
+  .pp-awards .about__control {
+    top: 50rem;
+  }
+
+  .pp-info .about__control {
+    top: 43rem;
+  }
+
+  .pp-partners .about__control {
+    top: 50rem;
   }
 
   .about__control:hover svg:first-child {
@@ -3502,6 +3616,10 @@ a.link-wa {
     padding-top: 16.7rem;
   }
 
+  .bolotnoe .about__title {
+    height: 14rem;
+  }
+
   .bolotnoe .about__date {
     height: 9.2rem;
     margin-top: 3rem;
@@ -3607,12 +3725,13 @@ a.link-wa {
     --container-padding: 2rem;
   }
 
-  .nav__main {
-    padding-left: 2rem;
-  }
-
   .nav__main::before {
     margin-left: -2rem;
+  }
+
+  .nav__main ul li {
+    margin-bottom: 2rem;
+    margin-bottom: 0;
   }
 
   .preloader__restriction {
@@ -3626,11 +3745,24 @@ a.link-wa {
 
   .preloader__text {
     font-size: 1.5rem;
+    max-width: 25.6rem;
   }
 
   .preloader__btn {
     width: 100%;
     min-width: unset;
+  }
+
+  .pp-begin .about__control {
+    top: 50rem;
+  }
+
+  .pp-begin .about__control {
+    top: 50rem;
+  }
+
+  .pp-bolotnoe .about__control {
+    top: 45rem;
   }
 
   .about__title {

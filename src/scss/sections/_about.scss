@@ -96,10 +96,62 @@
     overflow: hidden;
 
     @include md {
-      top: 60%;
+      top: 50%;
       right: unset;
       left: var(--container-padding);
       transform: translateY(-50%);
+      transition: all 0.3s ease;
+
+      .pp-begin & {
+        top: 60rem;
+      }
+
+      .pp-filter & {
+        top: 60rem;
+      }
+
+      .pp-assortment & {
+        top: 50rem;
+      }
+
+      .pp-limonad & {
+        top: 50rem;
+      }
+
+      .pp-bolotnoe & {
+        top: 50rem;
+      }
+
+      .pp-technology & {
+        top: 43rem;
+      }
+
+      .pp-awards & {
+        top: 50rem;
+      }
+
+      .pp-info & {
+        top: 43rem;
+      }
+
+      .pp-partners & {
+        top: 50rem;
+      }
+    }
+
+    @include sm {
+
+      .pp-begin & {
+        top: 50rem;
+      }
+
+      .pp-begin & {
+        top: 50rem;
+      }
+
+      .pp-bolotnoe & {
+        top: 45rem;
+      }
     }
 
     &:hover {
@@ -841,6 +893,10 @@
 
     &__title {
       height: calc(100vh/(900/121.5));
+
+      @include md {
+        height: 14rem;
+      }
 
       @include sm {
         // height: 12rem;

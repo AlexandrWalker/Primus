@@ -83,8 +83,22 @@ document.addEventListener('DOMContentLoaded', () => {
     speed: 400,
     loop: true,
     on: {
+
       transitionEnd: $.proxy(_transitionEnd, this),
-    }
+
+      slideChange: function () {
+        const { activeIndex } = this;
+        const html = document.documentElement;
+
+        const prefix = 'pp';
+        const class4rem = html.className.split(' ').filter(c => c.startsWith(prefix))[0];
+
+        html.classList.remove(class4rem);
+        html.classList.add('pp-' + this.slides[activeIndex].dataset.hash);
+
+        checkMenuActive(this.slides[activeIndex].dataset.hash);
+      }
+    },
   });
 
   setTimeout(() => {
@@ -94,17 +108,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function _transitionEnd(slider) {
 
     const { activeIndex } = slider;
-    const html = document.documentElement;
+    // const html = document.documentElement;
 
-    const prefix = 'pp';
-    const class4rem = html.className.split(' ').filter(c => c.startsWith(prefix))[0];
+    // const prefix = 'pp';
+    // const class4rem = html.className.split(' ').filter(c => c.startsWith(prefix))[0];
 
-    html.classList.remove(class4rem);
-    html.classList.add('pp-' + slider.slides[activeIndex].dataset.hash);
+    // html.classList.remove(class4rem);
+    // html.classList.add('pp-' + slider.slides[activeIndex].dataset.hash);
 
     // slider.slides[activeIndex - 1] ? slider.slides[activeIndex - 1].classList.add('complete') : slider.slides[activeIndex];
 
-    checkMenuActive(slider.slides[activeIndex].dataset.hash);
     anim(slider.slides[activeIndex].dataset.hash, slider.slides[activeIndex]);
 
     if (slider.slides[activeIndex]) {
