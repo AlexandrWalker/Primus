@@ -21,13 +21,14 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 100;
+      z-index: 101;
       transition: padding-top .3s ease-in-out, padding-bottom .3s ease-in-out, background-color .3s ease-in-out;
 
       &__inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        align-items: flex-start;
 
         @include md {
           display: grid;
@@ -36,7 +37,7 @@
       }
     }
 
-    .logo {
+    .logo:not(.nav .logo) {
       display: none;
 
       @include md {
@@ -47,15 +48,27 @@
       }
     }
 
+    .nav .logo {
+
+      @include md {
+        display: none;
+      }
+    }
+
     .restriction {
       width: calc(100vw/(1440/71));
       height: calc(100vh/(900/60));
       position: static;
+      transition: opacity 0.3s ease;
 
       @include md {
         display: block;
         width: 3.3rem;
         height: 2.8rem;
+      }
+
+      .menu-open & {
+        opacity: 0;
       }
 
       svg {
@@ -68,9 +81,12 @@
     .burger {
       position: static;
       transform: unset;
+      width: 6rem;
+      padding: 2rem 0;
 
       @include md {
         margin-left: auto;
+        padding: 1rem 0;
       }
     }
 
@@ -93,6 +109,13 @@
 
       .logo {
         top: 2.4rem;
+      }
+    }
+
+    .nav a.menu__close {
+
+      .menu-open & {
+        display: none;
       }
     }
   }
@@ -139,6 +162,7 @@
     width: auto;
     height: calc(100vh/(900/77));
     margin-bottom: calc(100vh/(900/43));
+    overflow: hidden;
 
     @include md {
       display: none;
@@ -157,6 +181,7 @@
     text-align: center;
     text-transform: uppercase;
     max-width: 70rem;
+    width: 100%;
 
     @include md {
       font-size: 5rem;
@@ -527,4 +552,9 @@
   bottom: 0;
   left: 0;
   z-index: -1;
+}
+
+div.line {
+  display: inline;
+  overflow: hidden;
 }

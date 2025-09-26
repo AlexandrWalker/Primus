@@ -12,6 +12,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
+  transition: all 0.3s ease;
+
+  .menu-open .general-page & {
+    gap: 0;
+    margin-right: -0.8rem;
+
+    @include md {
+      margin-right: 0;
+    }
+  }
+
   @include md {
     position: static;
     transform: unset;
@@ -27,10 +38,25 @@
 
     &:first-child {
       margin-left: auto;
+
+      .menu-open .general-page & {
+        transform: rotate(45deg);
+      }
     }
 
-    .burger:hover & {
+    &:last-child {
+
+      .menu-open .general-page & {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .burger:hover:not(.menu-open .general-page .burger) & {
       width: 80%;
+    }
+
+    .menu-open .general-page & {
+      width: 100%;
     }
 
     .pp-bolotnoe & {
