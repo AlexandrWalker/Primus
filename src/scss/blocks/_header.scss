@@ -19,6 +19,21 @@
       height: fit-content;
       padding: 9rem 0 0;
       background-color: transparent;
+      z-index: 201;
+
+      transition: all 0.7s ease-in;
+
+      .menu-open & {
+        padding: 1.7rem 0 0;
+      }
+    }
+
+    .logo {
+
+      .menu-open & {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
 
     &__container {
@@ -45,5 +60,9 @@
         flex-direction: row;
       }
     }
+  }
+
+  .nav__restriction {
+    transition: all 0.9s ease-in;
   }
 }

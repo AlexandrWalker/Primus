@@ -23,6 +23,15 @@
     }
   }
 
+  .menu-open .about-page & {
+
+    @include md {
+      width: 3.7rem;
+      padding: 2rem 0;
+      gap: 0;
+    }
+  }
+
   @include md {
     position: static;
     transform: unset;
@@ -42,12 +51,26 @@
       .menu-open .general-page & {
         transform: rotate(45deg);
       }
+
+      .menu-open .about-page & {
+
+        @include md {
+          transform: rotate(45deg);
+        }
+      }
     }
 
     &:last-child {
 
       .menu-open .general-page & {
         transform: rotate(-45deg);
+      }
+
+      .menu-open .about-page & {
+
+        @include md {
+          transform: rotate(-45deg);
+        }
       }
     }
 
@@ -57,6 +80,14 @@
 
     .menu-open .general-page & {
       width: 100%;
+    }
+
+
+    .menu-open .about-page & {
+
+      @include md {
+        width: 100%;
+      }
     }
 
     .pp-bolotnoe & {

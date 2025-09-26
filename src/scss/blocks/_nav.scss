@@ -368,6 +368,14 @@ html.menu-open {
       display: block;
     }
 
+    .menu-open .about-page & {
+
+      @include md {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
     &:hover {
       transform: scale(1.2);
     }
