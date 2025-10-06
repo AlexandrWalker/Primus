@@ -1,6 +1,6 @@
 @use './../mixins' as *;
 
-.burger {
+.about-page .burger {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -14,28 +14,47 @@
 
   transition: all 0.3s ease;
 
-  .menu-open .general-page & {
-    gap: 0;
-    margin-right: -0.8rem;
-
-    @include md {
-      margin-right: 0;
-    }
+  @include md {
+    position: static;
+    transform: unset;
+    gap: 0.8rem;
   }
 
-  .menu-open .about-page & {
+  &.burger-open {
 
     @include md {
       width: 3.7rem;
       padding: 2rem 0;
       gap: 0;
     }
+
+    .burger__line {
+
+      @include md {
+        width: 100%;
+      }
+    }
+
+    .burger__line:first-child {
+
+      @include md {
+        transform: rotate(45deg);
+      }
+    }
+
+    .burger__line:last-child {
+
+      @include md {
+        transform: rotate(-45deg);
+      }
+    }
   }
 
-  @include md {
-    position: static;
-    transform: unset;
-    gap: 0.8rem;
+  &:hover {
+
+    .burger__line {
+      width: 80%;
+    }
   }
 
   &__line {
@@ -47,47 +66,6 @@
 
     &:first-child {
       margin-left: auto;
-
-      .menu-open .general-page & {
-        transform: rotate(45deg);
-      }
-
-      .menu-open .about-page & {
-
-        @include md {
-          transform: rotate(45deg);
-        }
-      }
-    }
-
-    &:last-child {
-
-      .menu-open .general-page & {
-        transform: rotate(-45deg);
-      }
-
-      .menu-open .about-page & {
-
-        @include md {
-          transform: rotate(-45deg);
-        }
-      }
-    }
-
-    .burger:hover:not(.menu-open .general-page .burger) & {
-      width: 80%;
-    }
-
-    .menu-open .general-page & {
-      width: 100%;
-    }
-
-
-    .menu-open .about-page & {
-
-      @include md {
-        width: 100%;
-      }
     }
 
     .pp-bolotnoe & {

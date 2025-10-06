@@ -37,11 +37,6 @@ body {
 
 .main {
   flex: 1 0 auto;
-  padding-left: var(--header-width);
-
-  @include md {
-    padding-left: 0;
-  }
 
   .pleloaderShow & {
     pointer-events: none;
@@ -55,6 +50,12 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+
+    padding-left: var(--header-width);
+
+    @include md {
+      padding-left: 0;
+    }
   }
 }
 

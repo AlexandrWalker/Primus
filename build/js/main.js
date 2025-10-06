@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const generalPage = document.querySelector('.general-page');
     if (generalPage) {
-      const generalTitleWords = generalPage.querySelectorAll('.general-page .general__title div.word');
+      const generalTitleWords = generalPage.querySelectorAll('.general-page .page__main-beer__title div.word');
       generalTitleWords.forEach(generalTitleWord => {
         if (generalTitleWords.length > 0) {
           gsap.fromTo(generalTitleWord,
@@ -219,8 +219,30 @@ document.addEventListener('DOMContentLoaded', () => {
       if (aboutPage) {
         if (!document.querySelector('.' + `${hash}`).classList.contains('complete')) {
           const pageTitle = aboutPage.querySelector('.' + `${hash}` + ' .about__title img');
+          const aboutTitleWrap = aboutPage.querySelector('.' + `${hash}` + ' .about__title-wrap');
           if (pageTitle) {
             gsap.fromTo(pageTitle,
+              {
+                y: '+5%',
+                opacity: 0,
+                rotate: '20deg',
+                transformOrigin: "0 50%"
+              },
+              {
+                y: '0',
+                opacity: 1,
+                rotate: '0',
+                duration: 1,
+                ease: "power4.out",
+                scrollTrigger: {
+                  trigger: '.about[class*="' + hash + '"]',
+                  start: 'top 100%',
+                  end: 'bottom top',
+                },
+              }
+            );
+          } else if (aboutTitleWrap) {
+            gsap.fromTo(aboutTitleWrap,
               {
                 y: '+5%',
                 opacity: 0,
@@ -431,11 +453,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnMenuOpen.addEventListener('click', function () {
       document.documentElement.classList.toggle('menu-open');
+      btnMenuOpen.classList.toggle('burger-open');
 
-      const asd = document.querySelectorAll('.nav__second ul li');
-      for (let i = 0; asd.length != asd[i]; i++) {
-        const a = asd[i].querySelector('a.nav__second-link');
-        gsap.fromTo(a,
+      const navLi = document.querySelectorAll('.nav__second ul li');
+      for (let i = 0; navLi.length != navLi[i]; i++) {
+        const navLiItem = navLi[i].querySelector('a.nav__second-link');
+        gsap.fromTo(navLiItem,
           {
             y: '+3%',
             opacity: 0,
@@ -458,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnMenuClose.addEventListener('click', function () {
       document.documentElement.classList.remove('menu-open');
+      btnMenuOpen.classList.remove('burger-open');
     });
 
     const footer = document.querySelector('footer');

@@ -96,62 +96,14 @@
     overflow: hidden;
 
     @include md {
-      top: 50%;
+      top: 60rem;
       right: unset;
       left: var(--container-padding);
-      transform: translateY(-50%);
       transition: all 0.3s ease;
-
-      .pp-begin & {
-        top: 60rem;
-      }
-
-      .pp-filter & {
-        top: 60rem;
-      }
-
-      .pp-assortment & {
-        top: 50rem;
-      }
-
-      .pp-limonad & {
-        top: 50rem;
-      }
-
-      .pp-bolotnoe & {
-        top: 50rem;
-      }
-
-      .pp-technology & {
-        top: 43rem;
-      }
-
-      .pp-awards & {
-        top: 50rem;
-      }
-
-      .pp-info & {
-        top: 43rem;
-      }
-
-      .pp-partners & {
-        top: 50rem;
-      }
     }
 
     @include sm {
-
-      .pp-begin & {
-        top: 50rem;
-      }
-
-      .pp-begin & {
-        top: 50rem;
-      }
-
-      .pp-bolotnoe & {
-        top: 45rem;
-      }
+      top: 50rem;
     }
 
     &:hover {
@@ -218,6 +170,28 @@
       opacity: 0;
       height: 100%;
       object-fit: contain;
+    }
+
+    &-wrap {
+      font-family: 'DrukCyr';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14rem;
+      line-height: 100%;
+      text-transform: uppercase;
+      color: #1A1A1A;
+
+      @include md {
+        font-size: 10rem;
+      }
+
+      @include sm {
+        font-size: 6rem;
+      }
+
+      span {
+        color: var(--gold-light-2);
+      }
     }
   }
 
@@ -364,7 +338,16 @@
       }
     }
 
-    &__title {}
+    &__title-wrap {
+      font-family: 'DrukCyr';
+      font-style: normal;
+      font-weight: 500;
+      font-size: calc(100vh/(900/178));
+      line-height: 100%;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 0.2rem #DEBE98;
+    }
 
     &__object {
       bottom: calc(100vh/(900/41));
@@ -899,20 +882,21 @@
       }
 
       @include sm {
-        // height: 12rem;
-        width: calc(100% - 4.2rem);
-        height: auto;
+        // height: calc(100vh/(900/124));
+        height: 12rem;
+        // width: calc(100% - 4.2rem);
+        // height: auto;
       }
 
 
-      img {
+      // img {
 
-        @include sm {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-        }
-      }
+      //   @include sm {
+      //     width: 100%;
+      //     height: auto;
+      //     object-fit: cover;
+      //   }
+      // }
     }
 
     &__date {
@@ -929,9 +913,9 @@
       @include sm {
         margin-top: 2rem;
         margin-left: 0.6rem;
-        // height: 6.4rem;
-        width: 64.5%;
-        height: auto;
+        height: 6.4rem;
+        // width: 64.5%;
+        // height: auto;
       }
     }
 
