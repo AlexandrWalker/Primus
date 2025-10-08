@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="pp-begin pleloaderShow" lang="ru">
-@@include('blocks/head.html', {"title": "Примус"})
+<html class="pp-begin pleloaderShow about-page" lang="ru">
+@@include('blocks/head.html', {"title": "Примус", "style": "about_page"})
 
 <body>
-  <div class="wrapper about-page">
+  <div class="wrapper">
     <!-- Прелоадер -->
     @@include('./blocks/preloader.html')
     <!-- Шапка -->
     @@include('./blocks/header.html')
+    <!-- Бургер меню -->
+    @@include('./blocks/burger-menu.html')
     <!-- Контент -->
     <main class="main">
       <div class="about__wrapper">

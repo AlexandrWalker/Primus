@@ -303,7 +303,7 @@ html.menu-open {
 
         a {
           color: var(--gold-light-2);
-          font-family: 'DrukCyr';
+          font-family: var(--second-family);
           font-size: 8rem;
           font-size: calc(100vh/(900/80));
           font-weight: 500;
@@ -368,7 +368,7 @@ html.menu-open {
       display: block;
     }
 
-    .menu-open .about-page & {
+    .about-page.menu-open & {
 
       @include md {
         opacity: 0;

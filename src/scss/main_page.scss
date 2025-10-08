@@ -1,0 +1,17 @@
+/* Base */
+@forward './bases/fontsAutoGen';
+@forward './bases/reset';
+@forward './bases/vars';
+// @forward './bases/mixins';
+
+/* Components */
+@forward './components/*.scss';
+
+/* Modules */
+@forward './modules/*.scss';
+
+/* Blocks */
+@forward './blocks/*.scss';
+
+/* Pages */
+@forward './pages/main.scss';
