@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, ScrollSmoother, TweenMax);
+gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, TweenMax);
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const line = new SplitType(titleLine, { types: 'lines, words' });
   });
 
+  console.log('BEGIN');
 
   if (!document.documentElement.classList.contains('pleloaderShow')) {
     mainScriptAfterPreloader();
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.classList.remove('pleloaderShow');
       mainScriptAfterPreloader();
     });
+    console.log('MIDDLE');
   }
 
   function mainScriptAfterPreloader() {
@@ -215,9 +217,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function anim(hash, slide) {
-      const aboutPage = document.querySelector('.about-page');
-      if (aboutPage) {
+      if (document.documentElement.classList.contains('about-page')) {
         if (!document.querySelector('.' + `${hash}`).classList.contains('complete')) {
+          const aboutPage = document.querySelector('.about-page');
           const pageTitle = aboutPage.querySelector('.' + `${hash}` + ' .about__title img');
           const aboutTitleWrap = aboutPage.querySelector('.' + `${hash}` + ' .about__title-wrap');
           if (pageTitle) {
