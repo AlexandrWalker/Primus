@@ -31,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const line = new SplitType(titleLine, { types: 'lines, words' });
   });
 
-  console.log('BEGIN');
-
   if (!document.documentElement.classList.contains('pleloaderShow')) {
     mainScriptAfterPreloader();
   } else {
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.classList.remove('pleloaderShow');
       mainScriptAfterPreloader();
     });
-    console.log('MIDDLE');
   }
 
   function mainScriptAfterPreloader() {

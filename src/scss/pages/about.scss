@@ -1073,6 +1073,8 @@ html.about-page {
         opacity: 0;
         height: 100%;
         object-fit: contain;
+
+        will-change: transform;
       }
 
       &-wrap {
@@ -1084,6 +1086,8 @@ html.about-page {
         text-transform: uppercase;
 
         opacity: 0;
+
+        will-change: transform;
 
         @include md {
           font-size: 10rem;
@@ -1121,6 +1125,8 @@ html.about-page {
         opacity: 0;
         height: 100%;
         object-fit: contain;
+
+        will-change: transform;
       }
 
       &-wrap {
@@ -1132,6 +1138,8 @@ html.about-page {
         text-transform: uppercase;
 
         opacity: 0;
+
+        will-change: transform;
 
         @include md {
           font-size: 10rem;
@@ -1894,6 +1902,7 @@ html.about-page {
 
           @include sm {
             font-size: 6.4rem;
+            -webkit-text-stroke: 0.1rem var(--gold-dark);
           }
         }
       }
@@ -2003,6 +2012,10 @@ html.about-page {
 
           @include md {
             font-size: calc(100vw/5);
+          }
+
+          @include sm {
+            -webkit-text-stroke: 0.1rem var(--gold-dark);
           }
         }
       }
@@ -2126,6 +2139,10 @@ html.about-page {
 
           @include md {
             font-size: calc(100vw/7);
+          }
+
+          @include sm {
+            -webkit-text-stroke: 0.1rem var(--gold-dark);
           }
         }
       }
