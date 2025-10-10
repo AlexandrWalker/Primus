@@ -2008,14 +2008,14 @@ html.about-page {
           span {
             -webkit-text-stroke: 0.2rem var(--maroon);
             color: transparent;
+
+            @include sm {
+              -webkit-text-stroke: 0.1rem var(--maroon);
+            }
           }
 
           @include md {
             font-size: calc(100vw/5);
-          }
-
-          @include sm {
-            -webkit-text-stroke: 0.1rem var(--gold-dark);
           }
         }
       }
