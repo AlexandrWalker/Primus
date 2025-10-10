@@ -1795,6 +1795,7 @@ html.about-page {
   height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
+  will-change: transform;
 }
 
 .about-page .about__title-wrap {
@@ -1805,6 +1806,7 @@ html.about-page {
   line-height: 100%;
   text-transform: uppercase;
   opacity: 0;
+  will-change: transform;
 }
 
 .about-page .about__title-wrap span {
@@ -1827,6 +1829,7 @@ html.about-page {
   height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
+  will-change: transform;
 }
 
 .about-page .about__date-wrap {
@@ -1837,6 +1840,7 @@ html.about-page {
   line-height: 100%;
   text-transform: uppercase;
   opacity: 0;
+  will-change: transform;
 }
 
 .about-page .about__text {
@@ -3300,6 +3304,7 @@ html.about-page {
 
   .about-page .bolotnoe .about__date-wrap {
     font-size: 6.4rem;
+    -webkit-text-stroke: 0.1rem var(--gold-dark);
   }
 
   .about-page .bolotnoe .about__text {
@@ -3316,6 +3321,10 @@ html.about-page {
   .about-page .bolotnoe .magnetic {
     top: 16rem;
     right: var(--container-padding);
+  }
+
+  .about-page .awards .about__title-wrap {
+    -webkit-text-stroke: 0.1rem var(--gold-dark);
   }
 
   .about-page .awards .about__text {
@@ -3335,6 +3344,10 @@ html.about-page {
 
   .about-page .partners .about__date {
     margin-top: 1rem;
+  }
+
+  .about-page .partners .about__date-wrap {
+    -webkit-text-stroke: 0.1rem var(--gold-dark);
   }
 
   .about-page .partners .about__text {
