@@ -267,8 +267,31 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           const pageDate = aboutPage.querySelector('.' + `${hash}` + ' .about__date img');
+          const pageDateWrap = aboutPage.querySelector('.' + `${hash}` + ' .about__date-wrap');
           if (pageDate) {
             gsap.fromTo(pageDate,
+              {
+                y: '+5%',
+                opacity: 0,
+                rotate: '20deg',
+                transformOrigin: "0 50%"
+              },
+              {
+                y: '0',
+                opacity: 1,
+                rotate: '0',
+                duration: 1,
+                delay: 0.2,
+                ease: "power4.out",
+                scrollTrigger: {
+                  trigger: '.about[class*="' + hash + '"]',
+                  start: 'top 100%',
+                  end: 'bottom top',
+                }
+              }
+            );
+          } else if (pageDateWrap) {
+            gsap.fromTo(pageDateWrap,
               {
                 y: '+5%',
                 opacity: 0,

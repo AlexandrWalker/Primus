@@ -27,10 +27,10 @@
 }
 
 @font-face {
-  font-family: Roboto;
+  font-family: DrukCyr;
   font-display: swap;
-  src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -43,10 +43,10 @@
 }
 
 @font-face {
-  font-family: DrukCyr;
+  font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/DrukCyr-Super.woff2") format("woff2"), url("../fonts/DrukCyr-Super.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -93,16 +93,16 @@
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-SemiBold.woff2") format("woff2"), url("../fonts/Roboto-SemiBold.woff") format("woff");
-  font-weight: 600;
+  src: url("../fonts/Roboto-Thin.woff2") format("woff2"), url("../fonts/Roboto-Thin.woff") format("woff");
+  font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: Roboto;
   font-display: swap;
-  src: url("../fonts/Roboto-Thin.woff2") format("woff2"), url("../fonts/Roboto-Thin.woff") format("woff");
-  font-weight: 100;
+  src: url("../fonts/Roboto-SemiBold.woff2") format("woff2"), url("../fonts/Roboto-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -1786,7 +1786,6 @@ html.about-page {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: 19.7777777778vh;
 }
 
 .about-page .about__title img {
@@ -1803,7 +1802,7 @@ html.about-page {
   font-size: 14rem;
   line-height: 100%;
   text-transform: uppercase;
-  color: #1A1A1A;
+  opacity: 0;
 }
 
 .about-page .about__title-wrap span {
@@ -1826,6 +1825,16 @@ html.about-page {
   height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
+}
+
+.about-page .about__date-wrap {
+  font-family: var(--second-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  opacity: 0;
 }
 
 .about-page .about__text {
@@ -1916,17 +1925,6 @@ html.about-page {
 
 .about-page .begin .about__inner {
   padding-top: 14.7928994083vh;
-}
-
-.about-page .begin .about__title-wrap {
-  font-family: var(--second-family);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 19.7777777778vh;
-  line-height: 100%;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 0.2rem #DEBE98;
 }
 
 .about-page .begin .about__object {
@@ -2155,17 +2153,25 @@ html.about-page {
 }
 
 .about-page .bolotnoe .about__inner {
-  padding-top: 14.1242937853vh;
+  padding-top: 8.8888888889vh;
 }
 
-.about-page .bolotnoe .about__title {
-  height: 13.5vh;
+.about-page .bolotnoe .about__title-wrap {
+  font-size: 20vh;
+  color: #1A1A1A;
 }
 
 .about-page .bolotnoe .about__date {
-  height: 20.8888888889vh;
-  margin-top: 4.4444444444vh;
-  margin-left: 1.3888888889vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 1vh;
+}
+
+.about-page .bolotnoe .about__date-wrap {
+  font-size: 26.6666666667vh;
+  color: transparent;
+  -webkit-text-stroke: 0.2rem var(--gold-dark);
 }
 
 .about-page .bolotnoe .about__object {
@@ -2173,7 +2179,7 @@ html.about-page {
   width: -moz-fit-content;
   width: fit-content;
   height: 48.5555555556vh;
-  top: 47.8888888889vh;
+  top: 49.4444444444vh;
   left: 2.6388888889vw;
   z-index: 3;
 }
@@ -2204,6 +2210,16 @@ html.about-page {
 
 .about-page .awards .about__inner {
   padding-top: 4.8899755501vh;
+}
+
+.about-page .awards .about__title-wrap {
+  font-size: 22.2222222222vh;
+  color: var(--maroon-3);
+}
+
+.about-page .awards .about__title-wrap span {
+  -webkit-text-stroke: 0.2rem var(--maroon);
+  color: transparent;
 }
 
 .about-page .awards .about__text {
@@ -2241,14 +2257,22 @@ html.about-page {
   padding-top: 8.5557837098vh;
 }
 
-.about-page .partners .about__title {
-  height: 20.7777777778vh;
+.about-page .partners .about__title-wrap {
+  font-size: 15.5555555556vh;
+}
+
+.about-page .partners .about__title-wrap span {
+  color: var(--yellow);
 }
 
 .about-page .partners .about__date {
-  height: 20vh;
-  margin-top: 4.4444444444vh;
-  margin-left: 2.7777777778vw;
+  height: auto;
+}
+
+.about-page .partners .about__date-wrap {
+  font-size: 20vh;
+  color: transparent;
+  -webkit-text-stroke: 0.2rem var(--gold-dark);
 }
 
 .about-page .partners .about__text {
@@ -2273,7 +2297,7 @@ html.about-page {
 
 .about-page .partners .magnetic {
   left: 2.1527777778vw;
-  bottom: 11vh;
+  bottom: 9.4444444444vh;
 }
 
 .about-page .partners .magnetic__inner {
@@ -2774,6 +2798,10 @@ html.about-page {
     position: static !important;
   }
 
+  .about-page .about__date-wrap {
+    font-size: 10rem;
+  }
+
   .about-page .about__text {
     margin-top: 3rem;
   }
@@ -2951,17 +2979,24 @@ html.about-page {
   }
 
   .about-page .bolotnoe .about__title {
-    height: 14rem;
+    height: auto;
+  }
+
+  .about-page .bolotnoe .about__title-wrap {
+    font-size: 12rem;
   }
 
   .about-page .bolotnoe .about__date {
-    height: 9.2rem;
-    margin-top: 3rem;
+    height: auto;
     margin-left: 0;
   }
 
+  .about-page .bolotnoe .about__date-wrap {
+    font-size: 16rem;
+  }
+
   .about-page .bolotnoe .about__object {
-    top: 40rem;
+    top: 43rem;
   }
 
   .about-page .bolotnoe .about__object img {
@@ -2981,6 +3016,14 @@ html.about-page {
 
   .about-page .awards .about__inner {
     padding-top: 16.7rem;
+  }
+
+  .about-page .awards .about__title {
+    height: auto;
+  }
+
+  .about-page .awards .about__title-wrap {
+    font-size: 20vw;
   }
 
   .about-page .awards .about__object {
@@ -3005,13 +3048,20 @@ html.about-page {
   }
 
   .about-page .partners .about__title {
-    height: 12.6rem;
+    height: auto;
+  }
+
+  .about-page .partners .about__title-wrap {
+    font-size: 11.7647058824vw;
   }
 
   .about-page .partners .about__date {
-    height: 8rem;
     margin-top: 2rem;
     margin-left: 0;
+  }
+
+  .about-page .partners .about__date-wrap {
+    font-size: 14.2857142857vw;
   }
 
   .about-page .partners .about__object {
@@ -3096,6 +3146,10 @@ html.about-page {
   .about-page .about__date {
     height: 5.2rem;
     margin-top: 1rem;
+  }
+
+  .about-page .about__date-wrap {
+    font-size: 6rem;
   }
 
   .about-page .about__text {
@@ -3223,30 +3277,39 @@ html.about-page {
     right: 3.5rem;
   }
 
-  .about-page .bolotnoe .about__title {
-    height: 12rem;
+  .about-page .bolotnoe .about__title-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-size: 9.5rem;
   }
 
   .about-page .bolotnoe .about__date {
-    margin-top: 2rem;
     margin-left: 0.6rem;
-    height: 6.4rem;
+  }
+
+  .about-page .bolotnoe .about__date-wrap {
+    font-size: 6.4rem;
+  }
+
+  .about-page .bolotnoe .about__text {
+    max-width: 100%;
   }
 
   .about-page .bolotnoe .about__object {
     height: 43.7rem;
-    top: 38.9rem;
+    top: 44rem;
     bottom: unset;
     left: -18rem;
   }
 
   .about-page .bolotnoe .magnetic {
-    top: 27.3rem;
+    top: 16rem;
     right: var(--container-padding);
-  }
-
-  .about-page .awards .about__title {
-    height: 15.4rem;
   }
 
   .about-page .awards .about__text {
@@ -3265,7 +3328,6 @@ html.about-page {
   }
 
   .about-page .partners .about__date {
-    height: 4.8rem;
     margin-top: 1rem;
   }
 
