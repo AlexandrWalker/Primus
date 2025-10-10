@@ -1899,6 +1899,8 @@ html.about-page {
       }
 
       &__text {
+        color: var(--maroon);
+
         @include sm {
           max-width: 100%;
         }

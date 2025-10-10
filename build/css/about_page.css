@@ -2176,6 +2176,10 @@ html.about-page {
   -webkit-text-stroke: 0.2rem var(--gold-dark);
 }
 
+.about-page .bolotnoe .about__text {
+  color: var(--maroon);
+}
+
 .about-page .bolotnoe .about__object {
   width: -webkit-fit-content;
   width: -moz-fit-content;
