@@ -11,6 +11,15 @@ html.about-page {
   @include md {
     font-size: 62.5%;
   }
+
+  &.pp-limonad .about__menu a,
+  &.pp-bolotnoe .about__menu a {
+
+    &:hover,
+    &.is__active {
+      color: var(--yellow);
+    }
+  }
 }
 
 /* НАЧАЛО стр. О заводе */
@@ -960,18 +969,10 @@ html.about-page {
 
         &:hover {
           color: var(--maroon-3);
-
-          .pp-limonad & {
-            color: var(--yellow);
-          }
         }
 
         &.is__active {
           color: var(--maroon-3);
-
-          .pp-limonad & {
-            color: var(--yellow);
-          }
         }
       }
     }
@@ -1058,23 +1059,9 @@ html.about-page {
     &__title {
       overflow: hidden;
       flex-shrink: 0;
-      width: fit-content;
-      // height: calc(100vh/(900/178));
 
       @include md {
-        height: 20.5rem;
-      }
-
-      @include sm {
-        height: 11.7rem;
-      }
-
-      img {
-        opacity: 0;
-        height: 100%;
-        object-fit: contain;
-
-        will-change: transform;
+        overflow: visible;
       }
 
       &-wrap {
@@ -1084,13 +1071,13 @@ html.about-page {
         font-size: 14rem;
         line-height: 100%;
         text-transform: uppercase;
-
         opacity: 0;
 
         will-change: transform;
 
         @include md {
           font-size: 10rem;
+          -webkit-text-stroke-width: 0.1rem !important;
         }
 
         @include sm {
@@ -1099,6 +1086,10 @@ html.about-page {
 
         span {
           color: var(--gold-light-2);
+
+          @include md {
+            -webkit-text-stroke-width: 0.1rem !important;
+          }
         }
       }
     }
@@ -1107,26 +1098,15 @@ html.about-page {
       overflow: hidden;
       flex-shrink: 0;
       width: fit-content;
-      height: calc(100vh/(900/162));
       margin-top: calc(100vh/(900/20));
 
       @include md {
-        height: 9.2rem;
-        margin-top: 2rem;
+        margin-top: 3rem;
         position: static !important;
       }
 
       @include sm {
-        height: 5.2rem;
         margin-top: 1rem;
-      }
-
-      img {
-        opacity: 0;
-        height: 100%;
-        object-fit: contain;
-
-        will-change: transform;
       }
 
       &-wrap {
@@ -1143,6 +1123,8 @@ html.about-page {
 
         @include md {
           font-size: 10rem;
+
+          -webkit-text-stroke-width: 0.1rem !important;
         }
 
         @include sm {
@@ -1174,6 +1156,7 @@ html.about-page {
 
     &__object {
       width: 100%;
+      pointer-events: none;
 
       position: absolute;
       z-index: 3;
@@ -1269,23 +1252,39 @@ html.about-page {
         }
       }
 
-      // &__title-wrap {
-      //   font-weight: 500;
-      //   font-size: calc(100vh/(900/211));
-      //   line-height: 105%;
-      //   color: transparent;
-      //   -webkit-text-stroke: 0.2rem #DEBE98;
+      &__title {
+        width: 80%;
 
-      //   margin-top: -3.5rem;
-      // }
+        &-wrap {
+          font-size: calc(100vw/(1440/180));
+          line-height: 110%;
+          color: transparent;
+          -webkit-text-stroke: 0.2rem #DEBE98;
 
-      // &__date-wrap {
-      //   font-size: calc(100vh/(900/211));
-      //   line-height: 105%;
-      //   color: var(--maroon-3);
+          margin-top: -3.5rem;
 
-      //   margin-top: -4rem;
-      // }
+          @include md {
+            font-size: calc(100vw/(744/120));
+            line-height: 90%;
+
+            margin-top: unset;
+          }
+        }
+      }
+
+      &__date-wrap {
+        font-size: calc(100vw/(1440/200));
+        line-height: 110%;
+        color: var(--maroon-3);
+
+        margin-top: -4rem;
+
+        @include md {
+          font-size: 11.8rem;
+
+          margin-top: -2rem;
+        }
+      }
 
       &__object {
         bottom: calc(100vh/(900/41));
@@ -1299,6 +1298,7 @@ html.about-page {
           height: 65.8rem;
 
           top: 53rem;
+          top: 55.5rem;
           bottom: unset;
         }
 
@@ -1314,6 +1314,10 @@ html.about-page {
           width: auto;
           height: 100%;
           object-fit: contain;
+
+          @include md {
+            margin-left: auto;
+          }
         }
       }
     }
@@ -1355,37 +1359,48 @@ html.about-page {
         left: calc(100vh/((900/7) * -1));
 
         @include sm {
-          height: 13.8rem;
-
           left: unset;
         }
 
-        // &-wrap {
-        //   font-weight: 500;
-        //   font-size: calc(100vh/(900/209));
-        //   line-height: 105%;
-        //   color: transparent;
-        //   -webkit-text-stroke: 0.2rem #DEBE98;
+        &-wrap {
+          font-size: calc(100vw/(1440/200));
+          line-height: 110%;
+          color: transparent;
+          -webkit-text-stroke: 0.2rem #DEBE98;
 
-        //   margin-top: -3.5rem;
-        // }
+          margin-top: -3.5rem;
+
+          @include md {
+            font-size: calc(100vw/(744/120));
+            line-height: 90%;
+
+            margin-top: unset;
+          }
+        }
       }
 
       &__date {
         position: relative;
         left: calc(100vh/((900/9) * -1));
 
+        @include md {
+          margin-top: 0;
+        }
+
         @include sm {
-          height: 6.1rem;
           margin-top: 0.4rem;
 
           left: unset;
         }
 
-        // &-wrap {
-        //   font-size: calc(100vh/(900/209));
-        //   margin-top: -3.5rem;
-        // }
+        &-wrap {
+          font-size: calc(100vw/(1440/200));
+          margin-top: -3.5rem;
+
+          @include md {
+            margin-top: unset;
+          }
+        }
       }
 
       &__text {
@@ -1454,7 +1469,7 @@ html.about-page {
     .about {
 
       &__inner {
-        padding-top: calc(100vh/8.57);
+        padding-top: calc(100vh/(900/80));
 
         @include md {
           padding-top: 16.7rem;
@@ -1462,10 +1477,13 @@ html.about-page {
       }
 
       &__title {
-        height: calc(100vh/(900/123.5));
 
-        @include sm {
-          height: 12rem;
+        &-wrap {
+          font-size: calc(100vw/(1440/160));
+
+          @include md {
+            font-size: calc(100vw/(744/120));
+          }
         }
       }
 
@@ -1475,12 +1493,19 @@ html.about-page {
         bottom: calc(100vh/(900/69));
 
         @include md {
+          margin-top: 0;
           position: static;
-          height: 6rem;
         }
 
-        @include sm {
-          height: 5.9rem;
+        &-wrap {
+          font-size: calc(100vw/(1440/200));
+          line-height: 110%;
+          color: transparent;
+          -webkit-text-stroke: 0.2rem var(--gold-light-2);
+
+          @include md {
+            font-size: calc(100vw/(744/120));
+          }
         }
       }
 
@@ -1506,6 +1531,10 @@ html.about-page {
           top: 45rem;
           left: 2rem;
           bottom: unset;
+
+          /* asd */
+          height: 50rem;
+          top: 60rem;
         }
 
         img {
@@ -1550,21 +1579,42 @@ html.about-page {
       }
 
       &__title {
-        height: calc(100vh/(900/123.6));
+
+        &-wrap {
+          font-size: calc(100vw/(1440/160));
+
+          @include md {
+            font-size: calc(100vw/(744/120));
+          }
+
+          span {
+            color: var(--yellow);
+
+            @include md {
+              display: block;
+            }
+          }
+        }
       }
 
       &__date {
         position: absolute;
         left: calc(100vh/((900/5)*-1));
         bottom: calc(100vh/(900/101));
-        height: calc(100vh/(900/120));
 
         @include md {
-          height: 8rem;
+          margin-top: unset;
         }
 
-        @include sm {
-          height: 5.9rem;
+        &-wrap {
+          font-size: calc(100vw/(1440/160));
+          line-height: 110%;
+          color: transparent;
+          -webkit-text-stroke: 0.2rem #8D9174;
+
+          @include md {
+            font-size: calc(100vw/(744/120));
+          }
         }
       }
 
@@ -1586,6 +1636,8 @@ html.about-page {
           top: 47rem;
           height: 64.4rem;
           right: 2rem;
+
+          top: 55rem;
         }
 
         @include sm {
@@ -1644,7 +1696,7 @@ html.about-page {
     .about {
 
       &__inner {
-        padding-top: calc(100vh/6.92);
+        padding-top: calc(100vh/(900/105));
 
         @include md {
           padding-top: 16.7rem;
@@ -1652,10 +1704,13 @@ html.about-page {
       }
 
       &__title {
-        height: calc(100vh/(900/138.4));
 
-        @include md {
-          height: 12rem;
+        &-wrap {
+          font-size: calc(100vw/(1440/140));
+
+          @include md {
+            font-size: calc(100vw/(744/120));
+          }
         }
       }
 
@@ -1676,6 +1731,8 @@ html.about-page {
           height: 37.9rem;
           top: 43rem;
           left: 0.2rem;
+
+          top: 50rem;
         }
 
         img {
@@ -1737,12 +1794,22 @@ html.about-page {
           height: auto;
         }
 
-        img {
+        &-wrap {
+          font-size: calc(100vw/(1440/180));
+          color: var(--maroon-3);
 
           @include md {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
+            font-size: calc(100vw/(744/120));
+          }
+
+          span {
+            line-height: 110%;
+            color: transparent;
+            -webkit-text-stroke: 0.2rem var(--gold);
+
+            @include md {
+              display: block;
+            }
           }
         }
       }
@@ -1750,7 +1817,7 @@ html.about-page {
       &__text {
         max-width: 107.6rem;
 
-        @include sm {
+        @include md {
           max-width: 70.5%;
         }
       }
@@ -1765,13 +1832,14 @@ html.about-page {
           width: auto;
           height: 60.2rem;
           top: 36rem;
-          bottom: unset;
           left: -26.4rem;
+
+          top: auto;
         }
 
         @include sm {
-          top: 27.2rem;
-          bottom: unset;
+          // top: 27.2rem;
+          // bottom: unset;
         }
 
         img {
@@ -1828,27 +1896,13 @@ html.about-page {
       }
 
       &__title {
-        // height: calc(100vh/(900/121.5));
-
-        @include md {
-          height: auto;
-          // height: 14rem;
-        }
-
-        @include sm {
-          // height: 12rem;
-
-          // height: calc(100vh/(900/124));
-          // width: calc(100% - 4.2rem);
-          // height: auto;
-        }
 
         &-wrap {
-          font-size: calc(100vh/(900/180));
+          font-size: calc(100vw/(1440/180));
           color: #1A1A1A;
 
           @include md {
-            font-size: 12rem;
+            font-size: calc(100vw/(744/120));
           }
 
           @include sm {
@@ -1856,59 +1910,53 @@ html.about-page {
             flex-direction: column;
             font-size: 9.5rem;
           }
+
+          span {
+
+            @include md {
+              display: block;
+              color: var(--maroon-3);
+            }
+          }
         }
-
-
-        // img {
-
-        //   @include sm {
-        //     width: 100%;
-        //     height: auto;
-        //     object-fit: cover;
-        //   }
-        // }
       }
 
       &__date {
         height: fit-content;
-        // height: calc(100vh/(900/188));
         margin-top: calc(100vh/(900/9));
-        // margin-left: calc(100vw/(1440/20));
 
         @include md {
-          // height: 9.2rem;
           height: auto;
-          // margin-top: 3rem;
+          margin-top: 0;
           margin-left: 0;
         }
 
         @include sm {
-          // margin-top: 2rem;
           margin-left: 0.6rem;
-          // height: 6.4rem;
-
-          // width: 64.5%;
-          // height: auto;
         }
 
         &-wrap {
-          font-size: calc(100vh/(900/240));
+          font-size: calc(100vw/(1440/240));
           color: transparent;
           -webkit-text-stroke: 0.2rem var(--gold-dark);
 
           @include md {
-            font-size: 16rem;
+            font-size: calc(100vw/(744/120));
           }
 
           @include sm {
             font-size: 6.4rem;
-            -webkit-text-stroke: 0.1rem var(--gold-dark);
           }
         }
       }
 
       &__text {
         color: var(--maroon);
+
+        @include md {
+          max-width: 80%;
+          margin-top: 2rem;
+        }
 
         @include sm {
           max-width: 100%;
@@ -1918,19 +1966,18 @@ html.about-page {
       &__object {
         width: fit-content;
         height: calc(100vh/(900/437));
-        // top: calc(100vh/(900/431));
         top: calc(100vh/(900/445));
         left: calc(100vw/(1440/38));
         z-index: 3;
 
         @include md {
-          // top: 40rem;
           top: 43rem;
+
+          top: 47rem;
         }
 
         @include sm {
           height: 43.7rem;
-          // top: 38.9rem;
           top: 44rem;
           bottom: unset;
           left: -18rem;
@@ -1997,21 +2044,13 @@ html.about-page {
           height: auto;
         }
 
-        @include sm {
-          // height: 15.4rem;
-        }
-
         &-wrap {
-          font-size: calc(100vh/(900/200));
+          font-size: calc(100vw/(1440/200));
           color: var(--maroon-3);
 
           span {
             -webkit-text-stroke: 0.2rem var(--maroon);
             color: transparent;
-
-            @include sm {
-              -webkit-text-stroke: 0.1rem var(--maroon);
-            }
           }
 
           @include md {
@@ -2041,6 +2080,9 @@ html.about-page {
 
           top: 45rem;
           left: -3.6rem;
+
+          top: 38rem;
+          height: 82rem;
         }
 
         @include sm {
@@ -2095,45 +2137,30 @@ html.about-page {
       }
 
       &__title {
-        // height: calc(100vh/(900/187));
-
-        @include md {
-          // height: 12.6rem;
-          height: auto;
-        }
 
         &-wrap {
-          font-size: calc(100vh/(900/140));
+          font-size: calc(100vw/(1440/140));
+
+          @include md {
+            font-size: calc(100vw/(744/80));
+          }
 
           span {
             color: var(--yellow);
-          }
-
-          @include md {
-            font-size: calc(100vw/8.5);
           }
         }
       }
 
       &__date {
-        // height: calc(100vh/(900/180));
-        // margin-top: calc(100vh/(900/40));
-        // margin-left: calc(100vw/(1440/40));
         height: auto;
 
         @include md {
-          // height: 8rem;
-          margin-top: 2rem;
+          margin-top: 0;
           margin-left: 0;
         }
 
-        @include sm {
-          // height: 4.8rem;
-          margin-top: 1rem;
-        }
-
         &-wrap {
-          font-size: calc(100vh/(900/180));
+          font-size: calc(100vw/(1440/180));
           color: transparent;
           -webkit-text-stroke: 0.2rem var(--gold-dark);
 
@@ -2141,9 +2168,7 @@ html.about-page {
             font-size: calc(100vw/7);
           }
 
-          @include sm {
-            -webkit-text-stroke: 0.1rem var(--gold-dark);
-          }
+          @include sm {}
         }
       }
 
