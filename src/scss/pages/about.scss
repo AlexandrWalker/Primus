@@ -1000,7 +1000,7 @@ html.about-page {
       overflow: hidden;
 
       @include md {
-        top: 60rem;
+        top: 63rem;
         right: unset;
         left: var(--container-padding);
         transition: all 0.3s ease;
@@ -1246,7 +1246,10 @@ html.about-page {
       }
 
       &__title {
-        width: 80%;
+
+        @include md {
+          width: 80%;
+        }
 
         &-wrap {
           font-size: calc(100vw/(1440/180));
@@ -1376,6 +1379,10 @@ html.about-page {
 
             margin-top: unset;
           }
+
+          @include sm {
+            font-size: 7.4rem;
+          }
         }
       }
 
@@ -1444,7 +1451,8 @@ html.about-page {
     }
 
     .magnetic {
-      bottom: calc(100vh/9.09);
+      // bottom: calc(100vh/9.09);
+      bottom: calc(100vh/13);
       left: calc(100vw/48);
 
       @include md {
@@ -1829,7 +1837,7 @@ html.about-page {
         height: calc(100vh/(900/503));
         left: calc(100vw/(1440/28));
         bottom: calc(100vh/(900/23));
-        bottom: 0;
+        // bottom: 0;
 
         @include md {
           width: auto;
@@ -1837,7 +1845,7 @@ html.about-page {
           top: 36rem;
           left: -26.4rem;
 
-          top: auto;
+          // top: auto;
         }
 
         @include sm {
@@ -1940,7 +1948,8 @@ html.about-page {
         }
 
         &-wrap {
-          font-size: calc(100vw/(1440/240));
+          font-size: calc(100vw/(1440/200));
+          line-height: 90%;
           color: transparent;
           -webkit-text-stroke: 0.2rem var(--gold-dark);
 
@@ -1978,7 +1987,7 @@ html.about-page {
         @include md {
           top: 43rem;
 
-          top: 47rem;
+          top: 53rem;
         }
 
         @include sm {
@@ -2097,6 +2106,7 @@ html.about-page {
 
         @include sm {
           width: 55.5rem;
+          height: 52.1rem;
           top: 40.8rem;
         }
 
@@ -2238,7 +2248,7 @@ html.about-page {
     }
 
     .magnetic {
-      left: calc(100vw/(1440/31));
+      left: calc(100vw/(1440/550));
       bottom: calc(100vh/(900/85));
 
       @include md {
