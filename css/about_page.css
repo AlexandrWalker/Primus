@@ -1913,10 +1913,6 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
   padding-top: 14.7928994083vh;
 }
 
-.about-page .begin .about__title {
-  width: 80%;
-}
-
 .about-page .begin .about__title-wrap {
   font-size: 12.5vw;
   line-height: 110%;
@@ -1997,7 +1993,7 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
 }
 
 .about-page .filter .magnetic {
-  bottom: 11.00110011vh;
+  bottom: 7.6923076923vh;
   left: 2.0833333333vw;
 }
 
@@ -2175,7 +2171,6 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
   height: 55.8888888889vh;
   left: 1.9444444444vw;
   bottom: 2.5555555556vh;
-  bottom: 0;
 }
 
 .about-page .info .about__object img {
@@ -2215,7 +2210,8 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
 }
 
 .about-page .bolotnoe .about__date-wrap {
-  font-size: 16.6666666667vw;
+  font-size: 13.8888888889vw;
+  line-height: 90%;
   color: transparent;
   -webkit-text-stroke: 0.2rem var(--gold-dark);
 }
@@ -2350,7 +2346,7 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
 }
 
 .about-page .partners .magnetic {
-  left: 2.1527777778vw;
+  left: 38.1944444444vw;
   bottom: 9.4444444444vh;
 }
 
@@ -2821,7 +2817,7 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
   }
 
   .about-page .about__control {
-    top: 60rem;
+    top: 63rem;
     right: unset;
     left: var(--container-padding);
     -webkit-transition: all 0.3s ease;
@@ -2865,6 +2861,10 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
 
   .about-page .begin .about__inner {
     padding-top: 18.4rem;
+  }
+
+  .about-page .begin .about__title {
+    width: 80%;
   }
 
   .about-page .begin .about__title-wrap {
@@ -3074,7 +3074,6 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
     height: 60.2rem;
     top: 36rem;
     left: -26.4rem;
-    top: auto;
   }
 
   .about-page .info .about__object img {
@@ -3123,7 +3122,7 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
 
   .about-page .bolotnoe .about__object {
     top: 43rem;
-    top: 47rem;
+    top: 53rem;
   }
 
   .about-page .bolotnoe .about__object img {
@@ -3319,6 +3318,10 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
     left: unset;
   }
 
+  .about-page .filter .about__title-wrap {
+    font-size: 7.4rem;
+  }
+
   .about-page .filter .about__date {
     margin-top: 0.4rem;
     left: unset;
@@ -3426,6 +3429,7 @@ html.about-page.pp-bolotnoe .about__menu a.is__active {
 
   .about-page .awards .about__object {
     width: 55.5rem;
+    height: 52.1rem;
     top: 40.8rem;
   }
 
